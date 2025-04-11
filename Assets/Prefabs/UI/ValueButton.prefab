@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6775338841094015424}
   - component: {fileID: -3823535806011909104}
   m_Layer: 0
-  m_Name: ValueWindow
+  m_Name: ValueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
