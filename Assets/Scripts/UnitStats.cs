@@ -1,8 +1,22 @@
+using NUnit.Framework;
+
 using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public int healthBase;
+    public int health;
+
+    public int attackBase;
+    public int attack;
+
+    public int defenseBase;
+    public int defense;
+
+    public int energyBase;
+    public int energy;
+
     void Start()
     {
         
@@ -13,4 +27,6 @@ public class UnitStats : MonoBehaviour
     {
         
     }
+
+
 }
