@@ -1,17 +1,7 @@
-using System;
-
 using UnityEngine;
 
-public class Hero : Unit
+public class HeroGroupStash : MonoBehaviour
 {
-    public UnitStats unitStats;
-
-    
-    private void Awake()
-    {
-        unitStats = GetComponent<UnitStats>();
-
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -1,17 +1,11 @@
-using System;
+using NUnit.Framework;
 
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Unit
+public class HeroGroupManager : MonoBehaviour
 {
-    public UnitStats unitStats;
-
-    
-    private void Awake()
-    {
-        unitStats = GetComponent<UnitStats>();
-
-    }
+    public List<HeroGroup> heroGroupList = new List<HeroGroup>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

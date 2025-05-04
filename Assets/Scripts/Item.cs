@@ -1,9 +1,10 @@
 using UnityEngine;
-
-
+using System;
+public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND }
 public class Item : MonoBehaviour
 {
-    public string slot;
+    public Slot slot;
+    
     public int health;
     public int attack;
     public int defense;

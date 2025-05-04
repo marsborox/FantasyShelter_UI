@@ -7,7 +7,7 @@ using UnityEngine;
 public class HeroManager : MonoBehaviour
 {
     [SerializeField] UnitSpawner unitSpawner;
-    public List <Hero> HeroList = new List<Hero>();
+    public List <Hero> heroList = new List<Hero>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -19,5 +19,10 @@ public class HeroManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddHeroToList(Hero hero)
+    { 
+        heroList.Add(hero);
     }
 }

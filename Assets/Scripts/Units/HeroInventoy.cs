@@ -1,3 +1,8 @@
+using NUnit.Framework;
+
+using System;
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class HeroInventoy : MonoBehaviour
@@ -7,12 +12,14 @@ public class HeroInventoy : MonoBehaviour
     Item weaponSlot;
     Item offhandSlot;
 
+    public List <Item> gear = new List<Item>();
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        AddItemSLotsToList();
     }
 
     // Update is called once per frame
@@ -21,20 +28,28 @@ public class HeroInventoy : MonoBehaviour
         
     }
 
+    void AddItemSLotsToList()
+    { 
+        gear.Add(headSlot);
+        gear.Add(chestSlot);
+        gear.Add(weaponSlot);
+        gear.Add(offhandSlot);
+    }
+
     void CheckSlot(Item item)
     {
         switch (item.slot) 
         {
-            case "headSlot":
+            case Slot.HEAD:
                 PutOnItem(item,ref headSlot);
                 break;
-            case "chestSlot":
+            case Slot.CHEST:
                 PutOnItem(item, ref chestSlot);
                 break;
-            case "weaponSlot":
+            case Slot.WEAPON_1H:
                 PutOnItem(item, ref weaponSlot);
                 break;
-            case "offHandSlot":
+            case Slot.OFFHAND:
                 PutOnItem(item, ref offhandSlot);
                 break;
              default:
