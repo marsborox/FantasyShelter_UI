@@ -1,6 +1,11 @@
 using UnityEngine;
+using System;
+using NUnit.Framework.Internal;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
-public class UnitSpawner : MonoBehaviour
+public class UnitSpawner : MonoBehaviour, IAddUnitToList
 {
     [SerializeField] Hero heroPrefab;
     Hero heroTemplate;
@@ -16,6 +21,7 @@ public class UnitSpawner : MonoBehaviour
     void Start()
     {
         SetHeroPrefabProperties();
+        
     }
 
     public void SpawnHero()
@@ -24,7 +30,12 @@ public class UnitSpawner : MonoBehaviour
         Instantiate(hero);
         heroManager.AddHeroToList(hero);
         hero.transform.parent = heroManager.transform;
+        ((IAddUnitToList)this).AddUnitToList(hero,heroManager.heroList);
+        heroManager.heroList.Add(hero);
+        IEnumerable<HeroGroup> baseGroup = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
+        baseGroup.heroList.Add(hero);
     }
+
     public void SpawnCreep(HeroGroup heroGroup)
     { 
         Creep creep = creepPrefab;
@@ -38,7 +49,7 @@ public class UnitSpawner : MonoBehaviour
         heroGroup.transform.parent=heroGroupManager.transform;
         heroGroup.name = "Group Name";
     }
-
+    
     void SetHeroPrefabProperties()
     { 
         
