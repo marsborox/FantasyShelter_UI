@@ -1,7 +1,5 @@
 using UnityEngine;
 using System;
-using NUnit.Framework.Internal;
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,11 +16,19 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
     [SerializeField] HeroManager heroManager;
 
     [SerializeField] HeroGroupManager heroGroupManager;
+
+    TestHeroSpawner testHeroSpawner;
+
+    void Awake()
+    { 
+        testHeroSpawner = GetComponent<TestHeroSpawner>();
+    }
     void Start()
     {
-        SetHeroPrefabProperties();
         
     }
+
+
 
     public void SpawnHero()
     {
@@ -32,8 +38,14 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
         hero.transform.parent = heroManager.transform;
         ((IAddUnitToList)this).AddUnitToList(hero,heroManager.heroList);
         heroManager.heroList.Add(hero);
-        IEnumerable<HeroGroup> baseGroup = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
-        baseGroup.heroList.Add(hero);
+
+        IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
+        //baseGroup.heroList.Add(hero);
+        HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
+        ((IAddUnitToList)this).AddUnitToList(hero, heroGroupToAdd.heroList);
+        //
+        SetRandomStatsFromSO(hero);
+
     }
 
     public void SpawnCreep(HeroGroup heroGroup)
@@ -50,7 +62,11 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
         heroGroup.name = "Group Name";
     }
     
-    void SetHeroPrefabProperties()
+    void SetHeroStatsFromSO(Hero hero)
+    { 
+        
+    }
+    void SetRandomStatsFromSO(Hero hero)
     { 
         
     }

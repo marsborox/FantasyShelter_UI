@@ -6497,6 +6497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 608807071}
   - component: {fileID: 608807072}
+  - component: {fileID: 608807073}
   m_Layer: 0
   m_Name: UnitSpawner
   m_TagString: Untagged
@@ -6536,6 +6537,22 @@ MonoBehaviour:
   creepPrefab: {fileID: 0}
   heroManager: {fileID: 1770003783}
   heroGroupManager: {fileID: 0}
+--- !u!114 &608807073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608807070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5750d53e70f7741b15531a23bc79d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testHeroSOs:
+  - {fileID: 11400000, guid: 53ec9540f8ff8724ab92e349a75b4f43, type: 2}
+  - {fileID: 11400000, guid: 6064b2d6ced8efd4eb8164ed11e26a92, type: 2}
+  - {fileID: 11400000, guid: dab3f41727109394f92bce3340155feb, type: 2}
 --- !u!1001 &612556063
 PrefabInstance:
   m_ObjectHideFlags: 0
