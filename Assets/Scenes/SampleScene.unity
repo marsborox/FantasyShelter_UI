@@ -15683,7 +15683,7 @@ GameObject:
   - component: {fileID: 1399837950}
   - component: {fileID: 1399837951}
   m_Layer: 0
-  m_Name: Groups
+  m_Name: HeroGroups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
