@@ -17,11 +17,11 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
 
     [SerializeField] HeroGroupManager heroGroupManager;
 
-    TestHeroSpawner testHeroSpawner;
+    TestUnitSpawner testHeroSpawner;
 
     void Awake()
     { 
-        testHeroSpawner = GetComponent<TestHeroSpawner>();
+        testHeroSpawner = GetComponent<TestUnitSpawner>();
     }
     void Start()
     {
