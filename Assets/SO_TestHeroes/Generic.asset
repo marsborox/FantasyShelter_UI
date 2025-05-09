@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9358dd4010d9624db495e51be0c4e11, type: 3}
   m_Name: Generic
   m_EditorClassIdentifier: 
-  name: 
-  health: 0
-  attack: 0
-  defense: 0
-  energy: 0
+  name: Generic_eNPC
+  health: 4
+  attack: 4
+  defense: 4
+  energy: 4
