@@ -5,17 +5,16 @@ using UnityEngine;
 
 public class HeroGroupManager : MonoBehaviour
 {
+    [SerializeField] HeroGroup heroGroupPrefab;
     public List<HeroGroup> heroGroupList = new List<HeroGroup>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    /*
+    public void CreateGroup()
     {
-        
-    }
-
+        HeroGroup heroGroupToSpawn = heroGroupPrefab;
+        Instantiate(heroGroupToSpawn);
+        heroGroupList.Add(heroGroupToSpawn);
+        heroGroupToSpawn.transform.parent = transform;
+    }*/
 }

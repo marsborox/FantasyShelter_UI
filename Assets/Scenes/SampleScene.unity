@@ -6532,11 +6532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d7d968d677d7c4a9bc32d380f906b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroPrefab: {fileID: 0}
-  heroGroupPrefab: {fileID: 0}
-  creepPrefab: {fileID: 0}
+  heroPrefab: {fileID: 111287291906134555, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
+  heroGroupPrefab: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
+  creepPrefab: {fileID: 1814431570805493542, guid: 9a1d05122bca7ab47872fb2eb7cd9bf2, type: 3}
   heroManager: {fileID: 1770003783}
-  heroGroupManager: {fileID: 0}
+  heroGroupManager: {fileID: 942849325}
 --- !u!114 &608807073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9258,6 +9258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d60ff5f6bba35d46bed6ebe960ebd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroGroupPrefab: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
   heroGroupList: []
 --- !u!1001 &957099600
 PrefabInstance:
@@ -10967,7 +10968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnCreep
+      value: CreateHeroGroup
       objectReference: {fileID: 0}
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -12357,6 +12358,10 @@ PrefabInstance:
       propertyPath: heroList.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
+      propertyPath: enemyNPCList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7971822837881107671, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1041.4742
@@ -12399,7 +12404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762707962700068567, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
       propertyPath: m_Name
-      value: HeroGroup
+      value: BaseHeroGroup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

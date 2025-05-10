@@ -41,8 +41,24 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
 
         IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
         //baseGroup.heroList.Add(hero);
+        if (baseGroupQuerry == null)
+        {
+            Debug.Log("unitSpawner.baseGroupQuerry is null");
+        }
+        else
+        {
+            Debug.Log("unitSpawner.baseGroupQuerry is NOT null");
+            Debug.Log("unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
+        }
         HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
-        ((IAddUnitToList)this).AddUnitToList(hero, heroGroupToAdd.heroList);
+        if (heroGroupToAdd == null) 
+        {
+            Debug.Log("unitSpawner.heroGroupToAdd is null"); 
+        }
+        else
+        {
+            ((IAddUnitToList)this).AddUnitToList(hero, heroGroupToAdd.heroList);
+        }
         //
         SetRandomStatsFromSO(hero);
 
@@ -59,6 +75,7 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
         HeroGroup heroGroup = heroGroupPrefab;
         Instantiate (heroGroup);
         heroGroup.transform.parent=heroGroupManager.transform;
+        heroGroupManager.heroGroupList.Add(heroGroup);
         heroGroup.name = "Group Name";
     }
     
