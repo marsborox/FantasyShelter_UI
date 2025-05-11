@@ -4,9 +4,8 @@ using NUnit.Framework;
 
 using UnityEngine;
 
-public class HeroManager : MonoBehaviour
+public class UnitManager : MonoBehaviour
 {
-    
     [SerializeField] UnitSpawner unitSpawner;
     public List <Hero> heroList = new List<Hero>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +23,12 @@ public class HeroManager : MonoBehaviour
 
     public void AddHeroToList(Hero hero)
     { 
+        heroList.Add(hero);
+    }
+    public void AddHeroToGroup(Hero hero, HeroGroup heroGroup,List<Hero> heroList)
+    { 
+        hero.transform.parent = heroGroup.transform;
+        
         heroList.Add(hero);
     }
 }

@@ -3,17 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class UnitSpawner : MonoBehaviour, IAddUnitToList
+public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
 {
     [SerializeField] Hero heroPrefab;
     Hero heroTemplate;
 
     [SerializeField] HeroGroup heroGroupPrefab;
 
-    [SerializeField] Creep creepPrefab;
-    Creep creepTemplate;
+    [SerializeField] EnemyNPC creepPrefab;
+    EnemyNPC creepTemplate;
 
-    [SerializeField] HeroManager heroManager;
+    [SerializeField] UnitManager heroManager;
 
     [SerializeField] HeroGroupManager heroGroupManager;
 
@@ -32,11 +32,10 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
 
     public void SpawnHero()
     {
-        Hero hero = heroPrefab;
-        Instantiate(hero);
+        Hero hero = Instantiate(heroPrefab);
         heroManager.AddHeroToList(hero);
         hero.transform.parent = heroManager.transform;
-        ((IAddUnitToList)this).AddUnitToList(hero,heroManager.heroList);
+        ((IAddUnitToGroup)this).AddUnitToGroup(hero,heroManager.heroList);
         heroManager.heroList.Add(hero);
 
         IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
@@ -57,23 +56,22 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToList
         }
         else
         {
-            ((IAddUnitToList)this).AddUnitToList(hero, heroGroupToAdd.heroList);
+            ((IAddUnitToGroup)this).AddUnitToGroup(hero, heroGroupToAdd/*.heroList*/);
         }
         //
         SetRandomStatsFromSO(hero);
 
     }
 
-    public void SpawnCreep(HeroGroup heroGroup)
+    public void SpawnEnpcS(HeroGroup heroGroup)
     { 
-        Creep creep = creepPrefab;
-        Instantiate(creep);
+        
+        EnemyNPC creep = Instantiate(creepPrefab);
         heroGroup.enemyNPCList.Add(creep);
     }
     public void CreateHeroGroup()
     { 
-        HeroGroup heroGroup = heroGroupPrefab;
-        Instantiate (heroGroup);
+        HeroGroup heroGroup = Instantiate (heroGroupPrefab);
         heroGroup.transform.parent=heroGroupManager.transform;
         heroGroupManager.heroGroupList.Add(heroGroup);
         heroGroup.name = "Group Name";

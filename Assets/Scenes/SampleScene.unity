@@ -9259,7 +9259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroGroupPrefab: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
-  heroGroupList: []
+  heroGroupList:
+  - {fileID: 2096723868}
 --- !u!1001 &957099600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12356,11 +12357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
       propertyPath: heroList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
       propertyPath: enemyNPCList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7971822837881107671, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23360,6 +23361,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152004473646951303, guid: 96539a51e348b6a4aa3d51b722b8e3bb, type: 3}
   m_PrefabInstance: {fileID: 2089114898}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2096723868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5955340335582991670, guid: 081850f7724a3e843bfa4784cf26bdc5, type: 3}
+  m_PrefabInstance: {fileID: 1210205033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2592b73f81d6c53449c2e7a32670fe1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2113350186
 PrefabInstance:
   m_ObjectHideFlags: 0

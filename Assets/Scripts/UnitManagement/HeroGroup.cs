@@ -7,13 +7,18 @@ public class HeroGroup : MonoBehaviour
 {
     public string name;
     
-    public int health;
-    public int attack;
-    public int defense;
-    public int energy;
+    public int heroHealth;
+    public int heroAttack;
+    public int heroDefense;
+    public int heroEnergy;
+
+    public int enemyNPCHhealth;
+    public int enemyNPCAttack;
+    public int enemyNPCDefense;
+    public int enemyNPCEnergy;
 
     HeroGroupStash heroGroupStash;
-    public List<Hero> heroList = new List<Hero>();
+    public List<Unit> heroList = new List<Unit>();
     public List<Unit> enemyNPCList = new List<Unit>();
 
     private void Awake()
@@ -22,10 +27,12 @@ public class HeroGroup : MonoBehaviour
     }
     public void CalcStats()
     {
-        health = CalcStat(hero =>hero.unitStats.health);
+        heroHealth = CalcHeroStats(hero =>hero.unitStats.health);
+        heroAttack = CalcHeroStats(hero =>hero.unitStats.attack);
+        
     }
 
-    int CalcStat(Func<Hero,int>getHeroStat)
+    int CalcHeroStats(Func<Hero,int>getHeroStat)
     {
         int returnStat = 0;
         foreach (Hero hero in heroList)
@@ -34,6 +41,14 @@ public class HeroGroup : MonoBehaviour
         }
         return returnStat;
     }
-
+    int CalcUnitStats(Func<Unit, int> getUnitStat, List<Unit> list)
+    {
+        int returnStat = 0;
+        foreach (Unit unit in list)
+        {
+            returnStat += getUnitStat(unit);
+        }
+        return returnStat;
+    }
 
 }
