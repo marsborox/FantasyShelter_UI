@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroGroup : MonoBehaviour
+public class HeroGroup : MonoBehaviour, ICalcStat
 {
     public string name;
     
-    public int heroHealth;
-    public int heroAttack;
-    public int heroDefense;
-    public int heroEnergy;
+    public int heroGroupHealth;
+    public int heroGroupAttack;
+    public int heroGroupDefense;
+    public int heroGroupEnergy;
 
-    public int enemyNPCHhealth;
+    public int enemyNPCHealth;
     public int enemyNPCAttack;
     public int enemyNPCDefense;
     public int enemyNPCEnergy;
@@ -27,9 +27,24 @@ public class HeroGroup : MonoBehaviour
     }
     public void CalcStats()
     {
-        heroHealth = CalcHeroStats(hero =>hero.unitStats.health);
-        heroAttack = CalcHeroStats(hero =>hero.unitStats.attack);
-        
+        heroGroupHealth = CalcHeroStats(hero =>hero.unitStats.health);
+        heroGroupAttack = CalcHeroStats(hero =>hero.unitStats.attack);
+        heroGroupDefense = CalcHeroStats(hero => hero.unitStats.defense);
+    }
+
+    void CalcHeroStats()
+    {
+        heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.health, heroList);
+        heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, heroList);
+        heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, heroList);
+        heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, heroList);
+    }
+    void CalcEnemyNPCStats()
+    {
+        enemyNPCHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.health, enemyNPCList);
+        enemyNPCAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, enemyNPCList);
+        enemyNPCDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, enemyNPCList);
+        enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, enemyNPCList);
     }
 
     int CalcHeroStats(Func<Hero,int>getHeroStat)

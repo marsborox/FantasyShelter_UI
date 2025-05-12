@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     public int energy;
 
     public UnitStats unitStats;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -64,7 +64,7 @@ public class HeroInventoy : MonoBehaviour
         { slot = item; }
         else
         { 
-            //empty slo to inventory
+            //empty slot item to inventory
             slot = item;
         }
 
