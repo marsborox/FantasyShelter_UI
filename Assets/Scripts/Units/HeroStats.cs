@@ -23,7 +23,7 @@ public class HeroStats : UnitStats,ICalcStat
     }
     void CalculateStats()
     {
-        health = healthBase+((ICalcStat)this).CalcStat(inputObject => inputObject.health,heroInventory.gear);
+        health = healthBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health,heroInventory.gear);
         attack = attackBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, heroInventory.gear);
         defense = defenseBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, heroInventory.gear);
         energy = energyBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, heroInventory.gear);
