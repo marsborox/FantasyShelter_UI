@@ -1,11 +1,10 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface ICalcStat
 {
-    int CalcStat<T>(Func<T, int> getStat, List<T> list)
+    public int CalcStat<T>(Func<T, int> getStat, List<T> list)
     {
         int returnStat = 0;
         foreach (var inputObject in list)

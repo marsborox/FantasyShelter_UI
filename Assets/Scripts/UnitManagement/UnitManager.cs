@@ -1,12 +1,9 @@
 using System.Collections.Generic;
-
-using NUnit.Framework;
-
 using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
-    [SerializeField] UnitSpawner unitSpawner;
+    [SerializeField] private UnitSpawner _unitSpawner;
     public List <Hero> heroList = new List<Hero>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

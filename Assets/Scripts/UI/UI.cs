@@ -12,8 +12,8 @@ public class UI : MonoBehaviour
     public Color32 unpressedColor = new Color32(200,200,200,200);
     */
 
-    Color32 pressedColor = new Color32(200, 200, 200, 255);
-    Color32 unpressedColor = new Color32(245, 245, 216, 255);
+    private Color32 _pressedColor = new Color32(200, 200, 200, 255);
+    private Color32 _unpressedColor = new Color32(245, 245, 216, 255);
 
     
     
@@ -45,7 +45,7 @@ public class UI : MonoBehaviour
         if (!gUIPanel.activeSelf)
         {
             //bool tempBoolean = true;
-            button.GetComponent<Image>().color = pressedColor;
+            button.GetComponent<Image>().color = _pressedColor;
             //uiComponent.SetActive(boolUI);
             Debug.Log("ButtonePressed");
             gUIPanel.gameObject.SetActive(true);
@@ -53,7 +53,7 @@ public class UI : MonoBehaviour
         else
         {
             //tempBoolean = false;
-            button.GetComponent<Image>().color = unpressedColor;
+            button.GetComponent<Image>().color = _unpressedColor;
             //uiComponent.SetActive(boolUI);3
             Debug.Log("ButtonUnpressed");
             gUIPanel.gameObject.SetActive(false);

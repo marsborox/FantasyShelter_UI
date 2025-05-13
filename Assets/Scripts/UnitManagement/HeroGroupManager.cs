@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HeroGroupManager : MonoBehaviour
 {
-    [SerializeField] HeroGroup heroGroupPrefab;
+    [SerializeField] private HeroGroup _heroGroupPrefab;
     public List<HeroGroup> heroGroupList = new List<HeroGroup>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

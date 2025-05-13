@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 using System;
 using System.Collections.Generic;
 
@@ -7,10 +5,10 @@ using UnityEngine;
 
 public class HeroInventoy : MonoBehaviour
 {
-    Item headSlot;
-    Item chestSlot;
-    Item weaponSlot;
-    Item offhandSlot;
+    private Item _headSlot;
+    private Item _chestSlot;
+    private Item _weaponSlot;
+    private Item _offhandSlot;
 
     public List <Item> gear = new List<Item>();
 
@@ -27,38 +25,35 @@ public class HeroInventoy : MonoBehaviour
     {
         
     }
-
-    void AddItemSLotsToList()
+    private void AddItemSLotsToList()
     { 
-        gear.Add(headSlot);
-        gear.Add(chestSlot);
-        gear.Add(weaponSlot);
-        gear.Add(offhandSlot);
+        gear.Add(_headSlot);
+        gear.Add(_chestSlot);
+        gear.Add(_weaponSlot);
+        gear.Add(_offhandSlot);
     }
-
-    void CheckSlot(Item item)
+    private void CheckSlot(Item item)
     {
         switch (item.slot) 
         {
             case Slot.HEAD:
-                PutOnItem(item,ref headSlot);
+                PutOnItem(item,ref _headSlot);
                 break;
             case Slot.CHEST:
-                PutOnItem(item, ref chestSlot);
+                PutOnItem(item, ref _chestSlot);
                 break;
             case Slot.WEAPON_1H:
-                PutOnItem(item, ref weaponSlot);
+                PutOnItem(item, ref _weaponSlot);
                 break;
             case Slot.OFFHAND:
-                PutOnItem(item, ref offhandSlot);
+                PutOnItem(item, ref _offhandSlot);
                 break;
              default:
-                Debug.Log("heroInventory. item wrong slot");
+                Debug.Log("_heroInventory. item wrong slot");
                 break;
         }
     }
-
-    void PutOnItem(Item item, ref Item slot)
+    private void PutOnItem(Item item, ref Item slot)
     {
         if (slot == null)
         { slot = item; }
@@ -67,12 +62,6 @@ public class HeroInventoy : MonoBehaviour
             //empty slot item to inventory
             slot = item;
         }
-
-
     }
-
-
-
-
 }
  

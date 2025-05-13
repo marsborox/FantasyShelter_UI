@@ -16,30 +16,30 @@ public class HeroStats : UnitStats,ICalcStat
     public int energyBase;
     public int energyCurrent;
 
-    HeroInventoy heroInventory;
+    private HeroInventoy _heroInventory;
     private void Awake()
     {
-        heroInventory = GetComponent<HeroInventoy>();
+        _heroInventory = GetComponent<HeroInventoy>();
     }
-    void CalculateStats()
+    private void CalculateStats()
     {
-        health = healthBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health,heroInventory.gear);
-        attack = attackBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, heroInventory.gear);
-        defense = defenseBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, heroInventory.gear);
-        energy = energyBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, heroInventory.gear);
+        health = healthBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health,_heroInventory.gear);
+        attack = attackBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, _heroInventory.gear);
+        defense = defenseBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, _heroInventory.gear);
+        energy = energyBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, _heroInventory.gear);
 
     }
-    void CalculateStatsLocal()
+    private void CalculateStatsLocal()
     {//discontinued
         health = CalcStat(healthBase, item => item.health);
         attack = CalcStat(attackBase, item => item.attack);
         defense = CalcStat(defenseBase, item => item.defense);
         energy = CalcStat(energyBase, item => item.energy);
     }
-    int CalcStat(int statBase, Func<Item, int> getItemStat)
+    private int CalcStat(int statBase, Func<Item, int> getItemStat)
     {
         int returnStat = statBase;
-        foreach (Item item in heroInventory.gear)
+        foreach (Item item in _heroInventory.gear)
         {
             returnStat += getItemStat(item);
         }

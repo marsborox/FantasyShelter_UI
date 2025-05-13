@@ -17,13 +17,13 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     public int enemyNPCDefense;
     public int enemyNPCEnergy;
 
-    HeroGroupStash heroGroupStash;
     public List<Unit> heroList = new List<Unit>();
     public List<Unit> enemyNPCList = new List<Unit>();
 
+    HeroGroupStash _heroGroupStash;
     private void Awake()
     {
-        heroGroupStash = GetComponent<HeroGroupStash>();
+        _heroGroupStash = GetComponent<HeroGroupStash>();
     }
     public void CalcStats()
     {
@@ -32,14 +32,14 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         heroGroupDefense = CalcHeroStats(hero => hero.unitStats.defense);
     }
 
-    void CalcHeroStats()
+    private void CalcHeroStats()
     {
         heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.health, heroList);
         heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, heroList);
         heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, heroList);
         heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, heroList);
     }
-    void CalcEnemyNPCStats()
+    private void CalcEnemyNPCStats()
     {
         enemyNPCHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.health, enemyNPCList);
         enemyNPCAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, enemyNPCList);
@@ -47,7 +47,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, enemyNPCList);
     }
 
-    int CalcHeroStats(Func<Hero,int>getHeroStat)
+    private int CalcHeroStats(Func<Hero,int>getHeroStat)
     {
         int returnStat = 0;
         foreach (Hero hero in heroList)
@@ -56,7 +56,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         }
         return returnStat;
     }
-    int CalcUnitStats(Func<Unit, int> getUnitStat, List<Unit> list)
+    private int CalcUnitStats(Func<Unit, int> getUnitStat, List<Unit> list)
     {
         int returnStat = 0;
         foreach (Unit unit in list)

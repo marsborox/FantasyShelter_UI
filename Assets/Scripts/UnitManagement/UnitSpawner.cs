@@ -5,24 +5,24 @@ using System.Linq;
 
 public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
 {
-    [SerializeField] Hero heroPrefab;
-    Hero heroTemplate;
+    [SerializeField] private Hero _heroPrefab;
+    private Hero _heroTemplate;
 
-    [SerializeField] HeroGroup heroGroupPrefab;
+    [SerializeField] private HeroGroup _heroGroupPrefab;
 
-    [SerializeField] EnemyNPC creepPrefab;
-    EnemyNPC creepTemplate;
+    [SerializeField] private EnemyNPC _creepPrefab;
+    private EnemyNPC _creepTemplate;
 
-    [SerializeField] UnitManager heroManager;
+    [SerializeField] private UnitManager _heroManager;
 
-    [SerializeField] HeroGroupManager heroGroupManager;
+    [SerializeField] private HeroGroupManager _heroGroupManager;
 
-    TestUnitSpawner testHeroSpawner;
+    private TestUnitSpawner _testHeroSpawner;
 
 
     void Awake()
     { 
-        testHeroSpawner = GetComponent<TestUnitSpawner>();
+        _testHeroSpawner = GetComponent<TestUnitSpawner>();
     }
     void Start()
     {
@@ -33,48 +33,47 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
 
     public void SpawnHero()
     {
-        Hero hero = Instantiate(heroPrefab);
-        heroManager.AddHeroToList(hero);
-        hero.transform.parent = heroManager.transform;
-        ((IAddUnitToGroup)this).AddUnitToGroup(hero,heroManager.heroList);
-        heroManager.heroList.Add(hero);
+        Hero hero = Instantiate(_heroPrefab);
+        _heroManager.AddHeroToList(hero);
+        hero.transform.parent = _heroManager.transform;
+        ((IAddUnitToGroup)this).AddUnitToGroup(hero,_heroManager.heroList);
+        _heroManager.heroList.Add(hero);
 
-        IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
+        IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
         //baseGroup.heroList.Add(hero);
         if (baseGroupQuerry == null)
         {
-            Debug.Log("unitSpawner.baseGroupQuerry is null");
+            Debug.Log("_unitSpawner.baseGroupQuerry is null");
         }
         else
         {
-            Debug.Log("unitSpawner.baseGroupQuerry is NOT null");
-            Debug.Log("unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
+            Debug.Log("_unitSpawner.baseGroupQuerry is NOT null");
+            Debug.Log("_unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
         }
         HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
         if (heroGroupToAdd == null) 
         {
-            Debug.Log("unitSpawner.heroGroupToAdd is null"); 
+            Debug.Log("_unitSpawner.heroGroupToAdd is null"); 
         }
         else
         {
             ((IAddUnitToGroup)this).AddUnitToGroup(hero, heroGroupToAdd/*.heroList*/);
         }
         //
-        SetRandomStatsFromSO(hero);
+        SetRandomStatsFromSO(ref hero);
 
     }
 
-    public void SpawnEnpcS(HeroGroup heroGroup)
+    public void SpawnEnpc(HeroGroup heroGroup)
     { 
-        
-        EnemyNPC creep = Instantiate(creepPrefab);
+        EnemyNPC creep = Instantiate(_creepPrefab);
         heroGroup.enemyNPCList.Add(creep);
     }
     public void CreateHeroGroup()
     { 
-        HeroGroup heroGroup = Instantiate (heroGroupPrefab);
-        heroGroup.transform.parent=heroGroupManager.transform;
-        heroGroupManager.heroGroupList.Add(heroGroup);
+        HeroGroup heroGroup = Instantiate (_heroGroupPrefab);
+        heroGroup.transform.parent=_heroGroupManager.transform;
+        _heroGroupManager.heroGroupList.Add(heroGroup);
         heroGroup.name = "Group Name";
     }
     
@@ -82,8 +81,28 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
     { 
         
     }
-    void SetRandomStatsFromSO(Hero hero)
-    { 
-        
+    void SetRandomStatsFromSO(ref Hero hero)
+    {
+        var list_SO = _testHeroSpawner.testHero_SOs;
+        int randomIndex = UnityEngine.Random.Range(0, list_SO.Count /*- 1*/);
+        Debug.Log("unitSpawner.list Lenght is: " + list_SO.Count.ToString()) ;
+        Debug.Log("unitSpawner.list Index= "+randomIndex.ToString());
+
+
+
+        string textToPrint;
+        string index;
+        if (list_SO[randomIndex] = null)
+        {
+            textToPrint = "uiSpawner.So is Null";
+            index = "";
+        }
+        else 
+        {
+            textToPrint = "uiSpawner.So is NOT Null, index: ";
+            index = randomIndex.ToString();
+        }
+        Debug.Log(textToPrint + index);
+        hero.unitStats.SetStats(list_SO[randomIndex]);
     }
 }

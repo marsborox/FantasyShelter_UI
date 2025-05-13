@@ -54,12 +54,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 111287291906134555, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
+    - {fileID: 8853393223000688916, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7768318722460156527, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1814431570805493542}
+    - targetCorrespondingSourceObject: {fileID: 7768318722460156527, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4676210053327607486}
   m_SourcePrefab: {fileID: 100100000, guid: d793ebf50f96e994cba39024c9cb9281, type: 3}
 --- !u!1 &4554096255343001166 stripped
 GameObject:
@@ -80,3 +84,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   level: 0
+  health: 0
+  attack: 0
+  defense: 0
+  energy: 0
+  unitStats: {fileID: 0}
+--- !u!114 &4676210053327607486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4554096255343001166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408d16316051f914e8766ac0a0148a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  attack: 0
+  defense: 0
+  energy: 0
+  testUnit_SO: {fileID: 0}

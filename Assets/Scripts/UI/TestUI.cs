@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class TestUI : UI
 {
-    [SerializeField] Button spawnHero;
-    [SerializeField] Button spawnCreep;
-    [SerializeField] Button createHeroGroup;
-    [SerializeField] UnitSpawner unitSpawner;
-    [SerializeField] HeroGroupManager heroGroupManager;
+    [SerializeField] private Button _spawnHero;
+    [SerializeField] private Button _spawnCreep;
+    [SerializeField] private Button _createHeroGroup;
+    [SerializeField] private UnitSpawner _unitSpawner;
+    [SerializeField] private HeroGroupManager _heroGroupManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InitiateButton(spawnHero, SpawnHero);
-        InitiateButton(createHeroGroup, CreateHeroGroup);
+        InitiateButton(_spawnHero, SpawnHero);
+        InitiateButton(_createHeroGroup, CreateHeroGroup);
     }
 
     // Update is called once per frame
@@ -22,10 +22,10 @@ public class TestUI : UI
     {
         
     }
-    void SpawnHero()
+    private void SpawnHero()
     { }
-    void SpawnCreep()
+    private void SpawnCreep()
     { }
-    void CreateHeroGroup()
+    private void CreateHeroGroup()
     { }
 }
