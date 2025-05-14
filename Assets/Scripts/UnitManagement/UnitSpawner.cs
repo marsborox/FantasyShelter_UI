@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
 {
@@ -19,17 +20,10 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
 
     private TestUnitSpawner _testHeroSpawner;
 
-
     void Awake()
     { 
         _testHeroSpawner = GetComponent<TestUnitSpawner>();
     }
-    void Start()
-    {
-        
-    }
-
-
 
     public void SpawnHero()
     {
@@ -43,27 +37,29 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         //baseGroup.heroList.Add(hero);
         if (baseGroupQuerry == null)
         {
-            Debug.Log("_unitSpawner.baseGroupQuerry is null");
+            //Debug.Log("_unitSpawner.baseGroupQuerry is null");
         }
         else
         {
-            Debug.Log("_unitSpawner.baseGroupQuerry is NOT null");
-            Debug.Log("_unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
+            //Debug.Log("_unitSpawner.baseGroupQuerry is NOT null");
+            //Debug.Log("_unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
         }
         HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
         if (heroGroupToAdd == null) 
         {
-            Debug.Log("_unitSpawner.heroGroupToAdd is null"); 
+            //Debug.Log("_unitSpawner.heroGroupToAdd is null"); 
         }
         else
         {
             ((IAddUnitToGroup)this).AddUnitToGroup(hero, heroGroupToAdd/*.heroList*/);
         }
         //
+        Debug.Log($"unitSpawner.Hero is null: {hero == null}");
+        Debug.Log($"unitSpawner.Hero.unitStats is null: {hero?.unitStats == null}");
+
+        //hero.unitStats.SetStats(SetRandomStatsFromSO());
         SetRandomStatsFromSO(ref hero);
-
     }
-
     public void SpawnEnpc(HeroGroup heroGroup)
     { 
         EnemyNPC creep = Instantiate(_creepPrefab);
@@ -76,23 +72,17 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         _heroGroupManager.heroGroupList.Add(heroGroup);
         heroGroup.name = "Group Name";
     }
-    
-    void SetHeroStatsFromSO(Hero hero)
-    { 
-        
-    }
-    void SetRandomStatsFromSO(ref Hero hero)
+
+    private void SetRandomStatsFromSO(ref Hero hero)
     {
         var list_SO = _testHeroSpawner.testHero_SOs;
         int randomIndex = UnityEngine.Random.Range(0, list_SO.Count /*- 1*/);
-        Debug.Log("unitSpawner.list Lenght is: " + list_SO.Count.ToString()) ;
-        Debug.Log("unitSpawner.list Index= "+randomIndex.ToString());
-
-
+        //Debug.Log("unitSpawner.list Lenght is: " + list_SO.Count.ToString()) ;
+        //Debug.Log("unitSpawner.list Index= "+randomIndex.ToString());
 
         string textToPrint;
         string index;
-        if (list_SO[randomIndex] = null)
+        if (list_SO[randomIndex] == null)
         {
             textToPrint = "uiSpawner.So is Null";
             index = "";
@@ -102,7 +92,29 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
             textToPrint = "uiSpawner.So is NOT Null, index: ";
             index = randomIndex.ToString();
         }
-        Debug.Log(textToPrint + index);
+        //Debug.Log(textToPrint + index);
         hero.unitStats.SetStats(list_SO[randomIndex]);
+    }
+    private TestUnit_SO SetRandomStatsFromSO()
+    {
+        var list_SO = _testHeroSpawner.testHero_SOs;
+        int randomIndex = UnityEngine.Random.Range(0, list_SO.Count /*- 1*/);
+        //Debug.Log("unitSpawner.list Lenght is: " + list_SO.Count.ToString());
+        //Debug.Log("unitSpawner.list Index= " + randomIndex.ToString());
+
+        string textToPrint;
+        string index;
+        if (list_SO[randomIndex] == null)
+        {
+            textToPrint = "uiSpawner.So is Null";
+            index = "";
+        }
+        else
+        {
+            textToPrint = "uiSpawner.So is NOT Null, index: ";
+            index = randomIndex.ToString();
+        }
+        Debug.Log(textToPrint + index);
+        return list_SO[randomIndex];
     }
 }

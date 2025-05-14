@@ -26,8 +26,6 @@ public interface ICalcStat
         }
     }
 
-
-
     /*int CalcStats(Func<Unit, int> getUnitStat, List<Unit> list)
     {
         int returnStat = 0;

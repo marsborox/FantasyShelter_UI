@@ -12,9 +12,9 @@ public class Unit : MonoBehaviour
 
     public UnitStats unitStats;
 
-    void Start()
+    public void Start()
     {
-        unitStats = GetComponent<UnitStats>();
+        
     }
 
     void Update()

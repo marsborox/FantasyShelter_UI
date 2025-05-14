@@ -88,7 +88,7 @@ MonoBehaviour:
   attack: 0
   defense: 0
   energy: 0
-  unitStats: {fileID: 0}
+  unitStats: {fileID: 4676210053327607486}
 --- !u!114 &4676210053327607486
 MonoBehaviour:
   m_ObjectHideFlags: 0
