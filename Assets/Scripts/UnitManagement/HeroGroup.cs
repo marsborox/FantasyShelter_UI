@@ -60,10 +60,14 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         heroList.Add(hero);
 
     }
-    public void AddENPCToList(Unit eNPC)
+    public void AddEnemyNPCToList(Unit eNPC)
     {
         enemyNPCList.Add(eNPC);
     }
+    public void RemoveHeroFromList()
+    { }
+    public void RemoveEnemyNPCFromList()
+    { }
     public void CalcHeroStats()
     {
         heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.health, heroList);
