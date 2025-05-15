@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class HeroManager : MonoBehaviour
 {
     [SerializeField] private UnitSpawner _unitSpawner;
     public List <Hero> heroList = new List<Hero>();

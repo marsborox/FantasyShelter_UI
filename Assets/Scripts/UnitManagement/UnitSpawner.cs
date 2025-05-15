@@ -14,7 +14,7 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
     [SerializeField] private EnemyNPC _creepPrefab;
     private EnemyNPC _creepTemplate;
 
-    [SerializeField] private UnitManager _heroManager;
+    [SerializeField] private HeroManager _heroManager;
 
     [SerializeField] private HeroGroupManager _heroGroupManager;
 
@@ -30,35 +30,13 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         Hero hero = Instantiate(_heroPrefab);
         _heroManager.AddHeroToList(hero);
         hero.transform.parent = _heroManager.transform;
+        SetStatsFromRandomSO(ref hero);
         ((IAddUnitToGroup)this).AddUnitToGroup(hero,_heroManager.heroList);
         _heroManager.heroList.Add(hero);
 
         IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
-        //baseGroup.heroList.Add(hero);
-        if (baseGroupQuerry == null)
-        {
-            //Debug.Log("_unitSpawner.baseGroupQuerry is null");
-        }
-        else
-        {
-            //Debug.Log("_unitSpawner.baseGroupQuerry is NOT null");
-            //Debug.Log("_unitSpawner.baseGroupQuerry count =  "+ baseGroupQuerry.Count());
-        }
         HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
-        if (heroGroupToAdd == null) 
-        {
-            //Debug.Log("_unitSpawner.heroGroupToAdd is null"); 
-        }
-        else
-        {
-            ((IAddUnitToGroup)this).AddUnitToGroup(hero, heroGroupToAdd/*.heroList*/);
-        }
-        //
-        Debug.Log($"unitSpawner.Hero is null: {hero == null}");
-        Debug.Log($"unitSpawner.Hero.unitStats is null: {hero?.unitStats == null}");
-
-        //hero.unitStats.SetStats(SetRandomStatsFromSO());
-        SetRandomStatsFromSO(ref hero);
+        heroGroupToAdd.AddUnitToDesignatedList(hero);
     }
     public void SpawnEnpc(HeroGroup heroGroup)
     { 
@@ -73,7 +51,7 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         heroGroup.name = "Group Name";
     }
 
-    private void SetRandomStatsFromSO(ref Hero hero)
+    private void SetStatsFromRandomSO(ref Hero hero)
     {
         var list_SO = _testHeroSpawner.testHero_SOs;
         int randomIndex = UnityEngine.Random.Range(0, list_SO.Count /*- 1*/);

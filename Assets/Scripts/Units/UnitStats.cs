@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
+    public string type;
     public int health;
     public int attack;
     public int defense;
@@ -24,9 +25,11 @@ public class UnitStats : MonoBehaviour
             Debug.Log("unitStats.inputSO is not null");
         }
         
+        type = inputSO.SetTypeString();
         health = inputSO.health;
         attack = inputSO.attack;
         defense = inputSO.defense;
         energy = inputSO.energy;
+
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Generic
   m_EditorClassIdentifier: 
   name: Generic_eNPC
+  _type: 2
   health: 4
   attack: 4
   defense: 4

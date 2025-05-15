@@ -13,7 +13,7 @@ public interface ICalcStat
         }
         return returnStat;
     }
-
+    //******************************* discontinued methods
 
     public void CountStat<T>(ref int globalStat, List<T> listWeCountIn)
     {
