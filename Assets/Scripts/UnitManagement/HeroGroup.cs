@@ -27,9 +27,9 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     }
     public void CalcStats()
     {
-        heroGroupHealth = CalcHeroStats(hero =>hero.unitStats.health);
-        heroGroupAttack = CalcHeroStats(hero =>hero.unitStats.attack);
-        heroGroupDefense = CalcHeroStats(hero => hero.unitStats.defense);
+        heroGroupHealth = CalcHeroStats(hero =>hero.stats.health);
+        heroGroupAttack = CalcHeroStats(hero =>hero.stats.attack);
+        heroGroupDefense = CalcHeroStats(hero => hero.stats.defense);
     }
     public void AddUnitToDesignatedList(Unit unit)
     {
@@ -70,17 +70,17 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     { }
     public void CalcHeroStats()
     {
-        heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.health, heroList);
-        heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.attack, heroList);
-        heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.defense, heroList);
-        heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.energy, heroList);
+        heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.health, heroList);
+        heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.attack, heroList);
+        heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, heroList);
+        heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, heroList);
     }
     public void CalcEnemyNPCStats()
     {
-        enemyNPCHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.health, enemyNPCList);
-        enemyNPCAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.attack, enemyNPCList);
-        enemyNPCDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.defense, enemyNPCList);
-        enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.unitStats.energy, enemyNPCList);
+        enemyNPCHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.health, enemyNPCList);
+        enemyNPCAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.attack, enemyNPCList);
+        enemyNPCDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, enemyNPCList);
+        enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, enemyNPCList);
     }
 
     private int CalcHeroStats(Func<Hero,int>getHeroStat)
@@ -101,5 +101,4 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         }
         return returnStat;
     }
-
 }

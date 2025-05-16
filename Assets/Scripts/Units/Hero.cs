@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hero : Unit
 {
+    public new HeroStats stats;
     private void Awake()
     {
         

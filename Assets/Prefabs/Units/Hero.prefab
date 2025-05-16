@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3164292935241635361, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 8853393223000688916}
+    - target: {fileID: 3164292935241635361, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
       propertyPath: unitStats
       value: 
       objectReference: {fileID: 8853393223000688916}
@@ -85,11 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33dabc4ee97d23449fe85698936917e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 
   health: 0
   attack: 0
   defense: 0
   energy: 0
-  testUnit_SO: {fileID: 0}
   healthBase: 0
   healthCurrent: 0
   attackBase: 0

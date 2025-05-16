@@ -71,7 +71,7 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
             index = randomIndex.ToString();
         }
         //Debug.Log(textToPrint + index);
-        hero.unitStats.SetStats(list_SO[randomIndex]);
+        hero.stats.SetStats(list_SO[randomIndex]);
     }
     private TestUnit_SO SetRandomStatsFromSO()
     {

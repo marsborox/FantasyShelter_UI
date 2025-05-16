@@ -88,7 +88,7 @@ MonoBehaviour:
   attack: 0
   defense: 0
   energy: 0
-  unitStats: {fileID: 4676210053327607486}
+  stats: {fileID: 4676210053327607486}
 --- !u!114 &4676210053327607486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408d16316051f914e8766ac0a0148a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 
   health: 0
   attack: 0
   defense: 0
   energy: 0
-  testUnit_SO: {fileID: 0}
