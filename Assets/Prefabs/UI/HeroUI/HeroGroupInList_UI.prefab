@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4627614325444155582}
   - component: {fileID: 8037789779614640830}
+  - component: {fileID: 7978176279226849126}
   m_Layer: 0
-  m_Name: HeroGroup
+  m_Name: HeroGroupInList_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,6 +64,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7978176279226849126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4547665653490443100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0fc3da8d193814f935a5532bbc4f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5465638031073776650
 GameObject:
   m_ObjectHideFlags: 0

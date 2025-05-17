@@ -1,18 +1,13 @@
-using System;
-
 using UnityEngine;
 
-public class Hero : Unit
+public class HeroGroups_UI : MonoBehaviour
 {
-    
-    private void Awake()
-    {
-        
-    }
+    [SerializeField] HeroGroupManager _heroGroupManager;
+    [SerializeField] HeroGroupInList_UI _heroGroupInListPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
@@ -20,4 +15,5 @@ public class Hero : Unit
     {
         
     }
+
 }

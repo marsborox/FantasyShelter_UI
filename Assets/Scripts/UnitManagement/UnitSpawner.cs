@@ -28,15 +28,16 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
     public void SpawnHero()
     {
         Hero hero = Instantiate(_heroPrefab);
-        _heroManager.AddHeroToList(hero);
+        
         hero.transform.parent = _heroManager.transform;
         SetStatsFromRandomSO(ref hero);
         ((IAddUnitToGroup)this).AddUnitToGroup(hero,_heroManager.heroList);
-        _heroManager.heroList.Add(hero);
+        
 
         IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == "Base" select heroGroup;
         HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
         heroGroupToAdd.AddUnitToDesignatedList(hero);
+        
     }
     public void SpawnEnpc(HeroGroup heroGroup)
     { 
