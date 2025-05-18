@@ -17,4 +17,5 @@ public class HeroGroupManager : MonoBehaviour
         heroGroupList.Add(heroGroupToSpawn);
         heroGroupToSpawn.transform.parent = transform;
     }*/
+
 }

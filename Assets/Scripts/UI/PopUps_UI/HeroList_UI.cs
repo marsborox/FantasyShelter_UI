@@ -19,7 +19,7 @@ public class HeroList_UI : UI
     }
     private void OnEnable()
     {
-        DestroyHeroes();
+        DestroyChildren();
         DisplayHeroes();
     }
     private void OnDisable()
@@ -36,11 +36,5 @@ public class HeroList_UI : UI
             heroInList.stats = hero.stats;
         }
     }
-    private void DestroyHeroes()
-    {
-        while (transform.childCount > 0)
-        { 
-            DestroyImmediate(transform.GetChild(0).gameObject);
-        }
-    }
+
 }

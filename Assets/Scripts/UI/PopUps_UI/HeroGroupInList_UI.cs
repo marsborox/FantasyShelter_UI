@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
-public class HeroGroupInList_UI : MonoBehaviour
+public class HeroGroupInList_UI : UI
 {
     [SerializeField] TextMeshProUGUI _groupName;
     [SerializeField] Image pictogram;
@@ -26,7 +26,7 @@ public class HeroGroupInList_UI : MonoBehaviour
     {
         
     }
-    
+    /*
     private void SetValues()
     {
         var heroStats = hero.stats;
@@ -44,7 +44,7 @@ public class HeroGroupInList_UI : MonoBehaviour
         SetValue(_attack, stats.attack);
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
-    }
+    }*/
     private void SetValue(TextMeshProUGUI fieldToFill, string text)
     {
         fieldToFill.text = text;
