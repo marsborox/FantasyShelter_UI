@@ -47,17 +47,5 @@ public class HeroInList_UI : UI
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
     }
-    private void SetValue(TextMeshProUGUI fieldToFill, string text)
-    { 
-        fieldToFill.text = text;
-    }
-    private void SetValue(TextMeshProUGUI fieldToFill, int text)
-    {
-        fieldToFill.text = text.ToString();
-    }
-    private void SetValue(TextMeshProUGUI fieldToFill, Hero hero)
-    {
 
-        /*fieldToFill.text;*/  /*text.ToString();*/
-    }
 }

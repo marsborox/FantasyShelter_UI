@@ -24,7 +24,17 @@ public class HeroGroupInList_UI : UI
     // Update is called once per frame
     void Update()
     {
-        
+        SetValues();
+    }
+
+    public void SetValues()
+    {
+        SetValue(_groupName, heroGroup.name);
+        SetValue(_heroCount, heroGroup.heroList.Count);
+        SetValue(_health, heroGroup.heroGroupHealth);
+        SetValue(_attack, heroGroup.heroGroupAttack);
+        SetValue(_defense, heroGroup.heroGroupDefense);
+        SetValue(_energy, heroGroup.heroGroupEnergy);
     }
     /*
     private void SetValues()
@@ -45,17 +55,5 @@ public class HeroGroupInList_UI : UI
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
     }*/
-    private void SetValue(TextMeshProUGUI fieldToFill, string text)
-    {
-        fieldToFill.text = text;
-    }
-    private void SetValue(TextMeshProUGUI fieldToFill, int text)
-    {
-        fieldToFill.text = text.ToString();
-    }
-    private void SetValue(TextMeshProUGUI fieldToFill, Hero hero)
-    {
 
-        /*fieldToFill.text;*/  /*text.ToString();*/
-    }
 }

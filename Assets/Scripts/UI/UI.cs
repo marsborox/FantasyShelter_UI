@@ -4,6 +4,7 @@ using System;
 using NUnit.Framework;
 using UnityEditor;
 using System.Collections.Generic;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
@@ -61,7 +62,14 @@ public class UI : MonoBehaviour
     }
 
 
-
+    public void SetValue(TextMeshProUGUI fieldToFill, string text)
+    {
+        fieldToFill.text = text;
+    }
+    public void SetValue(TextMeshProUGUI fieldToFill, int text)
+    {
+        fieldToFill.text = text.ToString();
+    }
 
     public void DestroyChildren()
     {
