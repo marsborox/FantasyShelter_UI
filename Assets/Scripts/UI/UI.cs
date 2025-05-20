@@ -8,6 +8,7 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
+    [SerializeField] public HeroManager heroManager;
     /*
     public Color32 pressedColor = new Color32(180,180,180,180);
     public Color32 unpressedColor = new Color32(200,200,200,200);

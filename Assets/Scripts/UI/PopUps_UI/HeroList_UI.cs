@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HeroList_UI : UI
 {
-    [SerializeField] HeroManager _heroManager;
+    
     [SerializeField] HeroInList_UI _heroInListPrefab;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +28,7 @@ public class HeroList_UI : UI
     }
     private void DisplayHeroes()
     {
-        foreach (Unit hero in _heroManager.heroList)
+        foreach (Unit hero in heroManager.heroList)
         { 
             var heroInList= Instantiate(_heroInListPrefab);
             heroInList.transform.parent = this.transform;

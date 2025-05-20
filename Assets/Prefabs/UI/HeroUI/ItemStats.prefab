@@ -20,9 +20,17 @@ PrefabInstance:
       propertyPath: m_text
       value: DEF
       objectReference: {fileID: 0}
+    - target: {fileID: 678465983578609068, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_Name
+      value: Health
+      objectReference: {fileID: 0}
     - target: {fileID: 801485404790901575, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_Name
       value: Defense
+      objectReference: {fileID: 0}
+    - target: {fileID: 807613405198512439, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_text
+      value: HP
       objectReference: {fileID: 0}
     - target: {fileID: 1235120535121699609, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_Pivot.x
@@ -144,6 +152,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2101083407763100638, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_text
+      value: ATK
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267510809976321861, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_Name
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 2804250721401405106, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -236,6 +252,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4345247330824883987, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_Name
+      value: Defense
+      objectReference: {fileID: 0}
     - target: {fileID: 4413878799167291750, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -251,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 4413878799167291750, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472697060865928072, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_text
+      value: DEF
       objectReference: {fileID: 0}
     - target: {fileID: 4661601283918767046, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_ChildForceExpandHeight
@@ -299,6 +323,14 @@ PrefabInstance:
     - target: {fileID: 7926367169588844795, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_Name
       value: ItemStats
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968517018861370144, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_Name
+      value: Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091025597325778875, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
+      propertyPath: m_text
+      value: EN
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
