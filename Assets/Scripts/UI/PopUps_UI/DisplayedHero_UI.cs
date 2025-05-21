@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class HeroDisplayed_Details_UI : UI
+public class DisplayedHero_UI : UI
 {
+    public Hero displayedHero;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,4 +15,10 @@ public class HeroDisplayed_Details_UI : UI
     {
         
     }
+    public void SetHero(Hero hero)
+    {
+        displayedHero = hero;
+
+    }
+
 }
