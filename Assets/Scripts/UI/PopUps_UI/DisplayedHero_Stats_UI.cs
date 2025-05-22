@@ -26,9 +26,19 @@ public class DisplayedHero_Stats_UI : UI
         HeroStats heroStatsToDisplay = (HeroStats)_displayedHeroUI.displayedHero.stats;
 
         SetBaseStatValue(_health.statBase,heroStatsToDisplay.healthBase);
+        SetBaseStatValue(_health.statCurrent, heroStatsToDisplay.health);
+
         SetBaseStatValue(_attack.statBase,heroStatsToDisplay.attackBase);
+        SetBaseStatValue(_attack.statCurrent, heroStatsToDisplay.attack);
+
+
         SetBaseStatValue(_defense.statBase,heroStatsToDisplay.defenseBase);
+        SetBaseStatValue(_defense.statCurrent, heroStatsToDisplay.defense);
+
         SetBaseStatValue(_energy.statBase,heroStatsToDisplay.energyBase);
+        SetBaseStatValue(_energy.statCurrent, heroStatsToDisplay.energy);
+
+
     }
     void SetBaseStatValue(TextMeshProUGUI heroStatPanel, int valueToDisplay)
     {

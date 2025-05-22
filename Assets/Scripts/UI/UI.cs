@@ -42,6 +42,22 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
+    public void InitiateButton<T>(Button button, Action<T> method,T value)
+    {
+        button.onClick.AddListener(delegate
+        {
+            method(value);
+        });
+        //boolUI = false;
+    }
+    public void InitiateButtonFunc<T>(Button button, Func<T> method)
+    {//will remove this later
+        button.onClick.AddListener(delegate
+        {
+            method();
+        });
+        //boolUI = false;
+    }
     public void ButtonMethod(/*bool boolUI,*/ Button button, GameObject gUIPanel)
     {
         if (!gUIPanel.activeSelf)
