@@ -3,7 +3,7 @@ using TMPro;
 
 public class DisplayedHero_Stats_UI : UI
 {
-    [SerializeField] DisplayedHero_UI _displayedHeroUI;
+    [SerializeField] DisplayedHero_Tabs_UI _displayedHeroUI;
 
     [SerializeField] DisplayedHero_Stat_UI _health;
     [SerializeField] DisplayedHero_Stat_UI _attack;

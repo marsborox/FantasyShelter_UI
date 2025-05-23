@@ -4,7 +4,8 @@ public class HeroList_UI : UI
 {
     
     [SerializeField] HeroInList_UI _heroInListPrefab;
-    [SerializeField] DisplayedHero_UI _displayedHeroUI;
+    [SerializeField] UI _displayedHeroTabs_UI;
+    [SerializeField] UI _displayedHero_UI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -34,7 +35,7 @@ public class HeroList_UI : UI
             heroInList.transform.parent = this.transform;
             heroInList.hero = hero;
             heroInList.stats = hero.stats;
-            heroInList.SetHeroUI_Reference(_displayedHeroUI);
+            heroInList.SetHeroUI_Reference((DisplayedHero_Tabs_UI)_displayedHeroTabs_UI, (DisplayedHero_UI)_displayedHero_UI);
         }
     }
 

@@ -20,7 +20,8 @@ public class HeroInList_UI : UI
 
     public Unit hero;
     public UnitStats stats;
-    private DisplayedHero_UI _displayedHeroUI;
+    private DisplayedHero_Tabs_UI _displayedHeroTabs_UI;
+    private DisplayedHero_UI _displayedHero_UI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,13 +54,14 @@ public class HeroInList_UI : UI
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
     }
-    public void SetHeroUI_Reference(DisplayedHero_UI displayedHero_UI)
+    public void SetHeroUI_Reference(DisplayedHero_Tabs_UI displayedHero_Tabs_UI, DisplayedHero_UI displayedHero_UI)
     {
-        _displayedHeroUI = displayedHero_UI;
+        _displayedHeroTabs_UI = displayedHero_Tabs_UI;
+        _displayedHero_UI = displayedHero_UI;
     }
     void OpenHeroUI(Unit hero)
     {
-        _displayedHeroUI.gameObject.active = true;
-        _displayedHeroUI.displayedHero = (Hero)hero;
+        _displayedHero_UI.gameObject.active = true;
+        _displayedHeroTabs_UI.displayedHero = (Hero)hero;
     }
 }

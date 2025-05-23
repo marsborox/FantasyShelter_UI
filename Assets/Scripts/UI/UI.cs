@@ -34,6 +34,16 @@ public class UI : MonoBehaviour
         });
         gUIPanel.SetActive(false);
     }
+    public void InitiateButtonUIPanel(/*bool boolUI,*/Button button, UI gUIPanel)
+    {
+        button.onClick.AddListener(delegate
+        {
+
+            ButtonMethod(/*boolUI,*/ button, gUIPanel);
+            //boolUI = tempBoolean;
+        });
+        gUIPanel.gameObject.SetActive(false);
+    }
     public void InitiateButton(Button button, Action method)
     {
         button.onClick.AddListener(delegate
@@ -65,7 +75,7 @@ public class UI : MonoBehaviour
             //bool tempBoolean = true;
             button.GetComponent<Image>().color = _pressedColor;
             //uiComponent.SetActive(boolUI);
-            Debug.Log("ButtonePressed");
+            //Debug.Log("ButtonePressed");
             gUIPanel.gameObject.SetActive(true);
         }
         else
@@ -73,7 +83,26 @@ public class UI : MonoBehaviour
             //tempBoolean = false;
             button.GetComponent<Image>().color = _unpressedColor;
             //uiComponent.SetActive(boolUI);3
-            Debug.Log("ButtonUnpressed");
+            //Debug.Log("ButtonUnpressed");
+            gUIPanel.gameObject.SetActive(false);
+        }
+    }
+    public void ButtonMethod(/*bool boolUI,*/ Button button, UI gUIPanel)
+    {
+        if (!gUIPanel.gameObject.activeSelf)
+        {
+            //bool tempBoolean = true;
+            button.GetComponent<Image>().color = _pressedColor;
+            //uiComponent.SetActive(boolUI);
+            //Debug.Log("ButtonePressed");
+            gUIPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            //tempBoolean = false;
+            //button.GetComponent<Image>().color = _unpressedColor;
+            //uiComponent.SetActive(boolUI);3
+            //Debug.Log("ButtonUnpressed");
             gUIPanel.gameObject.SetActive(false);
         }
     }

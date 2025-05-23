@@ -5,6 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class HeroGroupInList_UI : UI
 {
+
     [SerializeField] TextMeshProUGUI _groupName;
     [SerializeField] Image pictogram;
     [SerializeField] TextMeshProUGUI _avgLVL;
@@ -16,6 +17,7 @@ public class HeroGroupInList_UI : UI
 
     public HeroGroup heroGroup;
 
+    
     void Start()
     {
         
