@@ -9,6 +9,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
     [SerializeField] DisplayedHero_Actions_MiniHeroGroups_UI _displayedHeroGroups_UI;
     [SerializeField] DisplayedHero_Actions_MiniHeroGroup_BUTTON _heroGroupButtonPrefab;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,7 +40,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
     {
         heroManager.MoveHeroToGroup(_displayedHeroTabs_UI.displayedHero,heroGroup);
         _displayedHeroGroups_UI.Close();
-
+        
     }
     
 

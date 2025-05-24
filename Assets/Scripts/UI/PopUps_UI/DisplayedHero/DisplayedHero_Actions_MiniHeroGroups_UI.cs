@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class DisplayedHero_Actions_MiniHeroGroups_UI : UI
 {
     [SerializeField] Button _closeButton;
+    [SerializeField] Button _groupButton;
 
     private void Start()
     {
@@ -13,5 +14,6 @@ public class DisplayedHero_Actions_MiniHeroGroups_UI : UI
     public void Close()
     { 
         gameObject.SetActive(false);
+        ResetButtonColor(_groupButton);
     }
 }

@@ -101,14 +101,17 @@ public class UI : MonoBehaviour
         else
         {
             //tempBoolean = false;
-            //button.GetComponent<Image>().color = _unpressedColor;
+            button.GetComponent<Image>().color = _unpressedColor;
             //uiComponent.SetActive(boolUI);3
             //Debug.Log("ButtonUnpressed");
             gUIPanel.gameObject.SetActive(false);
         }
     }
-    
 
+    public void ResetButtonColor(Button button)
+    {
+        button.GetComponent<Image>().color = _unpressedColor;
+    }
     public void SetValue(TextMeshProUGUI fieldToFill, string text)
     {
         fieldToFill.text = text;
