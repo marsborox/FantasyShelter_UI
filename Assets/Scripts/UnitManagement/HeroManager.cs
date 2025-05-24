@@ -37,8 +37,9 @@ public class HeroManager : MonoBehaviour
         Debug.Log("heroManager. MovingHeroToGroup");
         if (!(hero.heroGroupImInName == ""))
         {
-            //
-            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == hero.heroGroupImInName select heroGroup;
+            string groupName = hero.heroGroupImInName;
+            Debug.Log("heromanager groupToRemoveName = "+groupName);
+            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == groupName select heroGroup;
             HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
             heroGroupToRemove.RemoveUnitFromDesignatedList(hero);
         }
