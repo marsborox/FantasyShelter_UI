@@ -2128,6 +2128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4528858367109618250, guid: dc021ca4ae2554a4ea014da70b9d4749, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6986,7 +6990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &766225802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19690,7 +19694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitSpawner: {fileID: 608807072}
-  _heroGroupManager: {fileID: 0}
+  _heroGroupManager: {fileID: 942849325}
   heroList: []
 --- !u!1001 &1774752545
 PrefabInstance:

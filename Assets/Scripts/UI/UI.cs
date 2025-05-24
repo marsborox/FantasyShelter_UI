@@ -24,22 +24,22 @@ public class UI : MonoBehaviour
         
     }
 
-    public void InitiateButtonUIPanel(/*bool boolUI,*/Button button, GameObject gUIPanel)
+    public void InitiateButtonUIPanel(Button button, GameObject gUIPanel)
     {
         button.onClick.AddListener(delegate
         {
 
-            ButtonMethod(/*boolUI,*/ button, gUIPanel);
+            ButtonMethod(button, gUIPanel);
             //boolUI = tempBoolean;
         });
         gUIPanel.SetActive(false);
     }
-    public void InitiateButtonUIPanel(/*bool boolUI,*/Button button, UI gUIPanel)
+    public void InitiateButtonUIPanel(Button button, UI gUIPanel)
     {
         button.onClick.AddListener(delegate
         {
 
-            ButtonMethod(/*boolUI,*/ button, gUIPanel);
+            ButtonMethod( button, gUIPanel);
             //boolUI = tempBoolean;
         });
         gUIPanel.gameObject.SetActive(false);
@@ -68,7 +68,8 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
-    public void ButtonMethod(/*bool boolUI,*/ Button button, GameObject gUIPanel)
+    
+    public void ButtonMethod(Button button, GameObject gUIPanel)
     {
         if (!gUIPanel.activeSelf)
         {
@@ -87,7 +88,7 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
-    public void ButtonMethod(/*bool boolUI,*/ Button button, UI gUIPanel)
+    public void ButtonMethod(Button button, UI gUIPanel)
     {
         if (!gUIPanel.gameObject.activeSelf)
         {
@@ -106,7 +107,7 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
-
+    
 
     public void SetValue(TextMeshProUGUI fieldToFill, string text)
     {
