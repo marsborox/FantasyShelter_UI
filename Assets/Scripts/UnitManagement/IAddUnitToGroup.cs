@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 interface IAddUnitToGroup
-{
+{//remove whole interface
     public void AddUnitToGroup(Unit unit,List<Unit> list)
     { 
         list.Add(unit);

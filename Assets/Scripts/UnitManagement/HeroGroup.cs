@@ -31,6 +31,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         heroGroupAttack = CalcHeroStats(hero =>hero.stats.attack);
         heroGroupDefense = CalcHeroStats(hero => hero.stats.defense);
     }
+    /*
     public void AddUnitToDesignatedList(Unit unit)
     {
         List<Unit> list=new List<Unit>();
@@ -54,7 +55,29 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         {
             
         }
+    }*/
+    
+    public void AddUnitToDesignatedList(EnemyNPC enemyNPC)
+    {
+        enemyNPCList.Add(enemyNPC);
+        CalcEnemyNPCStats();
     }
+    public void AddUnitToDesignatedList(Hero hero)
+    {
+        heroList.Add(hero);
+        CalcHeroStats();
+    }
+    public void RemoveUnitFromDesignatedList(EnemyNPC enemyNPC)
+    {
+        enemyNPCList.Remove(enemyNPC);
+        CalcEnemyNPCStats();
+    }
+    public void RemoveUnitFromDesignatedList(Hero hero)
+    {
+        heroList.Remove(hero);
+        CalcHeroStats();
+    }
+
     public void CalcHeroStats()
     {
         //DebugLogUnitStats(heroList);
@@ -79,8 +102,6 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     {
         enemyNPCList.Add(eNPC);
     }
-    public void RemoveHeroFromList()
-    { }
     public void RemoveEnemyNPCFromList()
     { }
     

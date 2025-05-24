@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class UnitStats : MonoBehaviour
 {
@@ -16,15 +17,7 @@ public class UnitStats : MonoBehaviour
 
     public void SetStats(TestUnit_SO inputSO)
     {
-        if (inputSO == null)
-        {
-            Debug.Log("unitStats.inputSO is null");
-        }
-        else
-        {
-            Debug.Log("unitStats.inputSO is not null");
-        }
-        
+        CheckIfStatsNull(inputSO);
         type = inputSO.SetTypeString();
         health = inputSO.health;
         attack = inputSO.attack;
@@ -32,4 +25,18 @@ public class UnitStats : MonoBehaviour
         energy = inputSO.energy;
 
     }
+    #region TestMethods
+    void CheckIfStatsNull(TestUnit_SO inputSO)
+    {
+        if (inputSO == null)
+        {
+            //Debug.Log("unitStats.inputSO is null");
+        }
+        else
+        {
+            //Debug.Log("unitStats.inputSO is not null");
+        }
+
+    }
+    #endregion
 }

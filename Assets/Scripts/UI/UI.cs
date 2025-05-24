@@ -19,7 +19,7 @@ public class UI : MonoBehaviour
 
     
     
-    private void Start()
+    public void Start()
     {
         
     }

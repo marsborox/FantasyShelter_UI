@@ -27,17 +27,5 @@ public class Hero : Unit
     { 
         _heroGroupManager = heroGroupManager;
     }
-    public void MoveHeroToGroup(HeroGroup passedHeroGroup)
-    {
-        if (!(heroGroupImInName == ""))
-        {
-            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == heroGroupImInName select heroGroup;
-            HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
-            heroGroupToRemove.heroList.Remove(this);
-        }
 
-
-        passedHeroGroup.AddUnitToDesignatedList(this);
-        heroGroupImInName = passedHeroGroup.name;
-    }
 }

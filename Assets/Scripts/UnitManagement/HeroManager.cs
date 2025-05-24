@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 public class HeroManager : MonoBehaviour
 {
     [SerializeField] private UnitSpawner _unitSpawner;
+    [SerializeField] private HeroGroupManager _heroGroupManager;
     public List <Hero> heroList = new List<Hero>();
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -28,4 +32,19 @@ public class HeroManager : MonoBehaviour
         
         heroList.Add(hero);
     }
+    public void MoveHeroToGroup(Hero hero, HeroGroup _heroGroup)
+    {
+        Debug.Log("heroManager. MovingHeroToGroup");
+        if (!(hero.heroGroupImInName == ""))
+        {
+            //
+            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == hero.heroGroupImInName select heroGroup;
+            HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
+            heroGroupToRemove.RemoveUnitFromDesignatedList(hero);
+        }
+
+        _heroGroup.AddUnitToDesignatedList(hero);
+        hero.heroGroupImInName = _heroGroup.name;
+    }
 }
+
