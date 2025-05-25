@@ -11,8 +11,8 @@ public class DisplayedHero_TopBar_UI : UI
 
     private void Start()
     {
-        //InitiateButtonUIPanel(_closeButton,_displayedHero_UI);
-        InitiateButton(_closeButton,CloseThisMenu);
+        InitiateButtonUIPanel(_closeButton,_displayedHero_UI);
+        //InitiateButton(_closeButton,CloseTab, _closeButton,_displayedHero_UI);//****************************FIXTHIS
     }
     void CloseThisMenu()
     { 

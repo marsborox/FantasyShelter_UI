@@ -43,7 +43,7 @@ public class HeroManager : MonoBehaviour
             MoveHeroToGroup_TS(groupName);
             */
 
-            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.name == hero.heroGroupImInName select heroGroup;
+            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.id == hero.heroGroupImInID select heroGroup;
             HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
             heroGroupToRemove.RemoveUnitFromDesignatedList(hero);
         }

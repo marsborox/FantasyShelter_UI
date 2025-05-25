@@ -60,6 +60,14 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
+    public void InitiateButton<T>(Button button, Action<T,T> method, T value, T value2)
+    {
+        button.onClick.AddListener(delegate
+        {
+            method(value, value2);
+        });
+        //boolUI = false;
+    }
     public void InitiateButtonFunc<T>(Button button, Func<T> method)
     {//will remove this later
         button.onClick.AddListener(delegate
@@ -111,6 +119,11 @@ public class UI : MonoBehaviour
     {
         ResetButtonColor(button);
         gameObject.SetActive(false);
+    }
+    public void CloseTab(Button button, UI ui)
+    {
+        ResetButtonColor(button);
+        ui.gameObject.SetActive(false);
     }
 
     public void ResetButtonColor(Button button)

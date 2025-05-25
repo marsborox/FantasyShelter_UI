@@ -8,6 +8,6 @@ public class DisplayedHeroGroup_UI : UI
 
     private void Start()
     {
-        
+        InitiateButton(_closeButton, CloseThisTab, _closeButton);
     }
 }
