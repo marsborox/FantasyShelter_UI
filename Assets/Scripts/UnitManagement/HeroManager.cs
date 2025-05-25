@@ -32,6 +32,7 @@ public class HeroManager : MonoBehaviour
         
         heroList.Add(hero);
     }
+
     public void MoveHeroToGroup(Hero hero, HeroGroup _heroGroup)
     {
         Debug.Log("heroManager. MovingHeroToGroup");
@@ -49,7 +50,9 @@ public class HeroManager : MonoBehaviour
 
         _heroGroup.AddUnitToDesignatedList(hero);
         hero.heroGroupImInName = _heroGroup.name;
+        hero.heroGroupImInID = _heroGroup.id;
     }
+
     #region TestMethods
 
     void MoveHeroToGroup_TS(string groupName)

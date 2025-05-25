@@ -8,6 +8,7 @@ public class Hero : Unit
 {
     private HeroGroupManager _heroGroupManager;
     public string heroGroupImInName;
+    public int heroGroupImInID;
     private void Awake()
     {
         

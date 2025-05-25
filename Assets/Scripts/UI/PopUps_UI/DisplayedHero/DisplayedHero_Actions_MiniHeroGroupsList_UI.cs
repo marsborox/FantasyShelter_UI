@@ -34,6 +34,11 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
             spawnedButton.transform.SetParent(transform);
             InitiateButton(spawnedButton.button,SetButtonForChangeHeroGroup,heroGroup);
             spawnedButton.SetButtonText(heroGroup.name);
+            if (heroGroup.id == _displayedHeroTabs_UI.displayedHero.heroGroupImInID)
+            {
+                
+                SetButtonPressedColor(spawnedButton.button);
+            }
         }
     }
     private void SetButtonForChangeHeroGroup(HeroGroup heroGroup)

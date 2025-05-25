@@ -6,6 +6,7 @@ using UnityEngine;
 public class HeroGroup : MonoBehaviour, ICalcStat
 {
     public string name;
+    public int id=0;
     
     public int heroGroupHealth;
     public int heroGroupAttack;

@@ -51,6 +51,8 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         heroGroup.transform.parent=_heroGroupManager.transform;
         _heroGroupManager.heroGroupList.Add(heroGroup);
         heroGroup.name = "Group Name";
+        heroGroup.id = _heroGroupManager.IncreaseAndReturn_HeroGroup_IDCounter();
+
     }
 
     private void SetStatsFromRandomSO(ref Hero hero)

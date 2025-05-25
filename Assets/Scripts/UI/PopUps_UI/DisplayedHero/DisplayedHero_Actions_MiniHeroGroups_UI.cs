@@ -8,12 +8,13 @@ public class DisplayedHero_Actions_MiniHeroGroups_UI : UI
 
     private void Start()
     {
-        InitiateButton(_closeButton,Close);
+        //InitiateButton(_closeButton,Close);
+        InitiateButton(_closeButton,CloseThisTab,_closeButton);
 
     }
     public void Close()
     { 
-        gameObject.SetActive(false);
         ResetButtonColor(_groupButton);
+        gameObject.SetActive(false);
     }
 }

@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
 
     private Color32 _pressedColor = new Color32(200, 200, 200, 255);
     private Color32 _unpressedColor = new Color32(245, 245, 216, 255);
-
+    private Color32 _backGroundColor = new Color32(0, 0, 0, 122);
     
     
     public void Start()
@@ -107,10 +107,19 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
+    public void CloseThisTab(Button button)
+    {
+        ResetButtonColor(button);
+        gameObject.SetActive(false);
+    }
 
     public void ResetButtonColor(Button button)
     {
         button.GetComponent<Image>().color = _unpressedColor;
+    }
+    public void SetButtonPressedColor(Button button)
+    {
+        button.GetComponent<Image>().color = _pressedColor;
     }
     public void SetValue(TextMeshProUGUI fieldToFill, string text)
     {
@@ -119,6 +128,10 @@ public class UI : MonoBehaviour
     public void SetValue(TextMeshProUGUI fieldToFill, int text)
     {
         fieldToFill.text = text.ToString();
+    }
+    public void SetBackGroundImageColor(Image image)
+    { 
+        image.color= _backGroundColor;
     }
 
     public void DestroyChildren()
