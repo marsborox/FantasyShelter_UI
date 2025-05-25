@@ -60,6 +60,7 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
+    //****************** problem here
     public void InitiateButton<T>(Button button, Action<T,T> method, T value, T value2)
     {
         button.onClick.AddListener(delegate
