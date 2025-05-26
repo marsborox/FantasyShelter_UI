@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9358dd4010d9624db495e51be0c4e11, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  name: 
+  name: tankHero
+  role: 0
   health: 10
   attack: 1
   defense: 7

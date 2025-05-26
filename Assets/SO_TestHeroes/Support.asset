@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9358dd4010d9624db495e51be0c4e11, type: 3}
   m_Name: Support
   m_EditorClassIdentifier: 
-  name: 
-  _type: 3
+  name: supportHero
+  role: 3
   health: 1
   attack: 1
   defense: 1

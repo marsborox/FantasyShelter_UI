@@ -72,6 +72,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4732153594267934257}
   m_SourcePrefab: {fileID: 100100000, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
+--- !u!114 &111287291906134555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3164292935241635361, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
+  m_PrefabInstance: {fileID: 3054158095133410362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768318722460156527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a48a4d56d0ad542a7d4870c5e14db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7768318722460156527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4732175052547458645, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
@@ -89,11 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33dabc4ee97d23449fe85698936917e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 
+  role: 
   health: 0
   attack: 0
   defense: 0
   energy: 0
+  unit: {fileID: 111287291906134555}
   healthBase: 0
   healthCurrent: 0
   attackBase: 0

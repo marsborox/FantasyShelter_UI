@@ -60,12 +60,12 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
-    //****************** problem here
-    public void InitiateButton<T>(Button button, Action<T,T> method, T value, T value2)
+    
+    public void InitiateButton (Button button, Action<Button,UI> method, UI ui)
     {
         button.onClick.AddListener(delegate
         {
-            method(value, value2);
+            method(button, ui);
         });
         //boolUI = false;
     }
@@ -135,11 +135,11 @@ public class UI : MonoBehaviour
     {
         button.GetComponent<Image>().color = _pressedColor;
     }
-    public void SetValue(TextMeshProUGUI fieldToFill, string text)
+    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, string text)
     {
         fieldToFill.text = text;
     }
-    public void SetValue(TextMeshProUGUI fieldToFill, int text)
+    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, int text)
     {
         fieldToFill.text = text.ToString();
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroStats : UnitStats,ICalcStat
 {
+
     public int healthBase;
     public int healthCurrent;
 

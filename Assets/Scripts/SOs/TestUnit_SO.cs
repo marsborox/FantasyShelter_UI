@@ -1,12 +1,12 @@
 using UnityEngine;
 
-enum Type {TANK,DAMAGE,GENERIC,SUPPORT }
+public enum Role {TANK,DAMAGE,GENERIC,SUPPORT }
 [CreateAssetMenu(fileName = "TestUnit_SO", menuName = "Scriptable Objects/TestUnit_SO")]
 public class TestUnit_SO : ScriptableObject
 {
     public string name;
 
-    [SerializeField] Type _type;
+    public Role role;
     
     public int health;
     public int attack;
@@ -14,8 +14,8 @@ public class TestUnit_SO : ScriptableObject
     public int energy;
 
 
-    public string SetTypeString()
+    public string SetRoleString()
     { 
-        return _type.ToString();
+        return role.ToString();
     }
 }

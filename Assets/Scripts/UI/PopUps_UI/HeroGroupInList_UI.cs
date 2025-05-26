@@ -7,6 +7,7 @@ public class HeroGroupInList_UI : UI
 {
 
     [SerializeField] TextMeshProUGUI _groupName;
+    [SerializeField] Button _nameButton;
     [SerializeField] Image pictogram;
     [SerializeField] TextMeshProUGUI _avgLVL;
     [SerializeField] TextMeshProUGUI _heroCount;
@@ -15,12 +16,13 @@ public class HeroGroupInList_UI : UI
     [SerializeField] TextMeshProUGUI _defense;
     [SerializeField] TextMeshProUGUI _energy;
 
+
     public HeroGroup heroGroup;
 
-    
+    private DisplayedHeroGroup_UI _displayedHeroGroup_UI;
     void Start()
     {
-        
+        InitiateButton(_nameButton, OpenHeroGroupUI, heroGroup);
     }
 
     // Update is called once per frame
@@ -31,12 +33,12 @@ public class HeroGroupInList_UI : UI
 
     public void SetValues()
     {
-        SetValue(_groupName, heroGroup.name);
-        SetValue(_heroCount, heroGroup.heroList.Count);
-        SetValue(_health, heroGroup.heroGroupHealth);
-        SetValue(_attack, heroGroup.heroGroupAttack);
-        SetValue(_defense, heroGroup.heroGroupDefense);
-        SetValue(_energy, heroGroup.heroGroupEnergy);
+        SetButtonTextValue(_groupName, heroGroup.heroGroupName);
+        SetButtonTextValue(_heroCount, heroGroup.heroList.Count);
+        SetButtonTextValue(_health, heroGroup.heroGroupHealth);
+        SetButtonTextValue(_attack, heroGroup.heroGroupAttack);
+        SetButtonTextValue(_defense, heroGroup.heroGroupDefense);
+        SetButtonTextValue(_energy, heroGroup.heroGroupEnergy);
     }
     /*
     private void SetValues()
@@ -57,5 +59,14 @@ public class HeroGroupInList_UI : UI
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
     }*/
-
+    public void SetGroupUI_Reference(DisplayedHeroGroup_UI displayedHeroGroup_UI)
+    {
+        _displayedHeroGroup_UI = displayedHeroGroup_UI;
+    }
+    void OpenHeroGroupUI(HeroGroup heroGroup)
+    {
+        _displayedHeroGroup_UI.gameObject.SetActive(true);
+        _displayedHeroGroup_UI.displayedHeroGroup = heroGroup;
+    }
+   
 }

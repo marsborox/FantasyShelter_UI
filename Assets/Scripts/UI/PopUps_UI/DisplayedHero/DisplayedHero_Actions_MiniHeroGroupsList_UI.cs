@@ -33,7 +33,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
             DisplayedHero_Actions_MiniHeroGroup_BUTTON spawnedButton = Instantiate(_heroGroupButtonPrefab);
             spawnedButton.transform.SetParent(transform);
             InitiateButton(spawnedButton.button,SetButtonForChangeHeroGroup,heroGroup);
-            spawnedButton.SetButtonText(heroGroup.name);
+            spawnedButton.SetButtonText(heroGroup.heroGroupName);
             if (heroGroup.id == _displayedHeroTabs_UI.displayedHero.heroGroupImInID)
             {
                 

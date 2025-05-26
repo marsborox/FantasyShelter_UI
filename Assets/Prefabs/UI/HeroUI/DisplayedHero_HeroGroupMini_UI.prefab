@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4131317258810666583}
   - component: {fileID: -8933381025458729551}
   m_Layer: 0
-  m_Name: DisplayedHeroGroupMini_UI
+  m_Name: DisplayedHero_HeroGroupMini_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

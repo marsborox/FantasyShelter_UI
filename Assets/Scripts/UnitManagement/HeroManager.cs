@@ -3,12 +3,15 @@ using System.Linq;
 
 using UnityEngine;
 
+
 public class HeroManager : MonoBehaviour
 {
     [SerializeField] private UnitSpawner _unitSpawner;
     [SerializeField] private HeroGroupManager _heroGroupManager;
     public List <Hero> heroList = new List<Hero>();
     
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -35,13 +38,9 @@ public class HeroManager : MonoBehaviour
 
     public void MoveHeroToGroup(Hero hero, HeroGroup _heroGroup)
     {
-        Debug.Log("heroManager. MovingHeroToGroup");
+        //Debug.Log("heroManager. MovingHeroToGroup");
         if (!(hero.heroGroupImInName == ""))
         {
-            /*
-            string groupName = hero.heroGroupImInName;
-            MoveHeroToGroup_TS(groupName);
-            */
 
             IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.id == hero.heroGroupImInID select heroGroup;
             HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
@@ -49,7 +48,7 @@ public class HeroManager : MonoBehaviour
         }
 
         _heroGroup.AddUnitToDesignatedList(hero);
-        hero.heroGroupImInName = _heroGroup.name;
+        hero.heroGroupImInName = _heroGroup.heroGroupName;
         hero.heroGroupImInID = _heroGroup.id;
     }
 

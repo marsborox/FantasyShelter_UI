@@ -39,20 +39,20 @@ public class HeroInList_UI : UI
     private void SetValues()
     {
         var heroStats = hero.stats;
-        SetValue(_name, heroStats.name);
-        SetValue(_health, heroStats.health);
-        SetValue(_attack, heroStats.attack);
-        SetValue(_defense, heroStats.defense);
-        SetValue(_energy, heroStats.energy);
+        SetButtonTextValue(_name, heroStats.unit.unitName);
+        SetButtonTextValue(_health, heroStats.health);
+        SetButtonTextValue(_attack, heroStats.attack);
+        SetButtonTextValue(_defense, heroStats.defense);
+        SetButtonTextValue(_energy, heroStats.energy);
     }
     private void SetValuesFromStatsDirectly()
     {
         
-        SetValue(_name, stats.name);
-        SetValue(_health, stats.health);
-        SetValue(_attack, stats.attack);
-        SetValue(_defense, stats.defense);
-        SetValue(_energy, stats.energy);
+        SetButtonTextValue(_name, stats.unit.unitName);
+        SetButtonTextValue(_health, stats.health);
+        SetButtonTextValue(_attack, stats.attack);
+        SetButtonTextValue(_defense, stats.defense);
+        SetButtonTextValue(_energy, stats.energy);
     }
     public void SetHeroUI_Reference(DisplayedHero_Tabs_UI displayedHero_Tabs_UI, DisplayedHero_UI displayedHero_UI)
     {
@@ -61,7 +61,7 @@ public class HeroInList_UI : UI
     }
     void OpenHeroUI(Unit hero)
     {
-        _displayedHero_UI.gameObject.active = true;
+        _displayedHero_UI.gameObject.SetActive(true);
         _displayedHeroTabs_UI.displayedHero = (Hero)hero;
     }
 }

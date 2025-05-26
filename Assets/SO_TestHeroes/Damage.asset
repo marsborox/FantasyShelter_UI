@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9358dd4010d9624db495e51be0c4e11, type: 3}
   m_Name: Damage
   m_EditorClassIdentifier: 
-  name: 
-  _type: 1
+  name: damageHero
+  role: 1
   health: 3
   attack: 13
   defense: 0

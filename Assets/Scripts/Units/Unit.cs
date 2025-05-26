@@ -4,7 +4,7 @@ public class Unit : MonoBehaviour
 {
     public UnitStats stats;
 
-    public string name;
+    public string unitName;
     public int level;
 
     public int health;

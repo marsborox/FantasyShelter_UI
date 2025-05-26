@@ -4,12 +4,14 @@ using UnityEngine.Windows;
 
 public class UnitStats : MonoBehaviour
 {
-    public string type;
+    private Role _role;
+    public string role;
     public int health;
     public int attack;
     public int defense;
     public int energy;
 
+    public Unit unit;
     private void Start()
     {
 
@@ -18,7 +20,10 @@ public class UnitStats : MonoBehaviour
     public void SetStats(TestUnit_SO inputSO)
     {
         CheckIfStatsNull(inputSO);
-        type = inputSO.SetTypeString();
+
+        unit.unitName = inputSO.name;
+        _role = inputSO.role;
+        role = inputSO.SetRoleString();
         health = inputSO.health;
         attack = inputSO.attack;
         defense = inputSO.defense;

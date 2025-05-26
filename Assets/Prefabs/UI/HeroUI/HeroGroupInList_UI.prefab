@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroManager: {fileID: 0}
   _groupName: {fileID: 3731209309530574360}
+  _nameButton: {fileID: 7186176272953491950}
   pictogram: {fileID: 8936958732040552884}
   _avgLVL: {fileID: 5588105188339982268}
   _heroCount: {fileID: 5022892233896906100}
@@ -1068,5 +1069,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7186176272953491950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4609819043256976268, guid: af89bd8dc1a0bd34981527deaf97bcc4, type: 3}
+  m_PrefabInstance: {fileID: 6648211084485460578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
