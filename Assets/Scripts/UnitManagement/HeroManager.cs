@@ -50,6 +50,7 @@ public class HeroManager : MonoBehaviour
         _heroGroup.AddUnitToDesignatedList(hero);
         hero.heroGroupImInName = _heroGroup.heroGroupName;
         hero.heroGroupImInID = _heroGroup.id;
+        hero.transform.parent=_heroGroup.transform;
     }
 
     #region TestMethods

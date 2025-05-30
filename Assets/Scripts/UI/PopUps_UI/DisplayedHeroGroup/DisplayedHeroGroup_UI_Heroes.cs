@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class DisplayedHeroGroup_UI_Heroes : MonoBehaviour
+public class DisplayedHeroGroup_UI_Heroes : UI
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] DisplayedHeroGroup_UI _displayedHeroGroup_UI;
+    [SerializeField] DisplayedHeroGroup_HeroInGroup_UI _HeroInGroup_UI_Prefab;
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
         
+        DisplayHeroesInList();
+    }
+    private void DisplayHeroesInList()
+    {
+        DestroyChildren();
+        foreach (Unit unit in _displayedHeroGroup_UI.displayedHeroGroup.heroList)
+        {
+            DisplayedHeroGroup_HeroInGroup_UI spawnedHeroTab = Instantiate(_HeroInGroup_UI_Prefab);
+            spawnedHeroTab.transform.parent = transform;
+            spawnedHeroTab.hero = (Hero)unit;
+        }
     }
 }

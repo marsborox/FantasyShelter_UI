@@ -75,26 +75,5 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         //Debug.Log(textToPrint + index);
         hero.stats.SetStats(list_SO[randomIndex]);
     }
-    private TestUnit_SO SetRandomStatsFromSO()
-    {
-        var list_SO = _testHeroSpawner.testHero_SOs;
-        int randomIndex = UnityEngine.Random.Range(0, list_SO.Count /*- 1*/);
-        //Debug.Log("unitSpawner.list Lenght is: " + list_SO.Count.ToString());
-        //Debug.Log("unitSpawner.list Index= " + randomIndex.ToString());
 
-        string textToPrint;
-        string index;
-        if (list_SO[randomIndex] == null)
-        {
-            textToPrint = "uiSpawner.So is Null";
-            index = "";
-        }
-        else
-        {
-            textToPrint = "uiSpawner.So is NOT Null, index: ";
-            index = randomIndex.ToString();
-        }
-        Debug.Log(textToPrint + index);
-        return list_SO[randomIndex];
-    }
 }

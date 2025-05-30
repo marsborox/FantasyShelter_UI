@@ -65,8 +65,8 @@ public class HeroGroupInList_UI : UI
     }
     void OpenHeroGroupUI(HeroGroup heroGroup)
     {
-        _displayedHeroGroup_UI.gameObject.SetActive(true);
         _displayedHeroGroup_UI.displayedHeroGroup = heroGroup;
+        _displayedHeroGroup_UI.gameObject.SetActive(true);
     }
    
 }
