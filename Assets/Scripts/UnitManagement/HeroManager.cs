@@ -5,7 +5,6 @@ using UnityEditor.Experimental.GraphView;
 
 using UnityEngine;
 
-
 public class HeroManager : MonoBehaviour
 {
     [SerializeField] private UnitSpawner _unitSpawner;
