@@ -10,7 +10,8 @@ public class DisplayedHeroGroup_UI_Heroes : UI
         
         DisplayHeroesInList();
     }
-    private void DisplayHeroesInList()
+
+    public void DisplayHeroesInList()
     {
         DestroyChildren();
         foreach (Unit unit in _displayedHeroGroup_UI.displayedHeroGroup.heroList)
@@ -18,6 +19,8 @@ public class DisplayedHeroGroup_UI_Heroes : UI
             DisplayedHeroGroup_HeroInGroup_UI spawnedHeroTab = Instantiate(_HeroInGroup_UI_Prefab);
             spawnedHeroTab.transform.parent = transform;
             spawnedHeroTab.hero = (Hero)unit;
+            spawnedHeroTab.heroGroupUI_Heroes = this;
+            spawnedHeroTab.heroManager = heroManager;
         }
     }
 }

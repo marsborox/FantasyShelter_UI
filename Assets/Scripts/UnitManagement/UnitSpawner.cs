@@ -35,9 +35,8 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         _heroManager.heroList.Add(hero);
              
         //add to baseGroup
-        IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.heroGroupName == "Base" select heroGroup;
-        HeroGroup heroGroupToAdd = baseGroupQuerry.FirstOrDefault();
-        _heroManager.MoveHeroToGroup(hero , heroGroupToAdd);
+
+        _heroManager.MoveHeroToBaseGroup(hero);
     }
     public void SpawnEnpc(HeroGroup heroGroup)
     { 

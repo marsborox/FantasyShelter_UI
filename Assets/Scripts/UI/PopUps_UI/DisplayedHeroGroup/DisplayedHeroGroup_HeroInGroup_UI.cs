@@ -13,11 +13,12 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
     [SerializeField] TextMeshProUGUI _heroEnergy;
     [SerializeField] Button _kickHeroButton;
 
+    public DisplayedHeroGroup_UI_Heroes heroGroupUI_Heroes;
     public Hero hero;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitiateButton(_kickHeroButton, KickHero);
     }
 
     // Update is called once per frame
@@ -35,4 +36,10 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
         _heroEnergy.text = hero.stats.energy.ToString();
 
     }
+    private void KickHero()
+    { 
+        heroManager.MoveHeroToBaseGroup(hero);
+        heroGroupUI_Heroes.DisplayHeroesInList();
+    }
+
 }

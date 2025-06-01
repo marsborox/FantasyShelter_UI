@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 
@@ -8,9 +10,9 @@ public class HeroManager : MonoBehaviour
 {
     [SerializeField] private UnitSpawner _unitSpawner;
     [SerializeField] private HeroGroupManager _heroGroupManager;
+    [SerializeField] HeroGroup _baseHeroGroup;
     public List <Hero> heroList = new List<Hero>();
     
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -39,7 +41,11 @@ public class HeroManager : MonoBehaviour
     public void MoveHeroToGroup(Hero hero, HeroGroup _heroGroup)
     {
         //Debug.Log("heroManager. MovingHeroToGroup");
-        if (!(hero.heroGroupImInName == ""))
+        if (hero.heroGroupImInName == "Base")
+        {
+            _baseHeroGroup.RemoveUnitFromDesignatedList(hero);
+        }
+        else if (!(hero.heroGroupImInName == ""))
         {
 
             IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.id == hero.heroGroupImInID select heroGroup;
@@ -52,7 +58,10 @@ public class HeroManager : MonoBehaviour
         hero.heroGroupImInID = _heroGroup.id;
         hero.transform.parent=_heroGroup.transform;
     }
-
+    public void MoveHeroToBaseGroup(Hero hero)
+    {
+        MoveHeroToGroup(hero, _baseHeroGroup);
+    }
     #region TestMethods
 
     void MoveHeroToGroup_TS(string groupName)
