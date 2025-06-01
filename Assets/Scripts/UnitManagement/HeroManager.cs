@@ -1,11 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-<<<<<<< HEAD
-
-using UnityEditor.Experimental.GraphView;
-
-=======
->>>>>>> 18edbf6ab3269dba2589a5aeb65788352760b8e2
 using UnityEngine;
 
 public class HeroManager : MonoBehaviour
@@ -15,12 +9,6 @@ public class HeroManager : MonoBehaviour
     [SerializeField] HeroGroup _baseHeroGroup;
     public List <Hero> heroList = new List<Hero>();
     
-<<<<<<< HEAD
-
-=======
->>>>>>> 18edbf6ab3269dba2589a5aeb65788352760b8e2
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     void Start()
     {
         

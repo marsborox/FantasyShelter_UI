@@ -44,6 +44,7 @@ public class HeroInList_UI : UI
         SetButtonTextValue(_attack, heroStats.attack);
         SetButtonTextValue(_defense, heroStats.defense);
         SetButtonTextValue(_energy, heroStats.energy);
+
     }
     private void SetValuesFromStatsDirectly()
     {
@@ -53,6 +54,7 @@ public class HeroInList_UI : UI
         SetButtonTextValue(_attack, stats.attack);
         SetButtonTextValue(_defense, stats.defense);
         SetButtonTextValue(_energy, stats.energy);
+        SetButtonTextValue(_group, ((Hero)hero).heroGroupImInName);
     }
     public void SetHeroUI_Reference(DisplayedHero_Tabs_UI displayedHero_Tabs_UI, DisplayedHero_UI displayedHero_UI)
     {

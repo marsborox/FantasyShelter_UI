@@ -11,6 +11,7 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
     [SerializeField] TextMeshProUGUI _heroAttack;
     [SerializeField] TextMeshProUGUI _heroDefense;
     [SerializeField] TextMeshProUGUI _heroEnergy;
+
     [SerializeField] Button _kickHeroButton;
 
     public DisplayedHeroGroup_UI_Heroes heroGroupUI_Heroes;
