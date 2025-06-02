@@ -2395,7 +2395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2403,7 +2403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2443,11 +2443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4131317258810666583, guid: 335ada5071c948a47b359b09a097c2b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroManager: {fileID: 0}
   _HeroesButton: {fileID: 1499091427}
-  _HeroesUI: {fileID: 2043587418}
+  _HeroesUI: {fileID: 501170483}
   _GroupsButton: {fileID: 746708132}
   _GroupsUI: {fileID: 1153013521}
   _BaseButton: {fileID: 1576200979}
@@ -7227,7 +7227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751869145
 RectTransform:
   m_ObjectHideFlags: 0
