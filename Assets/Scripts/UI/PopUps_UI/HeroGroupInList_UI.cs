@@ -5,7 +5,6 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class HeroGroupInList_UI : UI
 {
-
     [SerializeField] TextMeshProUGUI _groupName;
     [SerializeField] Button _nameButton;
     [SerializeField] Image pictogram;
@@ -15,7 +14,6 @@ public class HeroGroupInList_UI : UI
     [SerializeField] TextMeshProUGUI _attack;
     [SerializeField] TextMeshProUGUI _defense;
     [SerializeField] TextMeshProUGUI _energy;
-
 
     public HeroGroup heroGroup;
 

@@ -10,17 +10,6 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
     [SerializeField] DisplayedHero_Actions_MiniHeroGroup_BUTTON _heroGroupButtonPrefab;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         DestroyChildren();
@@ -36,7 +25,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
             spawnedButton.SetButtonText(heroGroup.heroGroupName);
             if (heroGroup.id == _displayedHeroTabs_UI.displayedHero.heroGroupImInID)
             {
-                
+                //this will set color of button of grup we are in
                 SetButtonPressedColor(spawnedButton.button);
             }
         }
@@ -44,9 +33,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
     private void SetButtonForChangeHeroGroup(HeroGroup heroGroup)
     {
         heroManager.MoveHeroToGroup(_displayedHeroTabs_UI.displayedHero,heroGroup);
-        _displayedHeroGroups_UI.Close();
-        
-    }
-    
 
+        CloseTab(_displayedHeroGroups_UI);
+    }
 }

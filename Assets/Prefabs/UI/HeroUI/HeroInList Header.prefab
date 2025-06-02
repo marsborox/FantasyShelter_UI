@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7260138184027402624, guid: 2190631f34d04b343acef573d7a2fa93, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7399564225652881785, guid: 2190631f34d04b343acef573d7a2fa93, type: 3}
       propertyPath: m_Name
       value: HeroInList Header
