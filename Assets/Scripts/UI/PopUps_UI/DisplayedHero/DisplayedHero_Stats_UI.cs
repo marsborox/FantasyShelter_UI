@@ -1,5 +1,10 @@
-using UnityEngine;
 using TMPro;
+
+using Unity.VisualScripting;
+
+using UnityEngine;
+
+using static UnitStats;
 
 public class DisplayedHero_Stats_UI : UI
 {
@@ -25,7 +30,7 @@ public class DisplayedHero_Stats_UI : UI
     {
         HeroStats heroStatsToDisplay = (HeroStats)_displayedHeroUI.displayedHero.stats;
 
-        SetBaseStatValue(_health.statBase,heroStatsToDisplay.healthBase);
+        /*SetBaseStatValue(_health.statBase,heroStatsToDisplay.healthBase);
         SetBaseStatValue(_health.statCurrent, heroStatsToDisplay.health);
 
         SetBaseStatValue(_attack.statBase,heroStatsToDisplay.attackBase);
@@ -36,12 +41,24 @@ public class DisplayedHero_Stats_UI : UI
         SetBaseStatValue(_defense.statCurrent, heroStatsToDisplay.defense);
 
         SetBaseStatValue(_energy.statBase,heroStatsToDisplay.energyBase);
-        SetBaseStatValue(_energy.statCurrent, heroStatsToDisplay.energy);
+        SetBaseStatValue(_energy.statCurrent, heroStatsToDisplay.energy);*/
+
+        DisplayStatValue(_health, heroStatsToDisplay.healthStat);
+        DisplayStatValue(_attack, heroStatsToDisplay.attackStat);
+        DisplayStatValue(_defense, heroStatsToDisplay.defenseStat);
+        DisplayStatValue(_energy, heroStatsToDisplay.energyStat);
 
 
     }
     void SetBaseStatValue(TextMeshProUGUI heroStatPanel, int valueToDisplay)
     {
         heroStatPanel.text = valueToDisplay.ToString();
+    }
+    void DisplayStatValue(DisplayedHero_Stat_UI displayedHeroStat, UnitStat unitStat)
+    {
+        displayedHeroStat.statBase.text = unitStat.valueBase.ToString();
+        displayedHeroStat.statCurrent.text = unitStat.valueCurrent.ToString();
+
+
     }
 }

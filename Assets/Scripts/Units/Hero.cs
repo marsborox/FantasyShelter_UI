@@ -28,5 +28,37 @@ public class Hero : Unit
     { 
         _heroGroupManager = heroGroupManager;
     }
+    public int ReturnHealthBase()
+    {
+        return ((HeroStats)stats).healthStat.valueBase;
+    }
+    public int ReturnAttackBase()
+    {
+        return ((HeroStats)stats).attackStat.valueCurrent;
+    }
+    public int ReturnDefenseBase()
+    {
+        return ((HeroStats)stats).defenseStat.valueCurrent;
+    }
+    public int ReturnEnergyBase()
+    {
+        return ((HeroStats)stats).energyStat.valueCurrent;
+    }
 
+    public int ReturnHealthCurrent()
+    {
+        return ((HeroStats)stats).healthStat.valueCurrent;
+    }
+    public int ReturnAttackCurrent()
+    {
+        return ((HeroStats)stats).attackStat.valueCurrent;
+    }
+    public int ReturnDefenseCurrent()
+    {
+        return ((HeroStats)stats).defenseStat.valueCurrent;
+    }
+    public int ReturnEnergyCurrent()
+    {
+        return ((HeroStats)stats).energyStat.valueCurrent;
+    }
 }

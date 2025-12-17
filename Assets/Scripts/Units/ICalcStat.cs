@@ -13,6 +13,15 @@ public interface ICalcStat
         }
         return returnStat;
     }
+    public int CalcStat<T>(int getStat, List<T> list)
+    {
+        int returnStat = 0;
+        foreach (var inputObject in list)
+        {
+            returnStat += getStat;
+        }
+        return returnStat;
+    }
     //******************************* discontinued methods
 
     public void CountStat<T>(ref int globalStat, List<T> listWeCountIn)

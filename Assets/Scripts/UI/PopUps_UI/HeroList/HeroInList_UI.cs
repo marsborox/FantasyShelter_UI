@@ -62,10 +62,10 @@ public class HeroInList_UI : UI
     {
         
         SetButtonTextValue(_name, stats.unit.unitName);
-        SetButtonTextValue(_health, stats.health);
-        SetButtonTextValue(_attack, stats.attack);
-        SetButtonTextValue(_defense, stats.defense);
-        SetButtonTextValue(_energy, stats.energy);
+        SetButtonTextValue(_health, ((Hero)hero).ReturnHealthCurrent());
+        SetButtonTextValue(_attack, ((Hero)hero).ReturnAttackCurrent());
+        SetButtonTextValue(_defense, ((Hero)hero).ReturnDefenseCurrent());
+        SetButtonTextValue(_energy, ((Hero)hero).ReturnEnergyCurrent());
         SetButtonTextValue(_group, ((Hero)hero).heroGroupImInName);
     }
     private void OpenHeroUI(Unit hero)

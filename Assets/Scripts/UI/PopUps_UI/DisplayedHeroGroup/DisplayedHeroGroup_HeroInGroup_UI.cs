@@ -31,10 +31,10 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
     { 
         _heroName.text = hero.unitName;
 
-        _heroHealth.text = hero.stats.health.ToString();
-        _heroAttack.text = hero.stats.attack.ToString();
-        _heroDefense.text = hero.stats.defense.ToString();
-        _heroEnergy.text = hero.stats.energy.ToString();
+        _heroHealth.text = hero.ReturnHealth().ToString();
+        _heroAttack.text = hero.ReturnAttack().ToString();
+        _heroDefense.text = hero.ReturnDefense().ToString();
+        _heroEnergy.text = hero.ReturnEnergy().ToString();
 
     }
     private void KickHero()

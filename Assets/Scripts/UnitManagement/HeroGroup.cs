@@ -18,7 +18,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     public int enemyNPCDefense;
     public int enemyNPCEnergy;
 
-    public List<Unit> heroList = new List<Unit>();
+    public List<Hero> heroList = new List<Hero>();
     public List<Unit> enemyNPCList = new List<Unit>();
 
     HeroGroupStash _heroGroupStash;
@@ -82,10 +82,15 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     public void CalcHeroStats()
     {
         //DebugLogUnitStats(heroList);
-        heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.health, heroList);
-        heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.attack, heroList);
-        heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, heroList);
-        heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, heroList);
+        //heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.health, heroList);
+        //heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.attack, heroList);
+        //heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, heroList);
+        //heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, heroList);
+
+        heroGroupHealth = ((ICalcStat)this).CalcStat(inputObject => inputObject.ReturnHealthCurrent(),heroList);
+        heroGroupAttack = ((ICalcStat)this).CalcStat(inputObject => inputObject.ReturnAttackCurrent(), heroList);
+        heroGroupDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.ReturnDefenseCurrent(), heroList);
+        heroGroupEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.ReturnEnergyCurrent(), heroList);
     }
     public void CalcEnemyNPCStats()
     {
@@ -94,7 +99,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         enemyNPCDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, enemyNPCList);
         enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, enemyNPCList);
     }
-    public void AddHeroToList(Unit hero)
+    public void AddHeroToList(Hero hero)
     { 
         heroList.Add(hero);
 

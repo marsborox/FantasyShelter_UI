@@ -22,4 +22,20 @@ public class Unit : MonoBehaviour
     {
         
     }
+    public int ReturnHealth()
+    {
+        return stats.health;
+    }
+    public int ReturnAttack()
+    {
+        return stats.attack;
+    }
+    public int ReturnDefense()
+    {
+        return stats.defense;
+    }
+    public int ReturnEnergy()
+    {
+        return stats.energy;
+    }
 }
