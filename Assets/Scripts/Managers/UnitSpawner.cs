@@ -44,12 +44,8 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         heroGroup.enemyNPCList.Add(creep);
     }
     public void CreateHeroGroup()
-    { 
-        HeroGroup heroGroup = Instantiate (_heroGroupPrefab);
-        heroGroup.transform.parent=_heroGroupManager.transform;
-        _heroGroupManager.heroGroupList.Add(heroGroup);
-        heroGroup.heroGroupName = "Group Name";
-        heroGroup.id = _heroGroupManager.IncreaseAndReturn_HeroGroup_IDCounter();
+    {
+        Debug.Log("Method moved to HeroGroupManager");
     }
 
     private void SetStatsFromRandomSO(ref Hero hero)

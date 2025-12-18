@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class HeroGroup : MonoBehaviour, ICalcStat
 {
+    public HeroGroupManager heroGroupManager;
+    public HeroManager heroManager;
+
     public string heroGroupName;
     public int id=0;
     
@@ -22,6 +25,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     public List<Unit> enemyNPCList = new List<Unit>();
 
     HeroGroupStash _heroGroupStash;
+
     private void Awake()
     {
         _heroGroupStash = GetComponent<HeroGroupStash>();
@@ -78,7 +82,21 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         heroList.Remove(hero);
         CalcHeroStats();
     }
-
+    public void DisbandHeroGroup()
+    {
+        bool disbanding = true;
+        while (disbanding)
+        {
+            if (heroList.Count > 0)
+            {
+                heroManager.MoveHeroToBaseGroup(heroList[0]);
+            }
+            else { disbanding = false; }
+        }
+        heroGroupManager.DestroyHeroGroup(this);
+        //close HeroGroup
+        //refresh UI HeroGroups if opened
+    }
     public void CalcHeroStats()
     {
         //DebugLogUnitStats(heroList);
