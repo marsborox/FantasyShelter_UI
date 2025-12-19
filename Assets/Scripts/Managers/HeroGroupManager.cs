@@ -37,8 +37,10 @@ public class HeroGroupManager : MonoBehaviour
     public void DestroyHeroGroup(HeroGroup heroGroup)
     { 
         heroGroupList.Remove(heroGroup);
-        Destroy(heroGroup);
-        uiManager.GroupDisband();
+        //uiManager.GroupDisband();
+
+
+        Destroy(heroGroup.gameObject);
         //close HeroGroup
         //refresh UI HeroGroups if opened
     }

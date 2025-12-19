@@ -78,7 +78,10 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }
-    
+    public void RemoveListeners(Button button)
+    { 
+        button.onClick.RemoveAllListeners();
+    }
     public void ButtonMethod(Button button, GameObject gUIPanel)
     {
         if (!gUIPanel.activeSelf)
@@ -117,6 +120,7 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
+
     public void CloseThisTab(Button button)
     {
         ResetButtonColor(button);

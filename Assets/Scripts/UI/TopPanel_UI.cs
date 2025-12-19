@@ -29,4 +29,11 @@ public class TopPanel_UI : UI
         InitiateButtonUIPanel(_StashButton, _StashUI);
         InitiateButtonUIPanel(_MapButton, _MapUI);
     }
+
+    public void RefreshGroupList()
+    {
+        ButtonMethod(_GroupsButton, _GroupsUI);
+        ButtonMethod(_GroupsButton, _GroupsUI);
+    }
+
 }

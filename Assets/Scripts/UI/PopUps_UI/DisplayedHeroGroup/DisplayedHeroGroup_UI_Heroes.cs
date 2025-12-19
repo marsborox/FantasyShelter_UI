@@ -7,7 +7,6 @@ public class DisplayedHeroGroup_UI_Heroes : UI
 
     private void OnEnable()
     {
-        
         DisplayHeroesInList();
     }
 

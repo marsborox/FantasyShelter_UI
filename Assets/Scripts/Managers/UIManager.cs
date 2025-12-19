@@ -4,13 +4,11 @@ public class UIManager : MonoBehaviour
 {
     public GameObject heroGroupUI;
     public GameObject heroGroupsUI;
-    public void GroupDisband()
+    public TopPanel_UI topPanel_UI;
+    //set color of button
+
+    public void RefreshGroupsUI()
     {
-        if (heroGroupUI.activeSelf) { heroGroupsUI.SetActive(false); }
-        if (heroGroupsUI.activeSelf) 
-        { 
-            heroGroupsUI.SetActive(false);
-            heroGroupsUI.SetActive(true);
-        }
+        topPanel_UI.RefreshGroupList();
     }
 }
