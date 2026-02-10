@@ -11,7 +11,7 @@ public class DisplayedHero_Stats_UI : UI
     [SerializeField] DisplayedHero_Tabs_UI _displayedHeroUI;
 
     [SerializeField] DisplayedHero_Stat_UI _health;
-    [SerializeField] DisplayedHero_Stat_UI _attack;
+    [SerializeField] DisplayedHero_Stat_UI _damage;
     [SerializeField] DisplayedHero_Stat_UI _defense;
     [SerializeField] DisplayedHero_Stat_UI _energy;
 
@@ -44,7 +44,7 @@ public class DisplayedHero_Stats_UI : UI
         SetBaseStatValue(_energy.statCurrent, heroStatsToDisplay.energy);*/
 
         DisplayStatValue(_health, heroStatsToDisplay.healthStat);
-        DisplayStatValue(_attack, heroStatsToDisplay.attackStat);
+        DisplayStatValue(_damage, heroStatsToDisplay.damageStat);
         DisplayStatValue(_defense, heroStatsToDisplay.defenseStat);
         DisplayStatValue(_energy, heroStatsToDisplay.energyStat);
 
@@ -58,7 +58,6 @@ public class DisplayedHero_Stats_UI : UI
     {
         displayedHeroStat.statBase.text = unitStat.valueBase.ToString();
         displayedHeroStat.statCurrent.text = unitStat.valueCurrent.ToString();
-
 
     }
 }

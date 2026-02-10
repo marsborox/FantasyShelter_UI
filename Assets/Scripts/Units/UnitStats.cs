@@ -16,10 +16,6 @@ public class UnitStats : MonoBehaviour
         public int valueBase;
         public int valueMax;
         public int valueCurrent;
-        public void SetCurrentValueMax()
-        {
-            valueCurrent = valueMax;
-        }
         public UnitStat()
         {
             name = "StatName";
@@ -32,16 +28,21 @@ public class UnitStats : MonoBehaviour
             valueMax = inputValueMax;
             SetCurrentValueMax();
         }
+        public void SetCurrentValueMax()
+        {
+            valueCurrent = valueMax;
+        }
     }
+
     public UnitStat healthStat = new UnitStat("Health",100);
-    public UnitStat attackStat = new UnitStat("Attack",20);
+    public UnitStat damageStat = new UnitStat("Damage",20);
     public UnitStat defenseStat = new UnitStat("Defense",10);
     public UnitStat energyStat = new UnitStat("Energy",100);
 
     public List<UnitStat> unitStatList = new List<UnitStat>();
 
     public int health = 999;
-    public int attack = 999;
+    public int damage = 999;
     public int defense = 999;
     public int energy = 999;
 
@@ -61,12 +62,12 @@ public class UnitStats : MonoBehaviour
         role = inputSO.SetRoleString();
 
         /*health = inputSO.health;
-        attack = inputSO.attack;
+        damage = inputSO.damage;
         defense = inputSO.defense;
         energy = inputSO.energy;*/
 
         healthStat.valueBase = inputSO.health;
-        attackStat.valueBase = inputSO.attack;
+        damageStat.valueBase = inputSO.damage;
         defenseStat.valueBase = inputSO.defense;
         energyStat.valueBase = inputSO.energy;
         AddInventoryStats();
@@ -75,7 +76,7 @@ public class UnitStats : MonoBehaviour
     private void AddStatsToList()
     {
         unitStatList.Add(healthStat);
-        unitStatList.Add(attackStat);
+        unitStatList.Add(damageStat);
         unitStatList.Add(defenseStat);
         unitStatList.Add(energyStat);
     }
@@ -90,7 +91,7 @@ public class UnitStats : MonoBehaviour
     {//from inventory
         
         healthStat.valueMax = healthStat.valueBase;
-        attackStat.valueMax = attackStat.valueBase;
+        damageStat.valueMax = damageStat.valueBase;
         defenseStat.valueMax = defenseStat.valueBase;
         energyStat.valueMax = energyStat.valueBase;
     }

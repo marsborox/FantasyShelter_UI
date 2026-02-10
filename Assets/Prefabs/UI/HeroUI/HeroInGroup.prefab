@@ -89,10 +89,11 @@ MonoBehaviour:
   _heroRole: {fileID: 1207900524659390431}
   _heroLvl: {fileID: 6856013919750104845}
   _heroHealth: {fileID: 4915421437657681578}
-  _heroAttack: {fileID: 5603773786509216883}
+  _heroDamage: {fileID: 5603773786509216883}
   _heroDefense: {fileID: 8590705695398897627}
   _heroEnergy: {fileID: 8687162150067973788}
   _kickHeroButton: {fileID: 6120852360117997077}
+  heroGroupUI_Heroes: {fileID: 0}
   hero: {fileID: 0}
 --- !u!1001 &2568239352807206223
 PrefabInstance:
@@ -754,11 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2895940335213694589, guid: c7f36f738b4d22c45a5614fc338e6a6b, type: 3}
       propertyPath: m_Name
-      value: ATC
+      value: DMG
       objectReference: {fileID: 0}
     - target: {fileID: 3057714690117577446, guid: c7f36f738b4d22c45a5614fc338e6a6b, type: 3}
       propertyPath: m_text
-      value: ATC
+      value: DMG
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

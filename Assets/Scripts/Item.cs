@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
     public Slot slot;
     
     public int health;
-    public int attack;
+    public int damage;
     public int defense;
     public int energy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

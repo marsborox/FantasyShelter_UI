@@ -9,7 +9,7 @@ public class TestUnit_SO : ScriptableObject
     public Role role;
     
     public int health;
-    public int attack;
+    public int damage;
     public int defense;
     public int energy;
 

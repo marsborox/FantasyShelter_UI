@@ -32,9 +32,9 @@ public class Hero : Unit
     {
         return ((HeroStats)stats).healthStat.valueBase;
     }
-    public int ReturnAttackBase()
+    public int ReturnDamageBase()
     {
-        return ((HeroStats)stats).attackStat.valueCurrent;
+        return ((HeroStats)stats).damageStat.valueCurrent;
     }
     public int ReturnDefenseBase()
     {
@@ -49,9 +49,9 @@ public class Hero : Unit
     {
         return ((HeroStats)stats).healthStat.valueCurrent;
     }
-    public int ReturnAttackCurrent()
+    public int ReturnDamageCurrent()
     {
-        return ((HeroStats)stats).attackStat.valueCurrent;
+        return ((HeroStats)stats).damageStat.valueCurrent;
     }
     public int ReturnDefenseCurrent()
     {

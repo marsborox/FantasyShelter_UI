@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisplayedHeroGroup_UI_Stats : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _Health;
-    [SerializeField] TextMeshProUGUI _Attack;
+    [SerializeField] TextMeshProUGUI _Damage;
     [SerializeField] TextMeshProUGUI _Defense;
     [SerializeField] TextMeshProUGUI _Energy;
 
@@ -17,7 +17,7 @@ public class DisplayedHeroGroup_UI_Stats : MonoBehaviour
     public void SetValues()
     { 
         _Health.text = _DisplayedHeroGroup_UI.displayedHeroGroup.heroGroupHealth.ToString();
-        _Attack.text = _DisplayedHeroGroup_UI.displayedHeroGroup.heroGroupAttack.ToString();
+        _Damage.text = _DisplayedHeroGroup_UI.displayedHeroGroup.heroGroupDamage.ToString();
         _Defense.text = _DisplayedHeroGroup_UI.displayedHeroGroup.heroGroupDefense.ToString();
         _Energy.text = _DisplayedHeroGroup_UI.displayedHeroGroup.heroGroupEnergy.ToString();
     }

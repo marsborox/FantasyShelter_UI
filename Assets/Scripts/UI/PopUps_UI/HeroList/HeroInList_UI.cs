@@ -13,7 +13,7 @@ public class HeroInList_UI : UI
     [SerializeField] Image _typeImage;
     [SerializeField] TextMeshProUGUI _activity;
     [SerializeField] TextMeshProUGUI _health;
-    [SerializeField] TextMeshProUGUI _attack;
+    [SerializeField] TextMeshProUGUI _damage;
     [SerializeField] TextMeshProUGUI _defense;
     [SerializeField] TextMeshProUGUI _energy;
     [SerializeField] TextMeshProUGUI _group;
@@ -53,7 +53,7 @@ public class HeroInList_UI : UI
         var heroStats = hero.stats;
         SetButtonTextValue(_name, heroStats.unit.unitName);
         SetButtonTextValue(_health, heroStats.health);
-        SetButtonTextValue(_attack, heroStats.attack);
+        SetButtonTextValue(_damage, heroStats.damage);
         SetButtonTextValue(_defense, heroStats.defense);
         SetButtonTextValue(_energy, heroStats.energy);
 
@@ -63,7 +63,7 @@ public class HeroInList_UI : UI
         
         SetButtonTextValue(_name, stats.unit.unitName);
         SetButtonTextValue(_health, ((Hero)hero).ReturnHealthCurrent());
-        SetButtonTextValue(_attack, ((Hero)hero).ReturnAttackCurrent());
+        SetButtonTextValue(_damage, ((Hero)hero).ReturnDamageCurrent());
         SetButtonTextValue(_defense, ((Hero)hero).ReturnDefenseCurrent());
         SetButtonTextValue(_energy, ((Hero)hero).ReturnEnergyCurrent());
         SetButtonTextValue(_group, ((Hero)hero).heroGroupImInName);

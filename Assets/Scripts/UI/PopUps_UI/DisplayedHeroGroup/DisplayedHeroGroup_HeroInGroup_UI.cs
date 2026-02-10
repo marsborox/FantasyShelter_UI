@@ -8,7 +8,7 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
     [SerializeField] TextMeshProUGUI _heroRole;
     [SerializeField] TextMeshProUGUI _heroLvl;
     [SerializeField] TextMeshProUGUI _heroHealth;
-    [SerializeField] TextMeshProUGUI _heroAttack;
+    [SerializeField] TextMeshProUGUI _heroDamage;
     [SerializeField] TextMeshProUGUI _heroDefense;
     [SerializeField] TextMeshProUGUI _heroEnergy;
 
@@ -32,7 +32,7 @@ public class DisplayedHeroGroup_HeroInGroup_UI : UI
         _heroName.text = hero.unitName;
 
         _heroHealth.text = hero.ReturnHealthCurrent().ToString();
-        _heroAttack.text = hero.ReturnAttackCurrent().ToString();
+        _heroDamage.text = hero.ReturnDamageCurrent().ToString();
         _heroDefense.text = hero.ReturnDefenseCurrent().ToString();
         _heroEnergy.text = hero.ReturnEnergyCurrent().ToString();
 

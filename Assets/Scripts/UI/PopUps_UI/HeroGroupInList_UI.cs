@@ -11,7 +11,7 @@ public class HeroGroupInList_UI : UI
     [SerializeField] TextMeshProUGUI _avgLVL;
     [SerializeField] TextMeshProUGUI _heroCount;
     [SerializeField] TextMeshProUGUI _health;
-    [SerializeField] TextMeshProUGUI _attack;
+    [SerializeField] TextMeshProUGUI _damage;
     [SerializeField] TextMeshProUGUI _defense;
     [SerializeField] TextMeshProUGUI _energy;
 
@@ -34,7 +34,7 @@ public class HeroGroupInList_UI : UI
         SetButtonTextValue(_groupName, heroGroup.heroGroupName);
         SetButtonTextValue(_heroCount, heroGroup.heroList.Count);
         SetButtonTextValue(_health, heroGroup.heroGroupHealth);
-        SetButtonTextValue(_attack, heroGroup.heroGroupAttack);
+        SetButtonTextValue(_damage, heroGroup.heroGroupDamage);
         SetButtonTextValue(_defense, heroGroup.heroGroupDefense);
         SetButtonTextValue(_energy, heroGroup.heroGroupEnergy);
     }
@@ -44,7 +44,7 @@ public class HeroGroupInList_UI : UI
         var heroStats = hero.stats;
         SetValue(_name, heroStats.name);
         SetValue(_health, heroStats.health);
-        SetValue(_attack, heroStats.attack);
+        SetValue(_damage, heroStats.damage);
         SetValue(_defense, heroStats.defense);
         SetValue(_energy, heroStats.energy);
     }
@@ -53,7 +53,7 @@ public class HeroGroupInList_UI : UI
 
         SetValue(_name, stats.name);
         SetValue(_health, stats.health);
-        SetValue(_attack, stats.attack);
+        SetValue(_damage, stats.damage);
         SetValue(_defense, stats.defense);
         SetValue(_energy, stats.energy);
     }*/

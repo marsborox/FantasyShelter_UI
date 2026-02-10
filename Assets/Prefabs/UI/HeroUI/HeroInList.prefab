@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7399564225652881785}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   _typeImage: {fileID: 2405273204726862548}
   _activity: {fileID: 7808387730242067583}
   _health: {fileID: 227985366062126377}
-  _attack: {fileID: 2855952694396090426}
+  _damage: {fileID: 2855952694396090426}
   _defense: {fileID: 2199597359729070115}
   _energy: {fileID: 6314291382890044268}
   _group: {fileID: 8340300016769083541}
@@ -238,11 +238,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898571530116642452, guid: 9a505d6e39d11144ab5e4bc5b84a45b2, type: 3}
       propertyPath: m_text
-      value: ATC
+      value: 'DMG
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3055294703453426191, guid: 9a505d6e39d11144ab5e4bc5b84a45b2, type: 3}
       propertyPath: m_Name
-      value: Attack
+      value: Damage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
