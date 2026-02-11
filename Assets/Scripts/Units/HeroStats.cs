@@ -26,7 +26,7 @@ public class HeroStats : UnitStats,ICalcStat
     {//from inventory
         /* //remove this //*******************************
         health = healthBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health,_heroInventory.gear);
-        damage = damageBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.attack, _heroInventory.gear);
+        damage = damageBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.damage, _heroInventory.gear);
         defense = defenseBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, _heroInventory.gear);
         energy = energyBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, _heroInventory.gear);
         */

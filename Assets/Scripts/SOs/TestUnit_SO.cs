@@ -11,6 +11,8 @@ public class TestUnit_SO : ScriptableObject
     public int health;
     public int damage;
     public int defense;
+    public int attackSpeed;
+    public int movementSpeed;
     public int energy;
 
 

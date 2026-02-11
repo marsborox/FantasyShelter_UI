@@ -33,8 +33,8 @@ public class DisplayedHero_Stats_UI : UI
         /*SetBaseStatValue(_health.statBase,heroStatsToDisplay.healthBase);
         SetBaseStatValue(_health.statCurrent, heroStatsToDisplay.health);
 
-        SetBaseStatValue(_attack.statBase,heroStatsToDisplay.attackBase);
-        SetBaseStatValue(_attack.statCurrent, heroStatsToDisplay.attack);
+        SetBaseStatValue(_damage.statBase,heroStatsToDisplay.damagekBase);
+        SetBaseStatValue(_damage.statCurrent, heroStatsToDisplay.damage);
 
 
         SetBaseStatValue(_defense.statBase,heroStatsToDisplay.defenseBase);

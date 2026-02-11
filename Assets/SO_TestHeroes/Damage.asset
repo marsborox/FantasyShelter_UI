@@ -15,6 +15,6 @@ MonoBehaviour:
   name: damageHero
   role: 1
   health: 3
-  attack: 13
+  damage: 5
   defense: 0
   energy: 4

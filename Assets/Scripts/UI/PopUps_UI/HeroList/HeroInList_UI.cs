@@ -49,7 +49,7 @@ public class HeroInList_UI : UI
         _displayedHero_UI = displayedHero_UI;
     }
     private void SetValues()
-    {
+    {//used on NPC apparently
         var heroStats = hero.stats;
         SetButtonTextValue(_name, heroStats.unit.unitName);
         SetButtonTextValue(_health, heroStats.health);

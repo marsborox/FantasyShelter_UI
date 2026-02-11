@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 
-public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
+public class UnitSpawner : MonoBehaviour 
 {
     [SerializeField] private Hero _heroPrefab;
     private Hero _heroTemplate;
@@ -43,10 +43,7 @@ public class UnitSpawner : MonoBehaviour, IAddUnitToGroup
         EnemyNPC creep = Instantiate(_creepPrefab);
         heroGroup.enemyNPCList.Add(creep);
     }
-    public void CreateHeroGroup()
-    {
-        Debug.Log("Method moved to HeroGroupManager");
-    }
+
 
     private void SetStatsFromRandomSO(ref Hero hero)
     {

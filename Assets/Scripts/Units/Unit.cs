@@ -22,7 +22,9 @@ public class Unit : MonoBehaviour
     {
         
     }
-    public int ReturnHealth()
+    //ENEMY
+    //might miss in enemy
+    /*public int ReturnHealth()
     {
         return stats.health;
     }
@@ -37,5 +39,5 @@ public class Unit : MonoBehaviour
     public int ReturnEnergy()
     {
         return stats.energy;
-    }
+    }*/
 }
