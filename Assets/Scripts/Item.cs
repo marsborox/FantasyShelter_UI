@@ -12,16 +12,7 @@ public class Item : MonoBehaviour
     public int movementSpeed;
     public int energy;
 
+
     public Sprite pictogramImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
