@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HeroInventoy : MonoBehaviour
 {
-    private Item _headSlot;
-    private Item _chestSlot;
-    private Item _weaponSlot;
-    private Item _offhandSlot;
+    private Item_Gear _headSlot;
+    private Item_Gear _chestSlot;
+    private Item_Gear _weaponSlot;
+    private Item_Gear _offhandSlot;
 
-    public List <Item> gear = new List<Item>();
+    public List <Item_Gear> gear = new List<Item_Gear>();
 
 
 
@@ -32,7 +32,7 @@ public class HeroInventoy : MonoBehaviour
         gear.Add(_weaponSlot);
         gear.Add(_offhandSlot);
     }
-    private void CheckSlot(Item item)
+    private void CheckSlot(Item_Gear item)
     {
         switch (item.slot) 
         {
@@ -53,7 +53,7 @@ public class HeroInventoy : MonoBehaviour
                 break;
         }
     }
-    private void PutOnItem(Item item, ref Item slot)
+    private void PutOnItem(Item_Gear item, ref Item_Gear slot)
     {
         if (slot == null)
         { slot = item; }

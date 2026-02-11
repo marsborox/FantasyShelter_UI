@@ -44,7 +44,7 @@ public class UnitStats : MonoBehaviour
             valueCurrent = valueTotal;
         }
     }
-
+    
     
     //may remove
     /*public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING, 100);

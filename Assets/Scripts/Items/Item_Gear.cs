@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND }
-public class Item : MonoBehaviour
+public class Item_Gear : Item
 {
     public Slot slot;
     
@@ -12,7 +12,21 @@ public class Item : MonoBehaviour
     public int movementSpeed;
     public int energy;
 
-    public Sprite pictogramImage;
+    
+
+    public Item_Gear_SO itemGearSO;
+    public void SetItemProperties(Item_Gear_SO providedSO)
+    { 
+        slot = providedSO.slot;
+        health = providedSO.health;
+        damage = providedSO.damage;
+        defense = providedSO.defense;
+        attackSpeed = providedSO.attackSpeed;
+        movementSpeed = providedSO.movementSpeed;
+        energy = providedSO.energy;
+    }
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +36,10 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    public void DressItem()
+    { 
         
     }
 }

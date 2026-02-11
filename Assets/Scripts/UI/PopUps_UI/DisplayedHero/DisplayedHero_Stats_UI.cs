@@ -1,7 +1,4 @@
 using TMPro;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 
 using static UnitStats;
@@ -56,7 +53,7 @@ public class DisplayedHero_Stats_UI : UI
     {
         heroStatPanel.text = valueToDisplay.ToString();
     }
-    void DisplayStatValue(DisplayedHero_Stat_UI displayedHeroStat, UnitStat unitStat)
+    private void DisplayStatValue(DisplayedHero_Stat_UI displayedHeroStat, UnitStat unitStat)
     {
         displayedHeroStat.statBase.text = unitStat.valueBase.ToString();
         displayedHeroStat.statTotal.text = unitStat.valueTotal.ToString();
