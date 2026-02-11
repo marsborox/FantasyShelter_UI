@@ -8,13 +8,14 @@ using static UnitStats;
 
 public class DisplayedHero_Stats_UI : UI
 {
-    [SerializeField] DisplayedHero_Tabs_UI _displayedHeroUI;
+    [SerializeField] private DisplayedHero_Tabs_UI _displayedHeroUI;
 
-    [SerializeField] DisplayedHero_Stat_UI _health;
-    [SerializeField] DisplayedHero_Stat_UI _damage;
-    [SerializeField] DisplayedHero_Stat_UI _defense;
-    [SerializeField] DisplayedHero_Stat_UI _energy;
-
+    [SerializeField] private DisplayedHero_Stat_UI _health;
+    [SerializeField] private DisplayedHero_Stat_UI _damage;
+    [SerializeField] private DisplayedHero_Stat_UI _defense;
+    [SerializeField] private DisplayedHero_Stat_UI _attackSpeed;
+    [SerializeField] private DisplayedHero_Stat_UI _movementSpeed;
+    [SerializeField] private DisplayedHero_Stat_UI _energy;
     void Start()
     {
         
@@ -46,8 +47,9 @@ public class DisplayedHero_Stats_UI : UI
         DisplayStatValue(_health, heroStatsToDisplay.healthStat);
         DisplayStatValue(_damage, heroStatsToDisplay.damageStat);
         DisplayStatValue(_defense, heroStatsToDisplay.defenseStat);
+        DisplayStatValue(_attackSpeed, heroStatsToDisplay.attackSpeedStat);
+        DisplayStatValue(_movementSpeed, heroStatsToDisplay.movementSpeedStat);
         DisplayStatValue(_energy, heroStatsToDisplay.energyStat);
-
 
     }
     void SetBaseStatValue(TextMeshProUGUI heroStatPanel, int valueToDisplay)
@@ -57,6 +59,8 @@ public class DisplayedHero_Stats_UI : UI
     void DisplayStatValue(DisplayedHero_Stat_UI displayedHeroStat, UnitStat unitStat)
     {
         displayedHeroStat.statBase.text = unitStat.valueBase.ToString();
+        displayedHeroStat.statTotal.text = unitStat.valueTotal.ToString();
+        displayedHeroStat.statItems.text = unitStat.valueItems.ToString();
         displayedHeroStat.statCurrent.text = unitStat.valueCurrent.ToString();
 
     }

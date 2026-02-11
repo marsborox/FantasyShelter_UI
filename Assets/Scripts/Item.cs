@@ -8,7 +8,11 @@ public class Item : MonoBehaviour
     public int health;
     public int damage;
     public int defense;
+    public int attackSpeed;
+    public int movementSpeed;
     public int energy;
+
+    public Sprite pictogramImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

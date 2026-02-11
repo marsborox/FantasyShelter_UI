@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
 
@@ -15,36 +16,50 @@ public class UnitStats : MonoBehaviour
     public class UnitStat
     {
         public string name = "StatName";
-        public int valueBase;
-        public int valueMax;
-        public int valueCurrent;
+        public int valueBase = 0;
+        public int valueTotal = 0;
+        public int valueItems = 0;
+        public int valueCurrent = 0;
         public UnitStat()
         {
             name = "StatName";
-            valueMax = 0;
-            SetCurrentValueMax();
+            //valueTotal = 0;
+            //SetCurrentValueTotal();
+        }
+        public UnitStat(string inputName)
+        {
+            name = inputName;
+
+            //SetCurrentValueTotal();
         }
         public UnitStat(string inputName,int inputValueMax)
         { 
             name = inputName;
-            valueMax = inputValueMax;
-            SetCurrentValueMax();
+            //valueTotal = inputValueMax;
+            //SetCurrentValueTotal();
         }
-        public void SetCurrentValueMax()
-        {
-            valueCurrent = valueMax;
+
+        public void SetCurrentValueTotal()
+        {// will be changed 
+            valueCurrent = valueTotal;
         }
     }
 
-    string asdf = Constants.HEALTH_STRING;
-
-    public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING, 100);
+    
+    //may remove
+    /*public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING, 100);
     public UnitStat damageStat = new UnitStat(Constants.DAMAGE_STRING,20);
     public UnitStat defenseStat = new UnitStat(Constants.DEFENSE_STRING,10);
     public UnitStat attackSpeedStat = new UnitStat(Constants.ATTACKSPEED_STRING, 50);
     public UnitStat movementSpeedStat = new UnitStat(Constants.MOVEMENT_SPEED_STRING ,10);
-    public UnitStat energyStat = new UnitStat(Constants.ENERGY_STRING,100);
+    public UnitStat energyStat = new UnitStat(Constants.ENERGY_STRING,100);*/
 
+    public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING);
+    public UnitStat damageStat = new UnitStat(Constants.DAMAGE_STRING);
+    public UnitStat defenseStat = new UnitStat(Constants.DEFENSE_STRING);
+    public UnitStat attackSpeedStat = new UnitStat(Constants.ATTACKSPEED_STRING);
+    public UnitStat movementSpeedStat = new UnitStat(Constants.MOVEMENT_SPEED_STRING);
+    public UnitStat energyStat = new UnitStat(Constants.ENERGY_STRING);
 
     public List<UnitStat> unitStatList = new List<UnitStat>();
 
@@ -55,15 +70,26 @@ public class UnitStats : MonoBehaviour
     public int energy = 999;
 
     public Unit unit;
-    private void Start()
+    public void Awake()
     {
-        AddStatsToList();
-        SetStatValuesCurrent();
-        Debug.Log(asdf);
+        //AddStatsToList();//must be run right after unit is created
+        //SetStatValuesCurrent();
+        
     }
-
-    public void SetStats(TestUnit_SO inputSO)
+    public void AddStatsToList()
     {
+        unitStatList.Add(healthStat);
+        unitStatList.Add(damageStat);
+        unitStatList.Add(defenseStat);
+        unitStatList.Add(attackSpeedStat);
+        unitStatList.Add(movementSpeedStat);
+        unitStatList.Add(energyStat);
+
+    }
+    
+    public void SetBaseStatsFromSO(TestUnit_SO inputSO)
+    {//logic must be changed to like take from SO, then add form items, then set to current
+        //when gets buff then recalc current
         CheckIfStatsNull(inputSO);
 
         unit.unitName = inputSO.name;
@@ -85,33 +111,37 @@ public class UnitStats : MonoBehaviour
         AddInventoryStats();
         SetStatValuesCurrent();
     }
-    private void AddStatsToList()
-    {
-        unitStatList.Add(healthStat);
-        unitStatList.Add(damageStat);
-        unitStatList.Add(defenseStat);
-        unitStatList.Add(attackSpeedStat);
-        unitStatList.Add(movementSpeedStat);
-        unitStatList.Add(energyStat);
-        
+
+    public virtual void AddInventoryStats()
+    {//from inventory
+
+        CalcStat(healthStat);
+        CalcStat(damageStat);
+        CalcStat(defenseStat);
+        CalcStat(attackSpeedStat);
+        CalcStat(movementSpeedStat);
+        CalcStat(energyStat);
+
+        /*healthStat.valueTotal = healthStat.valueBase;
+        damageStat.valueTotal = damageStat.valueBase;
+        defenseStat.valueTotal = defenseStat.valueBase;
+        attackSpeedStat.valueTotal = attackSpeedStat.valueBase;
+        movementSpeedStat.valueTotal = movementSpeedStat.valueBase;
+        energyStat.valueTotal = energyStat.valueBase;*/
+
+        void CalcStat(UnitStat stat)
+        { 
+            stat.valueTotal = stat.valueBase+stat.valueItems;
+        }
     }
-    private void SetStatValuesCurrent()
+    public virtual void SetStatValuesCurrent()
     {
         foreach (UnitStat unitStat in unitStatList)
         {
-            unitStat.SetCurrentValueMax();
+            unitStat.SetCurrentValueTotal();
         }
     }
-    public virtual void AddInventoryStats()
-    {//from inventory
-        
-        healthStat.valueMax = healthStat.valueBase;
-        damageStat.valueMax = damageStat.valueBase;
-        defenseStat.valueMax = defenseStat.valueBase;
-        attackSpeedStat.valueMax = attackSpeedStat.valueBase;
-        movementSpeedStat.valueMax = movementSpeedStat.valueBase;
-        energyStat.valueMax = energyStat.valueBase;
-    }
+
     #region TestMethods
     void CheckIfStatsNull(TestUnit_SO inputSO)
     {

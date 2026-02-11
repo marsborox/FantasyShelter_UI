@@ -20,6 +20,7 @@ public class HeroStats : UnitStats,ICalcStat
     private HeroInventoy _heroInventory;
     private void Awake()
     {
+        base.Awake();
         _heroInventory = GetComponent<HeroInventoy>();
     }
     public override void AddInventoryStats()
@@ -30,10 +31,13 @@ public class HeroStats : UnitStats,ICalcStat
         defense = defenseBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, _heroInventory.gear);
         energy = energyBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, _heroInventory.gear);
         */
-        healthStat.valueMax = healthStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health, _heroInventory.gear);
-        damageStat.valueMax = damageStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.damage, _heroInventory.gear);
-        defenseStat.valueMax = defenseStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, _heroInventory.gear);
-        energyStat.valueMax = energyStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, _heroInventory.gear);
+
+        /*healthStat.valueTotal = healthStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health, _heroInventory.gear);
+        damageStat.valueTotal = damageStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.damage, _heroInventory.gear);
+        defenseStat.valueTotal = defenseStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.defense, _heroInventory.gear);
+        energyStat.valueTotal = energyStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.energy, _heroInventory.gear);*/
+        base.AddInventoryStats();
+
     }
 
 }

@@ -28,8 +28,9 @@ public class UnitSpawner : MonoBehaviour
     public void SpawnHero()
     {
         Hero hero = Instantiate(_heroPrefab);
+        hero.DoBasicSetup();
         hero.SetHeroGroupManagerReference(_heroGroupManager);
-
+        
         //hero.transform.parent = _heroManager.transform;
         SetStatsFromRandomSO(ref hero);
         _heroManager.heroList.Add(hero);
@@ -65,7 +66,7 @@ public class UnitSpawner : MonoBehaviour
             index = randomIndex.ToString();
         }
         //Debug.Log(textToPrint + index);
-        hero.stats.SetStats(list_SO[randomIndex]);
+        hero.stats.SetBaseStatsFromSO(list_SO[randomIndex]);
     }
 
 }

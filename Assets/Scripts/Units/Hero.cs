@@ -24,6 +24,10 @@ public class Hero : Unit
     {
         
     }
+    public void DoBasicSetup()
+    {
+        stats.AddStatsToList();
+    }
     public void SetHeroGroupManagerReference(HeroGroupManager heroGroupManager)
     { 
         _heroGroupManager = heroGroupManager;

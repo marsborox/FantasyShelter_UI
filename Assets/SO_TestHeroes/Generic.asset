@@ -17,4 +17,6 @@ MonoBehaviour:
   health: 4
   damage: 4
   defense: 4
+  attackSpeed: 50
+  movementSpeed: 5
   energy: 4
