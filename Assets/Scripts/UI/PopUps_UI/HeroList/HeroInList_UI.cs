@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HeroInList_UI : UI
 {
+    
     [SerializeField] TextMeshProUGUI _name;
     [SerializeField] Button _nameButton;
     [SerializeField] Button _checkMarkButton;
@@ -22,7 +23,7 @@ public class HeroInList_UI : UI
 
     public Unit hero;
     public UnitStats stats;
-    private DisplayedHero_Tabs_UI _displayedHeroTabs_UI;
+    
     private DisplayedHero_UI _displayedHero_UI;
 
     private Color32 _checkMarkUnpressedColor = new Color32(0,118,0,0);
@@ -43,9 +44,8 @@ public class HeroInList_UI : UI
         SetValuesFromStatsDirectly();
     }
 
-    public void SetHeroUI_Reference(DisplayedHero_Tabs_UI displayedHero_Tabs_UI, DisplayedHero_UI displayedHero_UI)
+    public void SetHeroUI_Reference(DisplayedHero_UI displayedHero_UI)
     {
-        _displayedHeroTabs_UI = displayedHero_Tabs_UI;
         _displayedHero_UI = displayedHero_UI;
     }
     private void SetValues()
@@ -71,7 +71,7 @@ public class HeroInList_UI : UI
     private void OpenHeroUI(Unit hero)
     {
         _displayedHero_UI.gameObject.SetActive(true);
-        _displayedHeroTabs_UI.displayedHero = (Hero)hero;
+        _displayedHero_UI.displayedHero = (Hero)hero;
     }
     public void CheckMarkButton()
     {

@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
-using JetBrains.Annotations;
-
 using UnityEngine;
 
 public class UnitStats : MonoBehaviour
@@ -84,7 +80,6 @@ public class UnitStats : MonoBehaviour
         unitStatList.Add(attackSpeedStat);
         unitStatList.Add(movementSpeedStat);
         unitStatList.Add(energyStat);
-
     }
     
     public void SetBaseStatsFromSO(TestUnit_SO inputSO)

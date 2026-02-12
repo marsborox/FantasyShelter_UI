@@ -1,16 +1,20 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
-public class Stash : MonoBehaviour
+public class Stash : Singleton<Stash>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static new Stash instance => Singleton<Stash>.instance;
+    
+    public List<Item> itemStashList = new List<Item>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    public void AddItemToStash(Item item)
+    { 
+        itemStashList.Add(item);
+    }
+    public void RemoveItemFromStash(Item item)
+    { 
+        itemStashList.Remove(item);
     }
 }

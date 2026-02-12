@@ -5,7 +5,7 @@ using TMPro;
 public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
 {
     [SerializeField] HeroGroupManager _heroGroupManager;
-    [SerializeField] DisplayedHero_Tabs_UI _displayedHeroTabs_UI;
+    [SerializeField] DisplayedHero_UI _displayedHero_UI;
     [SerializeField] DisplayedHero_Actions_MiniHeroGroups_UI _displayedHeroGroups_UI;
     [SerializeField] DisplayedHero_Actions_MiniHeroGroup_BUTTON _heroGroupButtonPrefab;
 
@@ -23,7 +23,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
             spawnedButton.transform.SetParent(transform);
             InitiateButton(spawnedButton.button,SetButtonForChangeHeroGroup,heroGroup);
             spawnedButton.SetButtonText(heroGroup.heroGroupName);
-            if (heroGroup.id == _displayedHeroTabs_UI.displayedHero.heroGroupImInID)
+            if (heroGroup.id == _displayedHero_UI.displayedHero.heroGroupImInID)
             {
                 //this will set color of button of grup we are in
                 SetButtonPressedColor(spawnedButton.button);
@@ -32,7 +32,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
     }
     private void SetButtonForChangeHeroGroup(HeroGroup heroGroup)
     {
-        heroManager.MoveHeroToGroup(_displayedHeroTabs_UI.displayedHero,heroGroup);
+        heroManager.MoveHeroToGroup(_displayedHero_UI.displayedHero,heroGroup);
 
         CloseTab(_displayedHeroGroups_UI);
     }

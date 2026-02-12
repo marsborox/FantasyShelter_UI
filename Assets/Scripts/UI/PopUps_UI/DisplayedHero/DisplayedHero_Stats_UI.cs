@@ -5,7 +5,7 @@ using static UnitStats;
 
 public class DisplayedHero_Stats_UI : UI
 {
-    [SerializeField] private DisplayedHero_Tabs_UI _displayedHeroUI;
+    [SerializeField] private DisplayedHero_UI _displayedHeroUI;
 
     [SerializeField] private DisplayedHero_Stat_UI _health;
     [SerializeField] private DisplayedHero_Stat_UI _damage;

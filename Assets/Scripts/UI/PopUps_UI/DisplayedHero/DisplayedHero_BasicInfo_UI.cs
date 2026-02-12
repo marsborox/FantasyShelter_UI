@@ -4,7 +4,7 @@ using UnityEngine;
 public class DisplayedHero_BasicInfo_UI : MonoBehaviour
 {
     //hero image - needs implementation
-    [SerializeField] private DisplayedHero_Tabs_UI _displayedHeroUI;
+    [SerializeField] private DisplayedHero_UI _displayedHeroUI;
     [SerializeField] private TextMeshProUGUI _heroName;
     [SerializeField] private TextMeshProUGUI _levelValue;
     [SerializeField] private TextMeshProUGUI _experienceValues;

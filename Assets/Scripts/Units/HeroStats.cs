@@ -17,11 +17,12 @@ public class HeroStats : UnitStats,ICalcStat
     //public int energyBase;
     //public int energyCurrent;
 
-    private HeroInventoy _heroInventory;
+    [SerializeField] private HeroEventHandler _heroEventHandler;
+    [SerializeField] private HeroInventory _heroInventory;// do really need?
     private void Awake()
     {
         base.Awake();
-        _heroInventory = GetComponent<HeroInventoy>();
+        _heroInventory = GetComponent<HeroInventory>();
     }
     public override void AddInventoryStats()
     {//from inventory

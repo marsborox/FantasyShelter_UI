@@ -7,7 +7,6 @@ public class HeroList_UI : UI
 {
     
     [SerializeField] HeroInList_UI _heroInListPrefab;
-    [SerializeField] UI _displayedHeroTabs_UI;
     [SerializeField] UI _displayedHero_UI;
 
     public List<HeroInList_UI> heroInList_UI_list = new List<HeroInList_UI>();
@@ -40,7 +39,7 @@ public class HeroList_UI : UI
             heroInList.transform.parent = this.transform;
             heroInList.hero = hero;
             heroInList.stats = hero.stats;
-            heroInList.SetHeroUI_Reference((DisplayedHero_Tabs_UI)_displayedHeroTabs_UI, (DisplayedHero_UI)_displayedHero_UI);
+            heroInList.SetHeroUI_Reference((DisplayedHero_UI)_displayedHero_UI);
             heroInList_UI_list.Add(heroInList);
         }
     }

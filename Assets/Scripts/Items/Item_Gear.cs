@@ -1,10 +1,12 @@
 using UnityEngine;
 using System;
-public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND }
+public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND, DUMMY }
 public class Item_Gear : Item
 {
     public Slot slot;
-    
+
+    public string name;
+
     public int health;
     public int damage;
     public int defense;
@@ -17,6 +19,7 @@ public class Item_Gear : Item
     public Item_Gear_SO itemGearSO;
     public void SetItemProperties(Item_Gear_SO providedSO)
     { 
+        name = providedSO.name;
         slot = providedSO.slot;
         health = providedSO.health;
         damage = providedSO.damage;
@@ -24,6 +27,8 @@ public class Item_Gear : Item
         attackSpeed = providedSO.attackSpeed;
         movementSpeed = providedSO.movementSpeed;
         energy = providedSO.energy;
+
+        itemGearSO = providedSO;
     }
 
 
@@ -38,8 +43,8 @@ public class Item_Gear : Item
     {
         
     }
-    public void DressItem()
+    public void DressItem(Hero hero)
     { 
-        
+        hero.DressItem(this);
     }
 }
