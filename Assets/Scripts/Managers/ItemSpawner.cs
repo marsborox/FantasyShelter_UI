@@ -11,7 +11,8 @@ public class ItemSpawner : MonoBehaviour
     //some instance / prefab of item
     private void Start()
     {
-        TestSpawnXAmountItems();
+        //TestSpawnXAmountItems();
+        TestSpawnEachItem();
     }
     public void CreateItem(Item_SO itemSO)
     {
@@ -35,10 +36,16 @@ public class ItemSpawner : MonoBehaviour
             TestCreateItem();
         }
     }
+    private void TestSpawnEachItem()
+    {
+        foreach (Item_Gear_SO item_Gear_SO in itemGearSOs) 
+        {
+            CreateItemGear(item_Gear_SO);
+        }
+    }
     public void TestCreateItem()
     {
         CreateItemGear(testItemGearSO);
-
     }
     #endregion
 }

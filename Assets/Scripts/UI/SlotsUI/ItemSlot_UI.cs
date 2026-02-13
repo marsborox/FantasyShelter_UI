@@ -5,7 +5,7 @@ using TMPro;
 public class ItemSlot_UI : MonoBehaviour
 {
     public Item item;
-    [SerializeField] private Image _mySpriteRenderer;
+    [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI index;
 
 
@@ -19,8 +19,9 @@ public class ItemSlot_UI : MonoBehaviour
     {
         OnMouseDown();
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
+        Debug.Log("clickedOnObject");
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("Rightclick on itemSlot stash");
@@ -42,9 +43,9 @@ public class ItemSlot_UI : MonoBehaviour
             ((Item_Gear)item).DressItem(hero);
         }*/
     }
-    void SetSlotProperties(Item inputItem)
+    public void SetSlotProperties(Item inputItem)
     {
-        _mySpriteRenderer.sprite = item.pictogramImage;
-
+        item = inputItem;
+        image.sprite = item.sprite;
     }
 }

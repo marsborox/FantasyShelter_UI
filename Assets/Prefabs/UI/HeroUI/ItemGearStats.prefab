@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7926367169588844795, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_Name
-      value: ItemStats
+      value: ItemGearStats
       objectReference: {fileID: 0}
     - target: {fileID: 8968517018861370144, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
       propertyPath: m_Name
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72c16526504dfb458b9d4cf73d3249f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 6173487899129116104}
   health: {fileID: 1785321180031721906}
   damage: {fileID: 1070458140012118875}
   defense: {fileID: 3306119847140539149}
@@ -516,3 +517,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152004473646951303, guid: 96539a51e348b6a4aa3d51b722b8e3bb, type: 3}
   m_PrefabInstance: {fileID: 7695710194179253123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6173487899129116104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4566655712023500363, guid: 96539a51e348b6a4aa3d51b722b8e3bb, type: 3}
+  m_PrefabInstance: {fileID: 7695710194179253123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -41,6 +41,7 @@ public class HeroList_UI : UI
             heroInList.stats = hero.stats;
             heroInList.SetHeroUI_Reference((DisplayedHero_UI)_displayedHero_UI);
             heroInList_UI_list.Add(heroInList);
+            //
         }
     }
 

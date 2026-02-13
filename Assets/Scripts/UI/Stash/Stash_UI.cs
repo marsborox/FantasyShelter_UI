@@ -17,7 +17,7 @@ public class Stash_UI : UI
         {
             ItemSlot_UI itemSlotSpawned = Instantiate(itemSlot);
             itemSlotSpawned.transform.SetParent(transform);
-            itemSlotSpawned.item = item;
+            itemSlotSpawned.SetSlotProperties(item);
         }
     }
 }

@@ -17,6 +17,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8853393223000688916}
     - target: {fileID: 3164292935241635361, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
+      propertyPath: heroInventory
+      value: 
+      objectReference: {fileID: -3603686780644469057}
+    - target: {fileID: 3164292935241635361, guid: 6acbf95a364739e48a96ec3428faa079, type: 3}
       propertyPath: _heroInventory
       value: 
       objectReference: {fileID: -3603686780644469057}
@@ -150,6 +154,7 @@ MonoBehaviour:
   defense: 0
   energy: 0
   unit: {fileID: 111287291906134555}
+  _heroEventHandler: {fileID: 2765623607361266748}
   _heroInventory: {fileID: -3603686780644469057}
 --- !u!114 &-3603686780644469057
 MonoBehaviour:
@@ -163,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd249e7b813b4e8439b48ba8aaab6996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroInventory
+  _heroEventHandler: {fileID: 2765623607361266748}
   headSlot:
     slot: 0
     item: {fileID: 0}
@@ -179,7 +185,6 @@ MonoBehaviour:
     slot: 4
     item: {fileID: 0}
   gearSlots: []
-  _heroInventory: {fileID: 0}
 --- !u!114 &2765623607361266748
 MonoBehaviour:
   m_ObjectHideFlags: 0

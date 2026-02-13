@@ -4,7 +4,7 @@ public class HeroEventHandler : MonoBehaviour
 {
     public delegate void StatEvent();
 
-    public static StatEvent OnStatsChanged;
+    public StatEvent OnStatsChanged;
 
     public void OnStatsChangedEvent()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroInventory : MonoBehaviour
 {
+    [SerializeField] private HeroEventHandler _heroEventHandler;
     [System.Serializable]
     public class GearSlot 
     {
@@ -24,7 +25,6 @@ public class HeroInventory : MonoBehaviour
     public GearSlot dummySlot = new GearSlot(Slot.DUMMY);
     // this is just to fill  unassigned variable a dummy slot
     public List<GearSlot> gearSlots = new List<GearSlot>();
-
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,38 +44,7 @@ public class HeroInventory : MonoBehaviour
         gearSlots.Add(weaponSlot);
         gearSlots.Add(offhandSlot);
     }
-    private void CheckSlot(Item_Gear item)
-    {
-        switch (item.slot) 
-        {
-            case Slot.HEAD:
-                PutOnItem(item,ref headSlot);
-                break;
-            case Slot.CHEST:
-                PutOnItem(item, ref chestSlot);
-                break;
-            case Slot.WEAPON_1H:
-                PutOnItem(item, ref weaponSlot);
-                break;
-            case Slot.OFFHAND:
-                PutOnItem(item, ref offhandSlot);
-                break;
-             default:
-                Debug.Log("_heroInventory. item wrong slot");
-                break;
-        }
-    }
 
-    private void PutOnItem(Item_Gear item, ref GearSlot slot)
-    {
-        if (slot == null)
-        { slot.item = item; }
-        else
-        { 
-            //empty slot item to inventory
-            slot.item = item;
-        }
-    }
     public void DressItem(Item_Gear item)
     {
         Slot itemSlot = item.slot;
@@ -105,6 +74,7 @@ public class HeroInventory : MonoBehaviour
             Stash.instance.RemoveItemFromStash(item);
             gearSlotToUse.item = item;
         }
+        _heroEventHandler.OnStatsChangedEvent();
     }
 }
  

@@ -7,7 +7,7 @@ public class UnitStats : MonoBehaviour
     private Role _role;
     public string role;
 
-
+    
     [System.Serializable]
     public class UnitStat
     {
@@ -109,7 +109,7 @@ public class UnitStats : MonoBehaviour
 
     public virtual void AddInventoryStats()
     {//from inventory
-
+        //mabye used in hero only
         CalcStat(healthStat);
         CalcStat(damageStat);
         CalcStat(defenseStat);
@@ -129,6 +129,7 @@ public class UnitStats : MonoBehaviour
             stat.valueTotal = stat.valueBase+stat.valueItems;
         }
     }
+
     public virtual void SetStatValuesCurrent()
     {
         foreach (UnitStat unitStat in unitStatList)

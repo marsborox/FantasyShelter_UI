@@ -7,7 +7,7 @@ using UnityEngine;
 public class Hero : Unit
 {
     public HeroGroup heroGroupImIn;// must finish when hero is assigned
-    [SerializeField] private HeroInventory _heroInventory;
+    public HeroInventory heroInventory;
 
     private HeroGroupManager _heroGroupManager;
 
@@ -72,6 +72,6 @@ public class Hero : Unit
     }
     public void DressItem(Item_Gear item)
     { 
-        _heroInventory.DressItem(item);
+        heroInventory.DressItem(item);
     }
 }
