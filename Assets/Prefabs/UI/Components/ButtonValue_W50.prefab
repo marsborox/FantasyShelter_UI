@@ -88,9 +88,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_text
+      value: X
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_margin.y
+      value: -3.6401367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380228530918459107, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4510055476057989752, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
       propertyPath: m_Name
-      value: ButtonValueF_W50
+      value: ButtonValue_W50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563867855945624817, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563867855945624817, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563867855945624817, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563867855945624817, guid: 8cbf94a21d16275468227ba1d702eedd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

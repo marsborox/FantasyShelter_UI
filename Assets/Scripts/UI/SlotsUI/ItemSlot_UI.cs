@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class ItemSlot_UI : MonoBehaviour
+public class ItemSlot_UI : MonoBehaviour, IOnRayHit_UI
 {
     public Item item;
     [SerializeField] private Image image;
@@ -17,35 +17,42 @@ public class ItemSlot_UI : MonoBehaviour
     }
     private void Update()
     {
-        OnMouseDown();
-    }
-    void OnMouseDown()
-    {
-        Debug.Log("clickedOnObject");
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Rightclick on itemSlot stash");
-            if (UIManager.instance.displayedHero_UI.gameObject.activeSelf&&item is Item_Gear)
-            {
-                Debug.Log("Dressing Item");
-                UIManager.instance.displayedHero_UI.displayedHero.DressItem((Item_Gear)item);
-            }
-        }
+        
     }
 
+
    
-    void OnRightClick()
-    {
-        /*// somehow pass the hero reference
-        Hero hero;
-        if (item is Item_Gear)
-        {
-            ((Item_Gear)item).DressItem(hero);
-        }*/
-    }
+
     public void SetSlotProperties(Item inputItem)
     {
         item = inputItem;
         image.sprite = item.sprite;
+    }
+
+    public void Click()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void ClickAndHold()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void RMBClick()
+    {
+        DressIfGear();
+        //throw new System.NotImplementedException();
+    }
+
+    private void DressIfGear()
+    {
+        if (!(item is Item_Gear))
+        { return; }
+        var displayedHeroUI = UIManager.instance.displayedHero_UI;
+        if (displayedHeroUI.gameObject.activeSelf)
+        {
+            displayedHeroUI.displayedHero.DressItem(item as Item_Gear);
+        }
     }
 }
