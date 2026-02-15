@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
-using JetBrains.Annotations;
-
 using UnityEngine;
 
 public class UnitStats : MonoBehaviour
@@ -11,7 +7,7 @@ public class UnitStats : MonoBehaviour
     private Role _role;
     public string role;
 
-
+    
     [System.Serializable]
     public class UnitStat
     {
@@ -44,7 +40,7 @@ public class UnitStats : MonoBehaviour
             valueCurrent = valueTotal;
         }
     }
-
+    
     
     //may remove
     /*public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING, 100);
@@ -84,7 +80,6 @@ public class UnitStats : MonoBehaviour
         unitStatList.Add(attackSpeedStat);
         unitStatList.Add(movementSpeedStat);
         unitStatList.Add(energyStat);
-
     }
     
     public void SetBaseStatsFromSO(TestUnit_SO inputSO)
@@ -114,7 +109,7 @@ public class UnitStats : MonoBehaviour
 
     public virtual void AddInventoryStats()
     {//from inventory
-
+        //mabye used in hero only
         CalcStat(healthStat);
         CalcStat(damageStat);
         CalcStat(defenseStat);
@@ -134,6 +129,7 @@ public class UnitStats : MonoBehaviour
             stat.valueTotal = stat.valueBase+stat.valueItems;
         }
     }
+
     public virtual void SetStatValuesCurrent()
     {
         foreach (UnitStat unitStat in unitStatList)

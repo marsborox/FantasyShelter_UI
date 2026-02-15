@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class Hero : Unit
 {
+    public HeroGroup heroGroupImIn;// must finish when hero is assigned
+    public HeroInventory heroInventory;
+
     private HeroGroupManager _heroGroupManager;
+
+
     public string heroGroupImInName;
     public int heroGroupImInID;
     private void Awake()
@@ -64,5 +69,9 @@ public class Hero : Unit
     public int ReturnEnergyCurrent()
     {
         return ((HeroStats)stats).energyStat.valueCurrent;
+    }
+    public void DressItem(Item_Gear item)
+    { 
+        heroInventory.DressItem(item);
     }
 }

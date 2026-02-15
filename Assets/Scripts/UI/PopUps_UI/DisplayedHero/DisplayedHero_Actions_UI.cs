@@ -4,7 +4,7 @@ using TMPro;
 using System.ComponentModel.Design;
 public class DisplayedHero_Actions_UI : UI
 {
-    [SerializeField] DisplayedHero_Tabs_UI _displayedHero_UI;
+    [SerializeField] DisplayedHero_UI _displayedHero_UI;
 
     [SerializeField] Button _groupButton;
     [SerializeField] TextMeshProUGUI _groupButtonText;
