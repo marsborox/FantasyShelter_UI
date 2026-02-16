@@ -13,7 +13,7 @@ public class GameSaveLoadSystem : Singleton<GameSaveLoadSystem>
         base.Awake();
     }
     //he used public static void SaveObject
-    public  void SaveObject(TestSaveObject saveObject)
+    public void SaveObject(TestSaveObject saveObject)
     { 
         BinaryFormatter formatter = new BinaryFormatter();
         //where to save - lcoation of file

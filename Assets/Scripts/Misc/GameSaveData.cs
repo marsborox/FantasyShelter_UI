@@ -8,6 +8,7 @@ public class GameSaveData
     public int health;
     public float[] position;
 
+    
     public GameSaveData(TestSaveObject saveObject)
     { 
         name = saveObject.name;
@@ -17,5 +18,6 @@ public class GameSaveData
         position[0] = saveObject.transform.position.x;
         position[1] = saveObject.transform.position.y;
         position[2] = saveObject.transform.position.z;
+
     }
 }

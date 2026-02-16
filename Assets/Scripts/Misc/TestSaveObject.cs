@@ -5,7 +5,7 @@ public class TestSaveObject : MonoBehaviour
     public string heroName = "Johnny";
     public int level = 5;
     public int health = 10;
-    
+
     private void Start()
     {
         //GameSaveLoadSystem.instance.SaveObject(this);

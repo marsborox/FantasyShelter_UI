@@ -22,6 +22,11 @@ public class Unit : MonoBehaviour
     {
         
     }
+
+    public string ReturnName()
+    {
+        return unitName;
+    }
     //ENEMY
     //might miss in enemy
     /*public int ReturnHealth()
