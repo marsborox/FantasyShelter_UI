@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using NUnit.Framework;
-using UnityEditor;
-using System.Collections.Generic;
 using TMPro;
 
 public class UI : MonoBehaviour
@@ -70,6 +67,7 @@ public class UI : MonoBehaviour
         });
         //boolUI = false;
     }*/
+    //this is prob for return type
     public void InitiateButtonFunc<T>(Button button, Func<T> method)
     {//will remove this later
         button.onClick.AddListener(delegate
