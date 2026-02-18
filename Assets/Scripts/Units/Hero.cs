@@ -74,4 +74,14 @@ public class Hero : Unit
     { 
         heroInventory.DressItem(item);
     }
+    public Hero_SaveData SaveHero()
+    { 
+        Hero_SaveData data = new Hero_SaveData();
+
+        return data;
+    }
+    public void LoadHero(Hero_SaveData data)
+    { 
+    
+    }
 }

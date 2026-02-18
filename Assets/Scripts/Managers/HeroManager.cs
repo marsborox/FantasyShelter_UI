@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HeroManager : MonoBehaviour
+public class HeroManager : Singleton<HeroManager>
 {
+    public static new HeroManager instance => Singleton<HeroManager>.instance;
     [SerializeField] private UnitSpawner _unitSpawner;
     [SerializeField] private HeroGroupManager _heroGroupManager;
     [SerializeField] HeroGroup _baseHeroGroup;

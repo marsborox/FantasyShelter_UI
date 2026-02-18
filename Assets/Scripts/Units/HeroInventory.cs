@@ -76,5 +76,26 @@ public class HeroInventory : MonoBehaviour
         }
         _heroEventHandler.OnStatsChangedEvent();
     }
+
+    void SaveInventory()
+    {
+        foreach (GearSlot slot in gearSlots) 
+        {
+            if (slot.item == null)
+            { continue; }
+            Item_Gear_SaveData item_Gear_SaveData = new Item_Gear_SaveData();
+            item_Gear_SaveData.slot = slot.item.slot;
+            item_Gear_SaveData.health = slot.item.health;
+            item_Gear_SaveData.damage = slot.item.damage;
+            item_Gear_SaveData.defense = slot.item.defense;
+            item_Gear_SaveData.attackSpeed = slot.item.attackSpeed;
+            item_Gear_SaveData.movementSpeed = slot.item.movementSpeed;
+            item_Gear_SaveData.energy = slot.item.energy;
+        }
+    }
+    void LoadInventory()
+    { 
+    
+    }
 }
  
