@@ -14106,6 +14106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ID_Manager
   nextFreeID: 1
+  freeIDs: 
 --- !u!1001 &1200140381
 PrefabInstance:
   m_ObjectHideFlags: 0

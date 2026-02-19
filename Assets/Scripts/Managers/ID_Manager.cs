@@ -6,7 +6,7 @@ public class ID_Manager : Singleton<ID_Manager>
 
     public static new ID_Manager instance => Singleton<ID_Manager>.instance;
     public int nextFreeID = 1;//ID 0 is saved for BaseHeroGroup
-    List <int> freeIDs = new List<int>();
+    public List <int> freeIDs = new List<int>();
 
     private void Awake()
     {

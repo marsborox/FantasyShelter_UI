@@ -27,6 +27,10 @@ public class Unit : MonoBehaviour
     {
         return unitName;
     }
+    public int ReturnID()
+    { 
+        return uniqueID;
+    }
     //ENEMY
     //might miss in enemy
     /*public int ReturnHealth()

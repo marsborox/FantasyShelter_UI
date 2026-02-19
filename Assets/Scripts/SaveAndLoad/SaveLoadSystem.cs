@@ -21,7 +21,15 @@ public class SaveLoadSystem : Singleton<SaveLoadSystem>
         //save ID Data
         data.id_ManagerData = ID_Manager.instance.SaveID_Manager();
 
-        //save heroes
+        //save heroGroups
+        foreach (HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
+        { 
+            HeroGroup_SaveData heroGroupData = heroGroup.SaveHeroGroup();
+            data.heroGroupSaveList.Add(heroGroupData);
+        }
+
+
+        //save heroes with items they wear//might add backpack later here
         foreach (Hero hero in HeroManager.instance.heroList)
         {
             Hero_SaveData heroData = hero.SaveHero();
@@ -41,8 +49,14 @@ public class SaveLoadSystem : Singleton<SaveLoadSystem>
             // Load oneOffs
             ID_Manager.instance.LoadID_Manager(data.id_ManagerData);
 
-            //Load Items
+            //Load Items in inventory
 
+            //Load HeroGroups
+            foreach (HeroGroup_SaveData heroGroupData in data.heroGroupSaveList)
+            {
+                HeroGroup heroGroup = HeroGroupManager.instance.ReturnHeroGroupForLoad();
+                heroGroup.LoadHeroGroup(heroGroupData);
+            }
 
             //Load heroes
             foreach (Hero_SaveData heroData in data.heroSaveList)

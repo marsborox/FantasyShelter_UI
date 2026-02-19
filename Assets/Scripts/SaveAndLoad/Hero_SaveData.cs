@@ -16,4 +16,7 @@ public class Hero_SaveData
     [Key(7)] public int movementSpeed;
     [Key(8)] public int energy;
 
+
+    [Key(9)] public int idGroupHeroIsIn;
+
 }

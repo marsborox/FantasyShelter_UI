@@ -35,6 +35,10 @@ public class HeroManager : Singleton<HeroManager>
         
         heroList.Add(hero);
     }
+    public void MoveHeroToBaseGroup(Hero hero)
+    {
+        MoveHeroToGroup(hero, _baseHeroGroup);
+    }
 
     public void MoveHeroToGroup(Hero hero, HeroGroup _heroGroup)
     {
@@ -46,19 +50,15 @@ public class HeroManager : Singleton<HeroManager>
         else if (!(hero.heroGroupImInName == ""))
         {
 
-            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.id == hero.heroGroupImInID select heroGroup;
+            IEnumerable<HeroGroup> baseGroupQuerry = from heroGroup in _heroGroupManager.heroGroupList where heroGroup.uniqueID == hero.idGroupHeroIsIn select heroGroup;
             HeroGroup heroGroupToRemove = baseGroupQuerry.FirstOrDefault();
             heroGroupToRemove.RemoveUnitFromDesignatedList(hero);
         }
 
         _heroGroup.AddUnitToDesignatedList(hero);
         hero.heroGroupImInName = _heroGroup.heroGroupName;
-        hero.heroGroupImInID = _heroGroup.id;
+        hero.idGroupHeroIsIn = _heroGroup.uniqueID;
         hero.transform.parent=_heroGroup.transform;
-    }
-    public void MoveHeroToBaseGroup(Hero hero)
-    {
-        MoveHeroToGroup(hero, _baseHeroGroup);
     }
     #region TestMethods
 

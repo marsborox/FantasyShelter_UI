@@ -23,7 +23,7 @@ public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
             spawnedButton.transform.SetParent(transform);
             InitiateButton(spawnedButton.button,SetButtonForChangeHeroGroup,heroGroup);
             spawnedButton.SetButtonText(heroGroup.heroGroupName);
-            if (heroGroup.id == _displayedHero_UI.displayedHero.heroGroupImInID)
+            if (heroGroup.uniqueID == _displayedHero_UI.displayedHero.idGroupHeroIsIn)
             {
                 //this will set color of button of grup we are in
                 SetButtonPressedColor(spawnedButton.button);

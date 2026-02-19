@@ -8,7 +8,7 @@ public class Hero : Unit
 
 
     public string heroGroupImInName;
-    public int heroGroupImInID;
+    public int idGroupHeroIsIn;
     private void Awake()
     {
         
@@ -75,6 +75,7 @@ public class Hero : Unit
 
         data.heroName = unitName;
         data.uniqueID = uniqueID;
+        data.idGroupHeroIsIn = idGroupHeroIsIn;
         stats.SaveStats(data);
 
         heroInventory.SaveInventory(data);
@@ -86,9 +87,20 @@ public class Hero : Unit
         unitName = data.heroName;
         uniqueID = data.uniqueID;
         name = data.heroName;
+        idGroupHeroIsIn = data.idGroupHeroIsIn;
         stats.LoadStats(data);
         heroInventory.LoadInventory(data);
 
         stats.AddInventoryStats();
+        //add hero to designated group
+        foreach (HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
+        {
+            if (heroGroup.uniqueID == idGroupHeroIsIn)
+            {
+                HeroManager.instance.MoveHeroToGroup(this,heroGroup);
+                break;
+            }
+        }
+        
     }
 }

@@ -36,15 +36,25 @@ public class HeroGroupManager : Singleton<HeroGroupManager>
         heroGroupList.Add(heroGroup);
         heroGroup.heroGroupName = "Group Name";
         //heroGroup.id = IncreaseAndReturn_HeroGroup_IDCounter();
-        heroGroup.id = ID_Manager.instance.ReturnID();
+        heroGroup.uniqueID = ID_Manager.instance.ReturnID();
         heroGroup.heroGroupManager = this;
         heroGroup.heroManager = heroManager;
+    }
+    public HeroGroup ReturnHeroGroupForLoad()
+    {
+        HeroGroup heroGroup = Instantiate(_heroGroupPrefab);
+        heroGroup.transform.parent = transform;
+        heroGroupList.Add(heroGroup);
+        heroGroup.heroGroupManager = this;
+        heroGroup.heroManager = heroManager;
+
+        return heroGroup;
     }
     public void DestroyHeroGroup(HeroGroup heroGroup)
     { 
         heroGroupList.Remove(heroGroup);
         //uiManager.GroupDisband();
-        ID_Manager.instance.MakeIDAvailable(heroGroup.id);
+        ID_Manager.instance.MakeIDAvailable(heroGroup.uniqueID);
         Destroy(heroGroup.gameObject);
         //close HeroGroup
         //refresh UI HeroGroups if opened
