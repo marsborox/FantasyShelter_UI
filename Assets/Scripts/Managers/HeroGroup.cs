@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HeroGroup : MonoBehaviour, ICalcStat
 {
+    public int uniqueID;
     public HeroGroupManager heroGroupManager;
     public HeroManager heroManager;
 

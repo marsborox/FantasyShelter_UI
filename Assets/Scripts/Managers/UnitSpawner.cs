@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 
-public class UnitSpawner : MonoBehaviour 
+public class UnitSpawner : Singleton<UnitSpawner> 
 {
+    public static new UnitSpawner instance => Singleton<UnitSpawner>.instance;
     [SerializeField] private Hero _heroPrefab;
     private Hero _heroTemplate;
 
@@ -22,12 +23,14 @@ public class UnitSpawner : MonoBehaviour
 
     void Awake()
     { 
+        base.Awake();
         _testHeroSpawner = GetComponent<TestUnitSpawner>();
     }
 
     public void SpawnHero()
     {
         Hero hero = Instantiate(_heroPrefab);
+        hero.uniqueID = ID_Manager.instance.ReturnID();
         hero.DoBasicSetup();
         hero.SetHeroGroupManagerReference(_heroGroupManager);
         
@@ -39,7 +42,22 @@ public class UnitSpawner : MonoBehaviour
 
         _heroManager.MoveHeroToBaseGroup(hero);
     }
-    public void SpawnEnpc(HeroGroup heroGroup)
+    public Hero ReturnHeroForLoad()
+    {
+        Hero hero = Instantiate(_heroPrefab);
+        hero.DoBasicSetup();
+        hero.SetHeroGroupManagerReference(_heroGroupManager);
+
+        //hero.transform.parent = _heroManager.transform;
+        //SetStatsFromRandomSO(ref hero);
+        _heroManager.heroList.Add(hero);
+
+        //add to baseGroup
+
+        //_heroManager.MoveHeroToBaseGroup(hero);
+        return hero;
+    }
+    public void SpawnNpc(HeroGroup heroGroup)
     { 
         EnemyNPC creep = Instantiate(_creepPrefab);
         heroGroup.enemyNPCList.Add(creep);
@@ -67,6 +85,7 @@ public class UnitSpawner : MonoBehaviour
         }
         //Debug.Log(textToPrint + index);
         hero.stats.SetBaseStatsFromSO(list_SO[randomIndex]);
+        
     }
 
 }

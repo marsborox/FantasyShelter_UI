@@ -36,7 +36,7 @@ public class HeroStats : UnitStats,ICalcStat
         _heroEventHandler.OnStatsChanged -= AddInventoryStats;
     }
     public override void AddInventoryStats()
-    {//from inventory
+    {//from inventory //for now this calculates all stats
 
         /*healthStat.valueTotal = healthStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.health, _heroInventory.gear);
         damageStat.valueTotal = damageStat.valueBase + ((ICalcStat)this).CalcStat(inputObject => inputObject.damage, _heroInventory.gear);

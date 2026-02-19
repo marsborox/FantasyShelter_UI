@@ -3,16 +3,6 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Sprite sprite;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int itemSO_ID;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

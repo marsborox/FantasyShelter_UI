@@ -2,13 +2,17 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class ItemSpawner : MonoBehaviour
+public class ItemSpawner : Singleton<ItemSpawner>
 {
     public List<Item_Gear_SO> itemGearSOs = new List<Item_Gear_SO>();
     public Item_Gear_SO testItemGearSO;
 
     [SerializeField] private Item_Gear itemGearPrefab;
     //some instance / prefab of item
+    private void Awake()
+    {
+        base.Awake();
+    }
     private void Start()
     {
         //TestSpawnXAmountItems();
@@ -26,6 +30,12 @@ public class ItemSpawner : MonoBehaviour
         Item_Gear newItem = Instantiate(itemGearPrefab);
         newItem.SetItemProperties(((Item_Gear_SO)itemSO));
         Stash.instance.AddItemToStash(newItem);
+    }
+    public Item_Gear ReturnItemGear(Item_SO itemSO)
+    {
+        Item_Gear newItem = Instantiate(itemGearPrefab);
+        newItem.SetItemProperties(((Item_Gear_SO)itemSO));
+        return newItem;
     }
     #region TestMethods
     private void TestSpawnXAmountItems()

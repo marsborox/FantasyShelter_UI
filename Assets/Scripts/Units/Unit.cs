@@ -3,7 +3,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public UnitStats stats;
-
+    public int uniqueID;
     public string unitName;
     public int level;
 

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using UnityEngine;
 
 public class Hero : Unit
 {
@@ -78,10 +73,22 @@ public class Hero : Unit
     { 
         Hero_SaveData data = new Hero_SaveData();
 
+        data.heroName = unitName;
+        data.uniqueID = uniqueID;
+        stats.SaveStats(data);
+
+        heroInventory.SaveInventory(data);
+
         return data;
     }
     public void LoadHero(Hero_SaveData data)
     { 
-    
+        unitName = data.heroName;
+        uniqueID = data.uniqueID;
+        name = data.heroName;
+        stats.LoadStats(data);
+        heroInventory.LoadInventory(data);
+
+        stats.AddInventoryStats();
     }
 }

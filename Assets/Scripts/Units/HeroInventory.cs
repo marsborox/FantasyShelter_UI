@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-
 public class HeroInventory : MonoBehaviour
 {
     [SerializeField] private HeroEventHandler _heroEventHandler;
@@ -10,6 +8,7 @@ public class HeroInventory : MonoBehaviour
     {
         public Slot slot;
         public Item_Gear item;
+        public int itemSO_ID;
 
         public GearSlot(Slot inputSlot)
         { 
@@ -27,7 +26,7 @@ public class HeroInventory : MonoBehaviour
     public List<GearSlot> gearSlots = new List<GearSlot>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         AddItemSLotsToList();
     }
@@ -74,28 +73,49 @@ public class HeroInventory : MonoBehaviour
             Stash.instance.RemoveItemFromStash(item);
             gearSlotToUse.item = item;
         }
+        gearSlotToUse.itemSO_ID = item.itemSO_ID;
         _heroEventHandler.OnStatsChangedEvent();
+
     }
 
-    void SaveInventory()
+    public void SaveInventory(Hero_SaveData heroSaveData)
     {
         foreach (GearSlot slot in gearSlots) 
         {
             if (slot.item == null)
             { continue; }
             Item_Gear_SaveData item_Gear_SaveData = new Item_Gear_SaveData();
-            item_Gear_SaveData.slot = slot.item.slot;
+
+            item_Gear_SaveData.itemSO_ID = slot.itemSO_ID;
+            //might use this if we make items like in diablo
+            /*item_Gear_SaveData.slot = slot.item.slot;
             item_Gear_SaveData.health = slot.item.health;
             item_Gear_SaveData.damage = slot.item.damage;
             item_Gear_SaveData.defense = slot.item.defense;
             item_Gear_SaveData.attackSpeed = slot.item.attackSpeed;
             item_Gear_SaveData.movementSpeed = slot.item.movementSpeed;
             item_Gear_SaveData.energy = slot.item.energy;
+            */
+
+
+            heroSaveData.itemSaveList.Add(item_Gear_SaveData);
         }
+        
     }
-    void LoadInventory()
-    { 
-    
+    public void LoadInventory(Hero_SaveData heroSaveData)
+    {
+        foreach (Item_Gear_SaveData itemGearData in heroSaveData.itemSaveList)
+        {
+            foreach (Item_Gear_SO itemGearSO in ItemSpawner.instance.itemGearSOs)
+            {
+                if (itemGearSO.itemSO_ID == itemGearData.itemSO_ID)
+                {
+                    DressItem(ItemSpawner.instance.ReturnItemGear(itemGearSO));
+                    break;
+                }
+            }
+            //ItemSpawner.instance
+        }
     }
 }
  

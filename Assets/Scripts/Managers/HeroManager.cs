@@ -9,7 +9,11 @@ public class HeroManager : Singleton<HeroManager>
     [SerializeField] private HeroGroupManager _heroGroupManager;
     [SerializeField] HeroGroup _baseHeroGroup;
     public List <Hero> heroList = new List<Hero>();
-    
+
+    private void Awake()
+    {
+        base.Awake();
+    }
     void Start()
     {
         

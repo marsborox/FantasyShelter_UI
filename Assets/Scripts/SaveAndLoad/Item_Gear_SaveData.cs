@@ -11,7 +11,7 @@ public class Item_Gear_SaveData
     [Key(4)] public int attackSpeed;
     [Key(5)] public int movementSpeed;
     [Key(6)] public int energy;
-
+    [Key(7)] public int itemSO_ID;
 
     //owner - need some ID assigningSystem
 }

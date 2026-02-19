@@ -8,6 +8,10 @@ public class Stash : Singleton<Stash>
     
     public List<Item> itemStashList = new List<Item>();
 
+    private void Awake()
+    {
+        base.Awake();
+    }
 
     public void AddItemToStash(Item item)
     { 

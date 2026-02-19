@@ -7,9 +7,10 @@ using static UnitStats;
 public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND, DUMMY }
 public class Item_Gear : Item
 {
+    
     public Slot slot;
 
-    public string name;
+    public string itemName;
 
     public int health;
     public int damage;
@@ -29,8 +30,10 @@ public class Item_Gear : Item
 
     public Item_Gear_SO itemGearSO;
     public void SetItemProperties(Item_Gear_SO providedSO)
-    { 
-        name = providedSO.name;
+    {
+        itemSO_ID = providedSO.itemSO_ID;
+        itemName = providedSO.itemSoName;
+        name = providedSO.itemSoName;
         sprite = providedSO.sprite;
 
         slot = providedSO.slot;

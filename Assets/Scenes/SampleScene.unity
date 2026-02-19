@@ -2979,8 +2979,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 279054433}
+  - component: {fileID: 279054434}
   m_Layer: 0
-  m_Name: SaveSystem
+  m_Name: SaveLoadSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2994,13 +2995,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279054432}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1016.2315, y: 501.4038, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 526938218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279054434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279054432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a03e7fa0af207b4cb6dcd09034eb54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadSystem
+  fileName: /gameSave.sav
+  savePath: 
 --- !u!1001 &300348952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3397,14 +3412,14 @@ PrefabInstance:
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1414445219}
+      objectReference: {fileID: 279054432}
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveThisObject
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -6000,6 +6015,8 @@ Transform:
   - {fileID: 1770003782}
   - {fileID: 608807071}
   - {fileID: 1991928785}
+  - {fileID: 279054433}
+  - {fileID: 1195773548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &527121468
@@ -6570,6 +6587,8 @@ MonoBehaviour:
   _spawnHero: {fileID: 1711435155}
   _spawnCreep: {fileID: 617940841}
   _createHeroGroup: {fileID: 1143734859}
+  _saveButton: {fileID: 1686401769}
+  _loadButton: {fileID: 1971404599}
   _unitSpawner: {fileID: 608807072}
   _heroGroupManager: {fileID: 942849325}
 --- !u!1001 &598884147
@@ -14042,6 +14061,51 @@ MonoBehaviour:
   heroManager: {fileID: 1770003783}
   _moveToGroup: {fileID: 1814934903}
   _bulkMoveHeroesToGroup: {fileID: 751869146}
+--- !u!1 &1195773547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195773548}
+  - component: {fileID: 1195773549}
+  m_Layer: 0
+  m_Name: IDManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195773548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195773547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 526938218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195773549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195773547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79e90e4a24147041ae68ddff267e649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ID_Manager
+  nextFreeID: 1
 --- !u!1001 &1200140381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16732,9 +16796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6809a039ac4e94bb266eba8773c48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestSaveObject
-  heroName: Johnny
-  level: 5
-  health: 10
 --- !u!1 &1430267996
 GameObject:
   m_ObjectHideFlags: 0
@@ -19709,6 +19770,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152004473646951303, guid: 96539a51e348b6a4aa3d51b722b8e3bb, type: 3}
   m_PrefabInstance: {fileID: 1683389443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686401769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
+  m_PrefabInstance: {fileID: 348590978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1711435153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23381,6 +23453,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152004473646951303, guid: 96539a51e348b6a4aa3d51b722b8e3bb, type: 3}
   m_PrefabInstance: {fileID: 1962246563}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971404599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 869553163477402542, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
+  m_PrefabInstance: {fileID: 675319941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1977490286 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4472697060865928072, guid: 509b8675a60bfb545941ec4b10141c2c, type: 3}
@@ -25862,4 +25945,3 @@ SceneRoots:
   - {fileID: 830137032}
   - {fileID: 1077475552}
   - {fileID: 526938218}
-  - {fileID: 279054433}
