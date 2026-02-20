@@ -13,7 +13,7 @@ public class Stash_UI : UI
     }
     public void DisplayInventorySlots()
     {
-        foreach (Item item in stash.itemStashList)
+        foreach (Item item in stash.itemGearList)
         {
             ItemSlot_UI itemSlotSpawned = Instantiate(itemSlot);
             itemSlotSpawned.transform.SetParent(transform);

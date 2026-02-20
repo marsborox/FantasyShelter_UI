@@ -7,14 +7,32 @@ public class UIManager : Singleton<UIManager>
     public GameObject heroGroupsUI;
     public TopPanel_UI topPanel_UI;
     public DisplayedHero_UI displayedHero_UI;
+
+    public Stash_UI stash_UI;
     //set color of button
     protected override void Awake()
     {
         base.Awake();
     }
-
-        public void RefreshGroupsUI()
+    private void OnEnable()
+    {
+        GlobalEventHandler.instance.OnStashChanged += RefreshStashUI;
+    }
+    private void OnDisable()
+    {
+        GlobalEventHandler.instance.OnStashChanged -= RefreshStashUI;
+    }
+    public void RefreshGroupsUI()
     {
         topPanel_UI.RefreshGroupList();
     }
+    public void RefreshStashUI()
+    {
+        if (stash_UI.gameObject.activeSelf)
+        {
+            Debug.Log("refreshing UI");
+            topPanel_UI.RefershStashUI();
+        }
+    }
+            
 }

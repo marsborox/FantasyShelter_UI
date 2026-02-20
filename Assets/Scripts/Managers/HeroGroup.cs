@@ -70,7 +70,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
             }
             else { disbanding = false; }
         }
-        ID_Manager.instance.MakeIDAvailable(uniqueID);
+        //ID_Manager.instance.MakeIDAvailable(uniqueID);
         heroGroupManager.DestroyHeroGroup(this);
         //close HeroGroup
         //refresh UI HeroGroups if opened

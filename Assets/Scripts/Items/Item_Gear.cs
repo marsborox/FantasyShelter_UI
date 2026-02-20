@@ -7,18 +7,17 @@ using static UnitStats;
 public enum Slot {HEAD,CHEST,WEAPON_1H,OFFHAND, DUMMY }
 public class Item_Gear : Item
 {
-    
     public Slot slot;
 
-    public string itemName;
-
+    public string gearName;
+    
     public int health;
     public int damage;
     public int defense;
     public int attackSpeed;
     public int movementSpeed;
     public int energy;
-
+    
     /*public UnitStat healthStat = new UnitStat(Constants.HEALTH_STRING);
     public UnitStat damageStat = new UnitStat(Constants.DAMAGE_STRING);
     public UnitStat defenseStat = new UnitStat(Constants.DEFENSE_STRING);
@@ -32,7 +31,7 @@ public class Item_Gear : Item
     public void SetItemProperties(Item_Gear_SO providedSO)
     {
         itemSO_ID = providedSO.itemSO_ID;
-        itemName = providedSO.itemSoName;
+        gearName = providedSO.itemSoName;
         name = providedSO.itemSoName;
         sprite = providedSO.sprite;
 

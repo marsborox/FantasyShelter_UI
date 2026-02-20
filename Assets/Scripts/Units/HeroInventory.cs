@@ -69,7 +69,7 @@ public class HeroInventory : MonoBehaviour
         }
         else
         {//if item is already in slot and we are replacing it
-            Stash.instance.AddItemToStash(gearSlotToUse.item);
+            Stash.instance.AddItemGearToStash(gearSlotToUse.item);
             Stash.instance.RemoveItemFromStash(item);
             gearSlotToUse.item = item;
         }
@@ -87,6 +87,7 @@ public class HeroInventory : MonoBehaviour
             Item_Gear_SaveData item_Gear_SaveData = new Item_Gear_SaveData();
 
             item_Gear_SaveData.itemSO_ID = slot.itemSO_ID;
+
             //might use this if we make items like in diablo
             /*item_Gear_SaveData.slot = slot.item.slot;
             item_Gear_SaveData.health = slot.item.health;

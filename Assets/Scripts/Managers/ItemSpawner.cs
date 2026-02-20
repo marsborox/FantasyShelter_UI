@@ -8,6 +8,7 @@ public class ItemSpawner : Singleton<ItemSpawner>
     public Item_Gear_SO testItemGearSO;
 
     [SerializeField] private Item_Gear itemGearPrefab;
+    [SerializeField] private Item_Material itemMaterialPrefab;
     //some instance / prefab of item
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class ItemSpawner : Singleton<ItemSpawner>
     private void Start()
     {
         //TestSpawnXAmountItems();
-        TestSpawnEachItem();
+        //TestSpawnEachItem();
     }
     public void CreateItem(Item_SO itemSO)
     {
@@ -29,14 +30,22 @@ public class ItemSpawner : Singleton<ItemSpawner>
     { 
         Item_Gear newItem = Instantiate(itemGearPrefab);
         newItem.SetItemProperties(((Item_Gear_SO)itemSO));
+        Stash.instance.AddItemGearToStash(newItem);
+    }
+    public void CreateItemMaterial(Item_SO itemSO)
+    { 
+        Item_Material newItem = Instantiate(itemMaterialPrefab);
+        newItem.SetItemProperties(((Item_Material_SO)itemSO));
         Stash.instance.AddItemToStash(newItem);
     }
+
     public Item_Gear ReturnItemGear(Item_SO itemSO)
     {
         Item_Gear newItem = Instantiate(itemGearPrefab);
         newItem.SetItemProperties(((Item_Gear_SO)itemSO));
         return newItem;
     }
+
     #region TestMethods
     private void TestSpawnXAmountItems()
     {
@@ -46,7 +55,7 @@ public class ItemSpawner : Singleton<ItemSpawner>
             TestCreateItem();
         }
     }
-    private void TestSpawnEachItem()
+    public void TestSpawnEachItem()
     {
         foreach (Item_Gear_SO item_Gear_SO in itemGearSOs) 
         {

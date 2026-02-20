@@ -20,6 +20,9 @@ public class SaveLoadSystem : Singleton<SaveLoadSystem>
 
         //save ID Data
         data.id_ManagerData = ID_Manager.instance.SaveID_Manager();
+        //save ItemsInStash
+        data.stash_SaveData = Stash.instance.SaveStash();
+
 
         //save heroGroups
         foreach (HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
@@ -49,7 +52,8 @@ public class SaveLoadSystem : Singleton<SaveLoadSystem>
             // Load oneOffs
             ID_Manager.instance.LoadID_Manager(data.id_ManagerData);
 
-            //Load Items in inventory
+            //Load Items in stash
+            Stash.instance.LoadStash(data.stash_SaveData);
 
             //Load HeroGroups
             foreach (HeroGroup_SaveData heroGroupData in data.heroGroupSaveList)

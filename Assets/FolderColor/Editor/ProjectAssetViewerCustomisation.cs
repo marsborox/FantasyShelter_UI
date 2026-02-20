@@ -119,7 +119,7 @@ namespace FolderColor
 
 			if (guids.Length == 0)
 			{
-				Debug.LogError($"Script with itemName '{scriptName}' not found!");
+				Debug.LogError($"Script with gearName '{scriptName}' not found!");
 				return null;
 			}
 

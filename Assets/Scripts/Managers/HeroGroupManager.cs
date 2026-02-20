@@ -51,7 +51,8 @@ public class HeroGroupManager : Singleton<HeroGroupManager>
         return heroGroup;
     }
     public void DestroyHeroGroup(HeroGroup heroGroup)
-    { 
+    {
+        //Debug.Log("DestroyingGroup");
         heroGroupList.Remove(heroGroup);
         //uiManager.GroupDisband();
         ID_Manager.instance.MakeIDAvailable(heroGroup.uniqueID);

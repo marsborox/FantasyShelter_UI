@@ -35,5 +35,10 @@ public class TopPanel_UI : UI
         ButtonMethod(_GroupsButton, _GroupsUI);
         ButtonMethod(_GroupsButton, _GroupsUI);
     }
+    public void RefershStashUI()
+    {
+        ButtonMethod(_StashButton, _StashUI);
+        ButtonMethod(_StashButton, _StashUI);
+    }
 
 }
