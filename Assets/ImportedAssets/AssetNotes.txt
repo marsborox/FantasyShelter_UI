@@ -2,5 +2,12 @@ icons used from
 5000+ icons
 https://assetstore.unity.com/packages/2d/gui/icons/5800-fantasy-rpg-icons-pack-229460
 
+
+Wood - dwarfLoot 35
+GreenLeaf - achemical Herbs Icons 21
+IronOre - RPG Mining Icons 31
+Stone - RPG Mining 26
+Iron Bar - RPG Blacksmith icons 33
+
 fisktak
-https://assetstore.unity.com/packages/2d/gui/icons/5800-fantasy-rpg-icons-pack-229460
+https://assetstore.unity.com/packages/2d/gui/icons/free-fantasy-items-253853
