@@ -1,15 +1,42 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=9060dfa9ddbe79348be2e44955f3ff86&amp;type=3#Style"/>
     <ui:VisualElement class="top-panel">
-        <ui:Button name="HeroesButton" class="my-button" text="Heroes"/>
-        <ui:Button name="GroupsButton" class="my-button" text="Groups"/>
-        <ui:Button name="BaseButton" class="my-button" text="Base"/>
-        <ui:Button name="StashButton" class="my-button" text="Stash"/>
-        <ui:Button name="MapButton" class="my-button" text="Map"/>
+        <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
+        <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
+        <ui:Button name="BaseButton" text="Base" class="my-button"/>
+        <ui:Button name="StashButton" text="Stash" class="my-button"/>
+        <ui:Button name="MapButton" text="Map" class="my-button"/>
     </ui:VisualElement>
 
-    <ui:VisualElement name="MainWindow">
-    <!--here will all stuff be displayed prob-->
+    <ui:VisualElement name="MainWindow" class="main-window">
+        <ui:VisualElement name="SortingButtons" class="hero-list-sorting-buttons">
+            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
+            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
+            <ui:Button name="BaseButton" text="Base" class="my-button"/>
+            <ui:Button name="StashButton" text="Stash" class="my-button"/>
+            <ui:Button name="MapButton" text="Map" class="my-button"/>
+            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
+            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
+            <ui:Button name="BaseButton" text="Base" class="my-button"/>
+            <ui:Button name="StashButton" text="Stash" class="my-button"/>
+            <ui:Button name="MapButton" text="Map" class="my-button"/>
+            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
+            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
+            <ui:Button name="BaseButton" text="Base" class="my-button"/>
+            <ui:Button name="StashButton" text="Stash" class="my-button"/>
+            <ui:Button name="MapButton" text="Map" class="my-button"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="BulkSortingButtons">
+            <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Heroes">
+            <ui:VisualElement name="HeroBarToolBar">
+                <ui:TextField name="TestText" value="Heroes Header" class="test-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
     </ui:VisualElement>
 
     <ui:Image style="height: 77px; width: 109px; translate: 0 77px;"/>
