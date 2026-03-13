@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DisplayedHeroGroup_UI_Heroes : UI
+public class DisplayedHeroGroup_UI_Heroes : UI_Old
 {
     [SerializeField] DisplayedHeroGroup_UI _displayedHeroGroup_UI;
     [SerializeField] DisplayedHeroGroup_HeroInGroup_UI _HeroInGroup_UI_Prefab;

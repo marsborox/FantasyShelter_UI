@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayedHero_TopBar_UI : UI
+public class DisplayedHero_TopBar_UI : UI_Old
 {
 
     [SerializeField] Button _closeButton;
-    [SerializeField] UI _displayedHero_UI;
+    [SerializeField] UI_Old _displayedHero_UI;
 
 
 

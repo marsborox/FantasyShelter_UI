@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
-public class HeroGroupInList_UI : UI
+public class HeroGroupInList_UI : UI_Old
 {
     [SerializeField] TextMeshProUGUI _groupName;
     [SerializeField] Button _nameButton;

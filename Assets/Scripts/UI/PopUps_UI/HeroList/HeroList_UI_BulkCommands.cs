@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroList_UI_BulkCommands : UI
+public class HeroList_UI_BulkCommands : UI_Old
 {
     [SerializeField] Button _moveToGroup;
 

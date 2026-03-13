@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
-public class UI : MonoBehaviour
+public class UI_Old : MonoBehaviour
 {
     [SerializeField] public HeroManager heroManager;
     /*
@@ -31,7 +31,7 @@ public class UI : MonoBehaviour
         });
         gUIPanel.SetActive(false);
     }
-    public void InitiateButtonUIPanel(Button button, UI gUIPanel)
+    public void InitiateButtonUIPanel(Button button, UI_Old gUIPanel)
     {
         button.onClick.AddListener(delegate
         {
@@ -99,7 +99,7 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
-    public void ButtonMethod(Button button, UI gUIPanel)
+    public void ButtonMethod(Button button, UI_Old gUIPanel)
     {
         if (!gUIPanel.gameObject.activeSelf)
         {
@@ -124,12 +124,12 @@ public class UI : MonoBehaviour
         ResetButtonColor(button);
         gameObject.SetActive(false);
     }
-    public void CloseTab(Button button, UI ui)
+    public void CloseTab(Button button, UI_Old ui)
     {
         ResetButtonColor(button);
         ui.gameObject.SetActive(false);
     }
-    public void CloseTab(UI ui)
+    public void CloseTab(UI_Old ui)
     {
         ui.gameObject.SetActive(false);
     }

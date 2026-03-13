@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DisplayedHeroGroup_HeroInGroup_UI : UI
+public class DisplayedHeroGroup_HeroInGroup_UI : UI_Old
 {
     [SerializeField] TextMeshProUGUI _heroName;
     [SerializeField] TextMeshProUGUI _heroRole;

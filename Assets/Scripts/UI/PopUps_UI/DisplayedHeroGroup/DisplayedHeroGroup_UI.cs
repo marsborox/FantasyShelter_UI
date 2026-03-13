@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayedHeroGroup_UI : UI
+public class DisplayedHeroGroup_UI : UI_Old
 {
     public HeroGroup displayedHeroGroup;
     [SerializeField] private Button _closeButton;

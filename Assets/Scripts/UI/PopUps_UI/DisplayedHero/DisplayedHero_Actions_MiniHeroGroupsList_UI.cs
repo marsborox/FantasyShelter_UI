@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI
+public class DisplayedHero_Actions_MiniHeroGroupsList_UI : UI_Old
 {
     [SerializeField] HeroGroupManager _heroGroupManager;
     [SerializeField] DisplayedHero_UI _displayedHero_UI;

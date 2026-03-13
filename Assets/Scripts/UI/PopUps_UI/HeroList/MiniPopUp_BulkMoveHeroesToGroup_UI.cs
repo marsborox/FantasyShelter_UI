@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 
 using UnityEngine;
 
-public class MiniPopUp_BulkMoveHeroesToGroup_UI : UI
+public class MiniPopUp_BulkMoveHeroesToGroup_UI : UI_Old
 {
 
     [SerializeField] HeroGroupManager _heroGroupManager;

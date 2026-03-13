@@ -1,1 +1,26 @@
-VisualElement {}
+.button
+{
+
+}
+.my-button
+{
+    width: 120px;
+    height: 30px;
+    background-color: rgb(234,236,208);
+}
+.my-button-hover
+{
+    background-color: rgb(224,226,199);
+}
+.my-button-pressed
+{
+    background-color: rgb(183,184,162);
+}
+.top-panel
+{
+    position: relative;
+    top: 20px;
+    left: 10px;
+    justify-content: flex-start;
+    flex-direction: row;
+}

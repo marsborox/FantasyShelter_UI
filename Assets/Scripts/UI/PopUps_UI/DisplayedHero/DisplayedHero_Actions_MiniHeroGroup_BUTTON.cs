@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class DisplayedHero_Actions_MiniHeroGroup_BUTTON : UI
+public class DisplayedHero_Actions_MiniHeroGroup_BUTTON : UI_Old
 {
     public Button button;
     [SerializeField] TextMeshProUGUI _buttonText;

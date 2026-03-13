@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestUI : UI
+public class TestUI : UI_Old
 {
     [SerializeField] private Button _spawnHero;
     [SerializeField] private Button _spawnCreep;

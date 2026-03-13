@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Stash_UI : UI
+public class Stash_UI : UI_Old
 {
     [SerializeField] Stash stash;
     [SerializeField] ItemSlot_UI itemSlot;

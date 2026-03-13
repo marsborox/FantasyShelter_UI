@@ -3,7 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class HeroInList_UI : UI
+public class HeroInList_UI : UI_Old
 {
     
     [SerializeField] TextMeshProUGUI _name;

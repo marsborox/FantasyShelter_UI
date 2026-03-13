@@ -2,7 +2,7 @@ using TMPro;
 
 using UnityEngine;
 
-public class DisplayedHero_Stat_UI : UI
+public class DisplayedHero_Stat_UI : UI_Old
 {
     [SerializeField] public TextMeshProUGUI statBase;
     [SerializeField] public TextMeshProUGUI statItems;

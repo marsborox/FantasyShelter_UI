@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class HeroList_UI : UI
+public class HeroList_UI : UI_Old
 {
     
     [SerializeField] HeroInList_UI _heroInListPrefab;
-    [SerializeField] UI _displayedHero_UI;
+    [SerializeField] UI_Old _displayedHero_UI;
 
     public List<HeroInList_UI> heroInList_UI_list = new List<HeroInList_UI>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created

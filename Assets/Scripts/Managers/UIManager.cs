@@ -5,7 +5,7 @@ public class UIManager : Singleton<UIManager>
     public static new UIManager instance => Singleton<UIManager>.instance;
     public GameObject heroGroupUI;
     public GameObject heroGroupsUI;
-    public TopPanel_UI topPanel_UI;
+    public TopPalnel_UI_Old topPanel_UI_Old;
     public DisplayedHero_UI displayedHero_UI;
 
     public Stash_UI stash_UI;
@@ -24,14 +24,14 @@ public class UIManager : Singleton<UIManager>
     }
     public void RefreshGroupsUI()
     {
-        topPanel_UI.RefreshGroupList();
+        topPanel_UI_Old.RefreshGroupList();
     }
     public void RefreshStashUI()
     {
         if (stash_UI.gameObject.activeSelf)
         {
             Debug.Log("refreshing UI");
-            topPanel_UI.RefershStashUI();
+            topPanel_UI_Old.RefershStashUI();
         }
     }
             
