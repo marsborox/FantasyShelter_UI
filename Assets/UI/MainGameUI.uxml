@@ -7,37 +7,39 @@
         <ui:Button name="StashButton" text="Stash" class="my-button"/>
         <ui:Button name="MapButton" text="Map" class="my-button"/>
     </ui:VisualElement>
-
     <ui:VisualElement name="MainWindow" class="main-window">
         <ui:VisualElement name="SortingButtons" class="hero-list-sorting-buttons">
-            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
-            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
-            <ui:Button name="BaseButton" text="Base" class="my-button"/>
-            <ui:Button name="StashButton" text="Stash" class="my-button"/>
-            <ui:Button name="MapButton" text="Map" class="my-button"/>
-            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
-            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
-            <ui:Button name="BaseButton" text="Base" class="my-button"/>
-            <ui:Button name="StashButton" text="Stash" class="my-button"/>
-            <ui:Button name="MapButton" text="Map" class="my-button"/>
-            <ui:Button name="HeroesButton" text="Heroes" class="my-button"/>
-            <ui:Button name="GroupsButton" text="Groups" class="my-button"/>
-            <ui:Button name="BaseButton" text="Base" class="my-button"/>
-            <ui:Button name="StashButton" text="Stash" class="my-button"/>
-            <ui:Button name="MapButton" text="Map" class="my-button"/>
+            <ui:Button name="NameButton" text="Name" class="my-button"/>
+            <ui:Button name="LevelButton" text="Level" class="my-button"/>
+            <ui:Button name="HealthButton" text="Health" class="my-button"/>
+            <ui:Button name="AttackButton" text="Attack" class="my-button"/>
+            <ui:Button name="DefenseButton" text="Defense" class="my-button"/>
+            <ui:Button name="RoleButton" text="Role" class="my-button"/>
+            <ui:Button name="ProfessionButton" text="Profession" class="my-button"/>
+            <ui:Button name="ProfSkillButton" text="Prof. Skill" class="my-button"/>
+            <ui:Button name="GroupButton" text="Group" class="my-button"/>
+            <ui:Button name="ActivityButton" text="Activity" class="my-button"/>
+            <ui:Button name="StatusButton" text="Status" class="my-button"/>
         </ui:VisualElement>
-
-        <ui:VisualElement name="BulkSortingButtons">
+        <ui:VisualElement name="BulkComandButtons">
             <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button"/>
         </ui:VisualElement>
-
         <ui:VisualElement name="Heroes">
-            <ui:VisualElement name="HeroBarToolBar">
-                <ui:TextField name="TestText" value="Heroes Header" class="test-text"/>
+            <ui:VisualElement name="HeroBarToolBar" class="heroes-bar">
+                <ui:TextField name="HeroNameText" value="Hero Name" class="text-window"/>
+                <ui:Image name="CheckmarkImage" class="pictogram"/>
+                <ui:Image name="DummyImage" class="pictogram"/>
+                <ui:Label name="LevelText" value="LVL" class="text-window"/>
+                <ui:Label name="LevelActivity" value="Activity" class="text-window"/>
+                <ui:Label name="HealthText" value="HP" class="text-window"/>
+                <ui:Label name="DamageText" value="DMG" class="text-window"/>
+                <ui:Label name="DefenseText" value="DEF" class="text-window"/>
+                <ui:Label name="EnduranceText" value="EN" class="text-window"/>
+                <ui:Label name="GroupText" value="Group" class="text-window"/>
+                <ui:Label name="ProfskillText" value="Prof. Skill" class="text-window"/>
+                <ui:Label name="StatusText" value="Status" class="text-window"/>
             </ui:VisualElement>
         </ui:VisualElement>
-
     </ui:VisualElement>
-
     <ui:Image style="height: 77px; width: 109px; translate: 0 77px;"/>
 </ui:UXML>

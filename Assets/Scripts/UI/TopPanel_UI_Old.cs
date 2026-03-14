@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TopPalnel_UI_Old : UI_Old
+public class TopPanel_UI_Old : UI_Old
 {
     [Header("TopButtons")] 
     [SerializeField] private Button _HeroesButton;

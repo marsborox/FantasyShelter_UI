@@ -1,6 +1,7 @@
-.button
+*
 {
-
+    /*height: 30px;
+    background-color: rgb(234,236,208);*/
 }
 .my-button
 {
@@ -53,5 +54,17 @@
     height: 80px;
     display: block;
     width: 100%;
+    flex-direction: row;
     flex-wrap: wrap;
+}
+.heroes-bar
+{
+    flex-direction: row;
+}
+.text-window #unity-text-input
+{
+    height: 35px;
+    width: 100px;
+    background-color: rgb(234,236,208);
+    
 }

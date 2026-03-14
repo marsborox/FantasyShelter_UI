@@ -5,7 +5,7 @@ public class UIManager : Singleton<UIManager>
     public static new UIManager instance => Singleton<UIManager>.instance;
     public GameObject heroGroupUI;
     public GameObject heroGroupsUI;
-    public TopPalnel_UI_Old topPanel_UI_Old;
+    public TopPanel_UI_Old topPanel_UI_Old;
     public DisplayedHero_UI displayedHero_UI;
 
     public Stash_UI stash_UI;
