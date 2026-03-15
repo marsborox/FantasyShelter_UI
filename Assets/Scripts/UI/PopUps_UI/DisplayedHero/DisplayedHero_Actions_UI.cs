@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.ComponentModel.Design;
-public class DisplayedHero_Actions_UI : UI
+public class DisplayedHero_Actions_UI : UI_Old
 {
     [SerializeField] DisplayedHero_UI _displayedHero_UI;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 using static UnitStats;
 
-public class DisplayedHero_Stats_UI : UI
+public class DisplayedHero_Stats_UI : UI_Old
 {
     [SerializeField] private DisplayedHero_UI _displayedHeroUI;
 

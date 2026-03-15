@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DisplayedHero_UI : UI
+public class DisplayedHero_UI : UI_Old
 {
     public Hero displayedHero;
     

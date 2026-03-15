@@ -6,7 +6,6 @@ public class UnitStats : MonoBehaviour
 {
     private Role _role;
     public string role;
-
     
     [System.Serializable]
     public class UnitStat
@@ -88,6 +87,7 @@ public class UnitStats : MonoBehaviour
         CheckIfStatsNull(inputSO);
 
         unit.unitName = inputSO.name;
+        unit.name = inputSO.name;
         _role = inputSO.role;
         role = inputSO.SetRoleString();
 
@@ -137,7 +137,24 @@ public class UnitStats : MonoBehaviour
             unitStat.SetCurrentValueTotal();
         }
     }
-
+    public void SaveStats(Hero_SaveData data)
+    {
+        data.health = healthStat.valueBase;
+        data.damage = damageStat.valueBase;
+        data.defense = defenseStat.valueBase;
+        data.attackSpeed = attackSpeedStat.valueBase;
+        data.movementSpeed = movementSpeedStat.valueBase;
+        data.energy = energyStat.valueBase;
+    }
+    public void LoadStats(Hero_SaveData data)
+    { 
+        healthStat.valueBase = data.health;
+        damageStat.valueBase = data.damage;
+        defenseStat.valueBase = data.defense;
+        attackSpeedStat.valueBase = data.attackSpeed;
+        movementSpeedStat.valueBase= data.movementSpeed;
+        energyStat.valueBase = data.energy;
+    }
     #region TestMethods
     void CheckIfStatsNull(TestUnit_SO inputSO)
     {
@@ -152,4 +169,5 @@ public class UnitStats : MonoBehaviour
 
     }
     #endregion
+
 }

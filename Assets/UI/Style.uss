@@ -1,0 +1,96 @@
+*
+{
+    /*height: 30px;
+    background-color: rgb(234,236,208);*/
+}
+.my-button
+{
+    width: 120px;
+    height: 30px;
+    background-color: rgb(234,236,208);
+}
+.my-button-hover
+{
+    background-color: rgb(224,226,199);
+}
+.my-button-pressed
+{
+    background-color: rgb(183,184,162);
+}
+.top-panel
+{
+    position: relative;
+    /*top: 20px;*/
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.horisontal-button-list
+{
+    position: relative;
+    /*top: 20px;*/
+    /*bottom: 30px;*/
+    /*left: 10px;*/
+    height: 30px;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.main-window
+{
+    position: relative;
+    max-width: 1200px;
+    margin-left: 10px;
+}
+.test-text
+{
+    width: 600px;
+}
+.hero-list-sorting-buttons
+{
+    height: 80px;
+    display: block;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.heroes-bar
+{
+    flex-direction: row;
+}
+.text-window #unity-text-input
+{
+    height: 35px;
+    width: 100px;
+    background-color: rgb(234,236,208);
+    
+}
+.basic-text-container
+{
+    
+    width: 100px;
+    height: 30px;
+    /* -unity-background-image-tint-color: rgb(150, 150, 224); */
+	
+    background-color: rgb(234,236,208);
+    justify-content: center;
+    
+}
+.basic-text-image
+{
+    width: 100px;
+    height: 30px;
+    /* background-image: project://database/Assets/Sprites/Generic/Square.png;*/ 
+}
+
+.basic-text-text
+{
+    /* width: 120px; */
+    height: 30px;
+    text-align: center;
+    position: relative; 
+    align-self: center;
+}

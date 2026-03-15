@@ -3,7 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class HeroInList_UI : UI
+public class HeroInList_UI : UI_Old
 {
     
     [SerializeField] TextMeshProUGUI _name;
@@ -60,8 +60,8 @@ public class HeroInList_UI : UI
     }
     private void SetValuesFromStatsDirectly()
     {
-        
-        SetButtonTextValue(_name, stats.unit.unitName);
+
+        SetButtonTextValue(_name, hero.ReturnName());
         SetButtonTextValue(_health, ((Hero)hero).ReturnHealthCurrent());
         SetButtonTextValue(_damage, ((Hero)hero).ReturnDamageCurrent());
         SetButtonTextValue(_defense, ((Hero)hero).ReturnDefenseCurrent());

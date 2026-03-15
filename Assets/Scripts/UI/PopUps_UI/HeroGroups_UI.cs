@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HeroGroups_UI : UI
+public class HeroGroups_UI : UI_Old
 {
     [SerializeField] private HeroGroupManager _heroGroupManager;
     [SerializeField] private HeroGroupInList_UI _heroGroupInListPrefab;

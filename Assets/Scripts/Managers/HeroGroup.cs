@@ -9,7 +9,8 @@ public class HeroGroup : MonoBehaviour, ICalcStat
     public HeroManager heroManager;
 
     public string heroGroupName;
-    public int id=0;
+    public int uniqueID;
+    //public int id = 0;//remove and scrape
     
     public int heroGroupHealth;
     public int heroGroupDamage;
@@ -36,31 +37,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         heroGroupDamage = CalcHeroStats(hero =>hero.stats.damage);
         heroGroupDefense = CalcHeroStats(hero => hero.stats.defense);
     }
-    /*
-    public void AddUnitToDesignatedList(Unit unit)
-    {
-        List<Unit> list=new List<Unit>();
-        Action action = null;
-        if (unit is Hero)
-        {
-            list = heroList;
-            action = CalcHeroStats;
-        }
-        else if (unit is EnemyNPC)
-        { 
-            list =enemyNPCList;
-            action = CalcEnemyNPCStats;
-        }
-        try
-        {
-            list.Add(unit);
-            action();
-        }
-        catch (Exception e) 
-        {
-            
-        }
-    }*/
+
     
     public void AddUnitToDesignatedList(EnemyNPC enemyNPC)
     {
@@ -93,6 +70,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
             }
             else { disbanding = false; }
         }
+        //ID_Manager.instance.MakeIDAvailable(uniqueID);
         heroGroupManager.DestroyHeroGroup(this);
         //close HeroGroup
         //refresh UI HeroGroups if opened
@@ -117,17 +95,7 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         enemyNPCDefense = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.defense, enemyNPCList);
         enemyNPCEnergy = ((ICalcStat)this).CalcStat(inputObject => inputObject.stats.energy, enemyNPCList);
     }
-    public void AddHeroToList(Hero hero)
-    { 
-        heroList.Add(hero);
 
-    }
-    public void AddEnemyNPCToList(Unit eNPC)
-    {
-        enemyNPCList.Add(eNPC);
-    }
-    public void RemoveEnemyNPCFromList()
-    { }
     
     private int CalcHeroStats(Func<Unit,int>getHeroStat)
     {
@@ -147,6 +115,31 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         }
         return returnStat;
     }
+    public HeroGroup_SaveData SaveHeroGroup()
+    {
+        HeroGroup_SaveData data = new HeroGroup_SaveData();
+
+        data.heroGroupName = heroGroupName;
+        data.uniqueID = uniqueID;
+
+        foreach (Hero hero in heroList)
+        {
+            data.heroID_List.Add(hero.ReturnID());
+        }
+        return data;
+        
+    }
+    public void LoadHeroGroup(HeroGroup_SaveData data)
+    { 
+        heroGroupName = data.heroGroupName;
+        uniqueID = data.uniqueID;
+
+        foreach (int heroID in data.heroID_List)
+        { 
+            
+        }
+    }
+
     #region Test&Debug
     void DebugLogUnitStats(List<Unit> list)
     {

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using UnityEngine;
 
 public class Hero : Unit
 {
@@ -13,7 +8,7 @@ public class Hero : Unit
 
 
     public string heroGroupImInName;
-    public int heroGroupImInID;
+    public int idGroupHeroIsIn;
     private void Awake()
     {
         
@@ -73,5 +68,39 @@ public class Hero : Unit
     public void DressItem(Item_Gear item)
     { 
         heroInventory.DressItem(item);
+    }
+    public Hero_SaveData SaveHero()
+    { 
+        Hero_SaveData data = new Hero_SaveData();
+
+        data.heroName = unitName;
+        data.uniqueID = uniqueID;
+        data.idGroupHeroIsIn = idGroupHeroIsIn;
+        stats.SaveStats(data);
+
+        heroInventory.SaveInventory(data);
+
+        return data;
+    }
+    public void LoadHero(Hero_SaveData data)
+    { 
+        unitName = data.heroName;
+        uniqueID = data.uniqueID;
+        name = data.heroName;
+        idGroupHeroIsIn = data.idGroupHeroIsIn;
+        stats.LoadStats(data);
+        heroInventory.LoadInventory(data);
+
+        stats.AddInventoryStats();
+        //add hero to designated group
+        foreach (HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
+        {
+            if (heroGroup.uniqueID == idGroupHeroIsIn)
+            {
+                HeroManager.instance.MoveHeroToGroup(this,heroGroup);
+                break;
+            }
+        }
+        
     }
 }

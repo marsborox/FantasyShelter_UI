@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestUI : UI
+public class TestUI : UI_Old
 {
     [SerializeField] private Button _spawnHero;
     [SerializeField] private Button _spawnCreep;
     [SerializeField] private Button _createHeroGroup;
+    [SerializeField] private Button _saveButton;
+    [SerializeField] private Button _loadButton;
+    [SerializeField] private Button _spawnItemsButton;
+
     [SerializeField] private UnitSpawner _unitSpawner;
     [SerializeField] private HeroGroupManager _heroGroupManager;
 
@@ -15,6 +19,10 @@ public class TestUI : UI
     {
         InitiateButton(_spawnHero, SpawnHero);
         InitiateButton(_createHeroGroup, CreateHeroGroup);
+
+        InitiateButton(_saveButton, SaveLoadSystem.instance.SaveAll);
+        InitiateButton(_loadButton, SaveLoadSystem.instance.LoadAll);
+        InitiateButton(_spawnItemsButton, ItemSpawner.instance.TestSpawnEachItem);
     }
 
     // Update is called once per frame

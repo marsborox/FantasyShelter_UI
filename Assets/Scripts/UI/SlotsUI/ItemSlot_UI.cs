@@ -7,8 +7,6 @@ public class ItemSlot_UI : MonoBehaviour, IOnRayHit_UI
     public Item item;
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI index;
-
-
     private void OnEnable()
     {
         if (!item)
@@ -20,25 +18,19 @@ public class ItemSlot_UI : MonoBehaviour, IOnRayHit_UI
         
     }
 
-
-   
-
     public void SetSlotProperties(Item inputItem)
     {
         item = inputItem;
         image.sprite = item.sprite;
     }
-
     public void Click()
     {
         //throw new System.NotImplementedException();
     }
-
     public void ClickAndHold()
     {
         //throw new System.NotImplementedException();
     }
-
     public void RMBClick()
     {
         DressIfGear();

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7603b39738eec104e899bd395d2c0e6b, type: 3}
   m_Name: ChestAllOne
   m_EditorClassIdentifier: Assembly-CSharp::Item_Gear_SO
+  itemSoName: ChestAllOne
   sprite: {fileID: 21300000, guid: cd1d226a0093eb84691d59f5697e74fb, type: 3}
   isStackable: 0
+  itemSO_ID: 1
   slot: 1
   health: 1
   damage: 1

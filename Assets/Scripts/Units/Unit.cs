@@ -3,7 +3,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public UnitStats stats;
-
+    public int uniqueID;
     public string unitName;
     public int level;
 
@@ -21,6 +21,15 @@ public class Unit : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string ReturnName()
+    {
+        return unitName;
+    }
+    public int ReturnID()
+    { 
+        return uniqueID;
     }
     //ENEMY
     //might miss in enemy
