@@ -68,3 +68,29 @@
     background-color: rgb(234,236,208);
     
 }
+.basic-text-container
+{
+    
+    width: 100px;
+    height: 30px;
+    /* -unity-background-image-tint-color: rgb(150, 150, 224); */
+	
+    background-color: rgb(234,236,208);
+    justify-content: center;
+    
+}
+.basic-text-image
+{
+    width: 100px;
+    height: 30px;
+    /* background-image: project://database/Assets/Sprites/Generic/Square.png;*/ 
+}
+
+.basic-text-text
+{
+    /* width: 120px; */
+    height: 30px;
+    text-align: center;
+    position: relative; 
+    align-self: center;
+}
