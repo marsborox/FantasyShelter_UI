@@ -8,6 +8,7 @@
     width: 120px;
     height: 30px;
     background-color: rgb(234,236,208);
+    font-size: 20px;
 }
 .my-button-hover
 {
@@ -57,10 +58,6 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.heroes-bar
-{
-    flex-direction: row;
-}
 .text-window #unity-text-input
 {
     height: 35px;
@@ -68,16 +65,42 @@
     background-color: rgb(234,236,208);
     
 }
-.basic-text-container
+.heroes-bar
 {
-    
-    width: 100px;
+    flex-direction: row;
+}
+.basic-bar
+{
+    flex-direction: row;
+}
+.basic-text-container,
+.basic-text-container-small,
+.basic-text-container-medium,
+.basic-text-container-large,
+.basic-text-container-pictogram
+
+{
     height: 30px;
     /* -unity-background-image-tint-color: rgb(150, 150, 224); */
 	
     background-color: rgb(234,236,208);
     justify-content: center;
     
+
+    margin-right: 5px;
+    margin-top:5px;
+}
+.basic-text-container-small
+{
+    width: 50px;
+}
+.basic-text-container-medium
+{
+    width: 100px;
+}
+.basic-text-container-large
+{
+    width: 200px;
 }
 .basic-text-image
 {
@@ -85,12 +108,24 @@
     height: 30px;
     /* background-image: project://database/Assets/Sprites/Generic/Square.png;*/ 
 }
+.basic-text-container-pictogram
+{
+    width: 30px;
+}
+.pictogram
+{
 
+}
 .basic-text-text
 {
     /* width: 120px; */
     height: 30px;
-    text-align: center;
+    /*text-align: center;*/
+    -unity-text-align: middle-left;
+    font-size: 20px;
     position: relative; 
     align-self: center;
+
 }
+
+
