@@ -42,8 +42,8 @@ public class TopPanel_UI : UI
     {
         //OldUI
         
-        //InitiateButtonUIPanel(_heroesButton, _heroesUI);
-        InitiateButton(_heroesButton,OpenHeroeList);
+        //InitiateButtonUIPanel(_heroesButton, _heroesUI);//remove
+        InitiateButton(_heroesButton,UIManager.instance.OpenHeroList);
         InitiateButtonUIPanel(_groupsButton, _groupsUI);
         InitiateButtonUIPanel(_baseButton, _baseUI);
         InitiateButtonUIPanel(_stashButton, _stashUI);
@@ -52,10 +52,11 @@ public class TopPanel_UI : UI
     }
     #endregion
 
+    /* Remove this
     void OpenHeroeList()
     {
         _heroListUI.DisplayUI();
-    }
+    }*/
     void TestPrint()
     {
         Debug.Log("test print");

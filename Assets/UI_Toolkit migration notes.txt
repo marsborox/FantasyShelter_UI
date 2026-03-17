@@ -4,3 +4,4 @@ UI / UI_Old
 TopPanel_UI / TopPanel_UI_Old
 
 Heroes_UI / HeroList_UI
+HeroList_UI / HeroList_UI_Old

@@ -3,21 +3,7 @@
     /*height: 30px;
     background-color: rgb(234,236,208);*/
 }
-.my-button
-{
-    width: 120px;
-    height: 30px;
-    background-color: rgb(234,236,208);
-    font-size: 20px;
-}
-.my-button-hover
-{
-    background-color: rgb(224,226,199);
-}
-.my-button-pressed
-{
-    background-color: rgb(183,184,162);
-}
+
 .top-panel
 {
     position: relative;
@@ -73,19 +59,33 @@
 {
     flex-direction: row;
 }
+.my-button
+{
+    /*width: 120px;
+    height: 30px;
+    background-color: rgb(234,236,208);*/
+    font-size: 20px;
+}
+.my-button-hover
+{
+    background-color: rgb(224,226,199);
+}
+.my-button-pressed
+{
+    background-color: rgb(183,184,162);
+}
 .basic-text-container,
 .basic-text-container-small,
 .basic-text-container-medium,
+.basic-text-container-120px,
 .basic-text-container-large,
 .basic-text-container-pictogram
-
 {
     height: 30px;
     /* -unity-background-image-tint-color: rgb(150, 150, 224); */
 	
     background-color: rgb(234,236,208);
     justify-content: center;
-    
 
     margin-right: 5px;
     margin-top:5px;
@@ -97,6 +97,10 @@
 .basic-text-container-medium
 {
     width: 100px;
+}
+.basic-text-container-120px
+{
+    width:120px;
 }
 .basic-text-container-large
 {

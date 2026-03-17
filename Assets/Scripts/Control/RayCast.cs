@@ -19,7 +19,7 @@ public class RayCast_UI : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("LMB pressed in rayCast");
+            //Debug.Log("LMB pressed in rayCast");
             //CastRay();
             RayCastGraphics();
         }

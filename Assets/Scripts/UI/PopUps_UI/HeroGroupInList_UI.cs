@@ -31,12 +31,12 @@ public class HeroGroupInList_UI : UI_Old
 
     public void SetValues()
     {
-        SetButtonTextValue(_groupName, heroGroup.heroGroupName);
-        SetButtonTextValue(_heroCount, heroGroup.heroList.Count);
-        SetButtonTextValue(_health, heroGroup.heroGroupHealth);
-        SetButtonTextValue(_damage, heroGroup.heroGroupDamage);
-        SetButtonTextValue(_defense, heroGroup.heroGroupDefense);
-        SetButtonTextValue(_energy, heroGroup.heroGroupEnergy);
+        SetTextValue(_groupName, heroGroup.heroGroupName);
+        SetTextValue(_heroCount, heroGroup.heroList.Count);
+        SetTextValue(_health, heroGroup.heroGroupHealth);
+        SetTextValue(_damage, heroGroup.heroGroupDamage);
+        SetTextValue(_defense, heroGroup.heroGroupDefense);
+        SetTextValue(_energy, heroGroup.heroGroupEnergy);
     }
     /*
     private void SetValues()
