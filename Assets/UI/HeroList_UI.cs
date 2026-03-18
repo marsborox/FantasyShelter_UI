@@ -6,6 +6,49 @@ using UnityEngine.UIElements;
 
 public class HeroList_UI : UI
 {
+    [System.Serializable]
+    public class StatField
+    {
+        //nejak vopchat do constructora metodu z hera
+        public bool isDisplayed;
+        public string name;
+        public string containerClass;
+        public string defaultText;
+        public string value;
+        public StatField(string inputDefaultText, string inputName,string inputContainerClass)
+        {
+            isDisplayed = true;
+            name = inputName;
+            containerClass = inputContainerClass;
+            defaultText = inputDefaultText;
+                       
+
+        }
+        public StatField(string inputDefaultText, string inputName,string inputContainerClass, Func<string> displayValue)
+        {
+            //for header
+            isDisplayed = true;
+            name = inputName;
+            containerClass = inputContainerClass;
+            defaultText = inputDefaultText;
+            value = displayValue();
+        }
+
+        public StatField(HeroList_UI heroList, string inputDefaultText, string inputName,string inputContainerClass, string inputDisplayValue)
+        {
+            //for header
+            isDisplayed = true;
+            name = inputName;
+            containerClass = inputContainerClass;
+            defaultText = inputDefaultText;
+            value = inputDisplayValue;
+            
+            void DisplayStatField()
+            {
+                heroList.ReturnTextWindow(containerClass,defaultText);
+            }
+        }
+    }
     [SerializeField]private UIDocument _uiDocument;
     private VisualElement _rootElement;
     private VisualElement _sortingButtons;
@@ -13,9 +56,23 @@ public class HeroList_UI : UI
     private VisualElement _heroBarToolBar;
     private VisualElement _displayedHeroes;
     
+    private List<StatField> _statFieldList = new List<StatField>();
+    private StatField _heroNameField = new StatField("HeroName","heroName",BASIC_TEXT_CONTAINER_LARGE);
+    private StatField _heroLevelField = new StatField("LVL","level",BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroActivityField = new StatField("Activity","activity",BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroHealthField = new StatField("HP","health",BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroDamageField = new StatField("DMG","damage",BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroDefenseField = new StatField("DEF","defense",BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroEnergyField = new StatField("EN","energy",BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroGroupField = new StatField("Group","group",BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroProfSkillField = new StatField("Prof. Skill","profession skill",BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroStatusField = new StatField("Status","status",BASIC_TEXT_CONTAINER_MEDIUM);
+
     private List<VisualElement> _heroListVisual = new List<VisualElement>();
     public bool isUiOpen = false;
 
+    /* header a kazdy heroInList - spawnut StatField na kazdy stat aky existuje a asi spravit list - 
+    na kazdeho heroInList a header a eoInList vsetky + header do listu*/
     void Awake()
     {
         _rootElement = _uiDocument.rootVisualElement;
@@ -23,6 +80,8 @@ public class HeroList_UI : UI
         _bulkCommandButtons = _rootElement.Q(name: "BulkComandButtons");
         _heroBarToolBar = _rootElement.Q(name: "HeroBarToolBar"); 
         _displayedHeroes = _rootElement.Q(name: "DisplayedHeroes");
+
+        AddStatFieldsToList();
     }
     void OnEnable()
     {
@@ -87,8 +146,13 @@ public class HeroList_UI : UI
     public void DisplayHeroListHeader()
     {
         //SortingButtons
-
-
+        foreach(StatField statfield in _statFieldList)
+        {
+            if(statfield.isDisplayed == false) {continue;}
+            VisualElement element = ReturnTextWindow(statfield.containerClass,statfield.defaultText);
+            _heroBarToolBar.Add(element); 
+        }
+        /*
         //Name
         VisualElement heroNameField = ReturnTextWindow(BASIC_TEXT_CONTAINER_LARGE,"HeroName");
         _heroBarToolBar.Add(heroNameField);        
@@ -119,6 +183,7 @@ public class HeroList_UI : UI
         //status
         VisualElement heroStatusField = ReturnTextWindow(BASIC_TEXT_CONTAINER_MEDIUM,"Status");
         _heroBarToolBar.Add(heroStatusField);
+        */
     }
 
     public void DisplayOneHeroInList(Hero hero)
@@ -162,5 +227,17 @@ public class HeroList_UI : UI
 
         _displayedHeroes.Add(heroInList);
     }
-
+    private void AddStatFieldsToList()
+    {
+        _statFieldList.Add(_heroNameField);
+        _statFieldList.Add(_heroLevelField);
+        _statFieldList.Add(_heroActivityField);
+        _statFieldList.Add(_heroHealthField);
+        _statFieldList.Add(_heroDamageField);
+        _statFieldList.Add(_heroDefenseField);
+        _statFieldList.Add(_heroEnergyField);
+        _statFieldList.Add(_heroGroupField);
+        _statFieldList.Add(_heroProfSkillField);
+        _statFieldList.Add(_heroStatusField);
+    }
 }
