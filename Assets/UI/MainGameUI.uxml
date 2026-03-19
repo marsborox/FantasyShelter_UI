@@ -15,7 +15,7 @@
 
 
             <ui:VisualElement name="SortingButtons" class="hero-list-sorting-buttons">
-                <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-120px"/>
+                <!-- <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-120px"/>
                 <ui:Button name="LevelButton" text="Level" class="my-button basic-text-container-120px"/>
                 <ui:Button name="HealthButton" text="Health" class="my-button basic-text-container-120px"/>
                 <ui:Button name="AttackButton" text="Attack" class="my-button basic-text-container-120px"/>
@@ -25,7 +25,7 @@
                 <ui:Button name="ProfSkillButton" text="Prof. Skill" class="my-button basic-text-container-120px"/>
                 <ui:Button name="GroupButton" text="Group" class="my-button basic-text-container-120px"/>
                 <ui:Button name="ActivityButton" text="Activity" class="my-button basic-text-container-120px"/>
-                <ui:Button name="StatusButton" text="Status" class="my-button basic-text-container-120px"/>
+                <ui:Button name="StatusButton" text="Status" class="my-button basic-text-container-120px"/> -->
             </ui:VisualElement>
 
             

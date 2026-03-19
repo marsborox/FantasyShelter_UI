@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using System;
 using TMPro;
 using System.Collections.Generic;
+using MessagePack.Resolvers;
 
 public class UI : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class UI : MonoBehaviour
     public const string BASIC_TEXT_CONTAINER_MEDIUM = "basic-text-container-medium";
     public const string BASIC_TEXT_CONTAINER_120px = "basic-text-container-120px";
     public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
+    public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
+    public const string BASIC_PICTOGRAM = "pictogram";
     public const string HEORES_BAR = "heroes-bar";
     public const string BASIC_TEXT_TEXT = "basic-text-text";
     public const string MY_BUTTON = "my-button";
@@ -157,7 +160,7 @@ public class UI : MonoBehaviour
     }
     #endregion
 
-    #region Subscribe Method to VisualElement
+    #region VisualElement initiation
     public void InitiateElementUIPanel(VisualElement element, GameObject gUIPanel)
     {
         //this will save method as callback
@@ -182,15 +185,15 @@ public class UI : MonoBehaviour
 
         gUIPanel.gameObject.SetActive(false);
     }
-    public void InitiateElement(Button button, Action method)
+    public void InitiateElement(VisualElement element, Action method)
     {
         //this will save method as callback
         EventCallback<ClickEvent> callback = evt => method();
-        button.RegisterCallback(callback);//this does subscription of method to button click event
+        element.RegisterCallback(callback);//this does subscription of method to button click event
         //if this button is not in dictionary add it
-        if (!_buttonCallbacks.ContainsKey(button)) {_buttonCallbacks[button] = new List<EventCallback<ClickEvent>>();}
+        if (!_elementCallbacks.ContainsKey(element)) {_elementCallbacks[element] = new List<EventCallback<ClickEvent>>();}
         //add callback to list
-        _buttonCallbacks[button].Add(callback);
+        _elementCallbacks[element].Add(callback);
 
     }
     
@@ -268,6 +271,7 @@ public class UI : MonoBehaviour
             gUIPanel.gameObject.SetActive(false);
         }
     }
+
 
     public void RemoveListeners(VisualElement element)
     {
@@ -358,7 +362,7 @@ public class UI : MonoBehaviour
         text.text = displayedValue;
         return textField;
     }
-    public VisualElement ReturnTextWindow(string containerClass, string textClass, string displayedValue)
+    /*public VisualElement ReturnTextWindow(string containerClass, string textClass, string displayedValue)
     {
         VisualElement textField = new VisualElement();
         //add whole element to list
@@ -368,7 +372,7 @@ public class UI : MonoBehaviour
         text.AddToClassList(textClass);
         text.text = displayedValue;
         return textField;
-    }
+    }*/
     public VisualElement ReturnTextWindow(string containerClass, string displayedValue)
     {
         VisualElement textField = new VisualElement();
@@ -380,6 +384,19 @@ public class UI : MonoBehaviour
         text.text = displayedValue;
         return textField;
     }
+    //need to take care of name setup
+    public VisualElement ReturnTextWindow(string name,string containerClass, string displayedValue)
+    {
+        VisualElement textField = new VisualElement();
+        //add whole element to list
+        textField.AddToClassList(containerClass);
+        textField.name = name;
+        Label text = new Label();
+        textField.Add(text);
+        text.AddToClassList(BASIC_TEXT_TEXT);
+        text.text = displayedValue;
+        return textField;
+    }    
     public Button ReturnButton(string containerClass, string displayedValue)
     {
         Button button = new Button();
@@ -390,6 +407,29 @@ public class UI : MonoBehaviour
         button.text=displayedValue;
 
         return button;
+    }
+    public Button ReturnButton(string name,string containerClass, string displayedValue)
+    {
+        Button button = new Button();
+        //***************************************WORK HERE
+        button.AddToClassList(MY_BUTTON);
+        button.AddToClassList(containerClass);//need fixing
+
+        button.text=displayedValue;
+        button.name = name;
+
+        return button;
+    }
+    public VisualElement ReturnPictogram(string inputName)
+    {
+        VisualElement element = new VisualElement();
+        element.AddToClassList(BASIC_CONTAINER_PICTOGRAM);
+        Image image = new Image();
+        element.Add(image);
+        image.AddToClassList(BASIC_PICTOGRAM);
+        image.name = inputName;
+        
+        return element;
     }
     #endregion
     public void DestroyChildren()
