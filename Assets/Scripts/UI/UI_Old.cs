@@ -142,11 +142,11 @@ public class UI_Old : MonoBehaviour
     {
         button.GetComponent<Image>().color = _pressedColor;
     }
-    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, string text)
+    public void SetTextValue(TextMeshProUGUI fieldToFill, string text)
     {
         fieldToFill.text = text;
     }
-    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, int text)
+    public void SetTextValue(TextMeshProUGUI fieldToFill, int text)
     {
         fieldToFill.text = text.ToString();
     }

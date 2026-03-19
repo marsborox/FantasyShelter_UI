@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
@@ -7,7 +8,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject heroGroupsUI;
     public TopPanel_UI_Old topPanel_UI_Old;
     public DisplayedHero_UI displayedHero_UI;
-
+    [SerializeField] private HeroList_UI _herolist_UI;
     public Stash_UI stash_UI;
     //set color of button
     protected override void Awake()
@@ -34,5 +35,25 @@ public class UIManager : Singleton<UIManager>
             topPanel_UI_Old.RefershStashUI();
         }
     }
-            
+    public void OpenHeroList()
+    {
+        _herolist_UI.DisplayUI();
+    }
+    public void RefreshHeroList()
+    {
+        if(_herolist_UI.isUiOpen)
+        {
+            _herolist_UI.CloseUI();
+            _herolist_UI.OpenUI();
+        }
+    }
+    public void OpenHeroUI()
+    {
+        
+    }
+    public void OpenHeroUI(Unit hero)
+    {
+        displayedHero_UI.displayedHero = (Hero)hero;
+        displayedHero_UI.gameObject.SetActive(true);
+    }        
 }

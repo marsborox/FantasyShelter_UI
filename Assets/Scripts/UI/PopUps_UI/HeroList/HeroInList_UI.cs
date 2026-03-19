@@ -34,7 +34,8 @@ public class HeroInList_UI : UI_Old
     {
         SetValuesFromStatsDirectly();
 
-        InitiateButton(_nameButton, OpenHeroUI,hero);
+        //InitiateButton(_nameButton, OpenHeroUI,hero);//remove
+        InitiateButton(_nameButton, UIManager.instance.OpenHeroUI,hero);
         InitiateButton(_checkMarkButton,CheckMarkButton);
     }
 
@@ -51,25 +52,24 @@ public class HeroInList_UI : UI_Old
     private void SetValues()
     {//used on NPC apparently
         var heroStats = hero.stats;
-        SetButtonTextValue(_name, heroStats.unit.unitName);
-        SetButtonTextValue(_health, heroStats.health);
-        SetButtonTextValue(_damage, heroStats.damage);
-        SetButtonTextValue(_defense, heroStats.defense);
-        SetButtonTextValue(_energy, heroStats.energy);
+        SetTextValue(_name, heroStats.unit.unitName);
+        SetTextValue(_health, heroStats.health);
+        SetTextValue(_damage, heroStats.damage);
+        SetTextValue(_defense, heroStats.defense);
+        SetTextValue(_energy, heroStats.energy);
 
     }
     private void SetValuesFromStatsDirectly()
     {
-
-        SetButtonTextValue(_name, hero.ReturnName());
-        SetButtonTextValue(_health, ((Hero)hero).ReturnHealthCurrent());
-        SetButtonTextValue(_damage, ((Hero)hero).ReturnDamageCurrent());
-        SetButtonTextValue(_defense, ((Hero)hero).ReturnDefenseCurrent());
-        SetButtonTextValue(_energy, ((Hero)hero).ReturnEnergyCurrent());
-        SetButtonTextValue(_group, ((Hero)hero).heroGroupImInName);
+        SetTextValue(_name, hero.ReturnName());
+        SetTextValue(_health, ((Hero)hero).ReturnHealthCurrent());
+        SetTextValue(_damage, ((Hero)hero).ReturnDamageCurrent());
+        SetTextValue(_defense, ((Hero)hero).ReturnDefenseCurrent());
+        SetTextValue(_energy, ((Hero)hero).ReturnEnergyCurrent());
+        SetTextValue(_group, ((Hero)hero).heroGroupImInName);
     }
     private void OpenHeroUI(Unit hero)
-    {
+    {// delete this
         _displayedHero_UI.gameObject.SetActive(true);
         _displayedHero_UI.displayedHero = (Hero)hero;
     }

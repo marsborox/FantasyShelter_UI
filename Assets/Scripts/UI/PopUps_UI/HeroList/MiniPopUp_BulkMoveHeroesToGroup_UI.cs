@@ -6,7 +6,7 @@ public class MiniPopUp_BulkMoveHeroesToGroup_UI : UI_Old
 {
 
     [SerializeField] HeroGroupManager _heroGroupManager;
-    [SerializeField] HeroList_UI _heroListUI;
+    [SerializeField] HeroList_UI_Old _heroListUI;
 
     //[SerializeField] DisplayedHero_Tabs_UI _displayedHeroTabs_UI;
     [SerializeField] DisplayedHero_Actions_MiniHeroGroups_UI _displayedHeroGroups_UI;

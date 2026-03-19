@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class HeroList_UI : UI_Old
+public class HeroList_UI_Old : UI_Old
 {
     
     [SerializeField] HeroInList_UI _heroInListPrefab;
