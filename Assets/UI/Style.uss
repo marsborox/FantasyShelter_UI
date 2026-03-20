@@ -116,6 +116,10 @@
 {
     width: 30px;
 }
+.image-color-green
+{
+    --unity-image-tint-color: darkgreen;
+}
 .pictogram
 {
 

@@ -23,6 +23,7 @@ public class UI : MonoBehaviour
     public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
     public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
     public const string BASIC_PICTOGRAM = "pictogram";
+    public const string IMAGE_COLOR_GREEN = "image-color-green";
     public const string HEORES_BAR = "heroes-bar";
     public const string BASIC_TEXT_TEXT = "basic-text-text";
     public const string MY_BUTTON = "my-button";
@@ -429,6 +430,30 @@ public class UI : MonoBehaviour
         image.AddToClassList(BASIC_PICTOGRAM);
         image.name = inputName;
         
+        return element;
+    }
+        public VisualElement ReturnPictogram(string inputName, Texture displayImage)
+    {
+        VisualElement element = new VisualElement();
+        element.AddToClassList(BASIC_CONTAINER_PICTOGRAM);
+        Image image = new Image();
+        element.Add(image);
+        image.AddToClassList(BASIC_PICTOGRAM);
+        image.name = inputName;
+        image.image=displayImage;
+        
+        return element;
+    }
+    public VisualElement ReturnPictogram(string inputName, Texture displayImage, string colorClass)
+    {
+        VisualElement element = new VisualElement();
+        element.AddToClassList(BASIC_CONTAINER_PICTOGRAM);
+        Image image = new Image();
+        element.Add(image);
+        image.AddToClassList(BASIC_PICTOGRAM);
+        image.name = inputName;
+        image.image=displayImage;
+        image.AddToClassList(colorClass);
         return element;
     }
     #endregion

@@ -32,6 +32,10 @@ public class Hero : Unit
     { 
         _heroGroupManager = heroGroupManager;
     }
+    public string ReturnGroupImInName()
+    {
+        return heroGroupImIn.heroGroupName;
+    }
     public int ReturnHealthBase()
     {
         return ((HeroStats)stats).healthStat.valueBase;

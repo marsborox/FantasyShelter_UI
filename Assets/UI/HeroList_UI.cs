@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class HeroList_UI : UI
 {
-    [System.Serializable]
+    /*[System.Serializable]
     public class StatField
     {
         //nejak vopchat do constructora metodu z hera
@@ -53,7 +53,8 @@ public class HeroList_UI : UI
                 heroList.ReturnTextWindow(containerClass,defaultText);
             }
         }
-    }
+    }*/
+    [System.Serializable]
     public class HeroInList
     {
         public Hero heroIRepresent;
@@ -62,18 +63,20 @@ public class HeroList_UI : UI
 
         public void Select()
         {
+            Image image = (Image)heroInListVisual.Q(name: "Checkmark");
             if(isSelected) 
             {
                 isSelected=false;
-                Image image = (Image)heroInListVisual.Q(name: "Checkmark");
                 //enable disable
                 Debug.Log("CheckmarkOff");
                 Debug.Log(image.name);
+                image.style.display = DisplayStyle.None;
             }
             else 
             {
                 isSelected = true;
                 Debug.Log("CheckmarkOn");
+                image.style.display = DisplayStyle.Flex;
             }
             Debug.Log("some hero checkmark: "+isSelected);
         }
@@ -85,6 +88,7 @@ public class HeroList_UI : UI
     }
 
     [SerializeField]private UIDocument _uiDocument;
+    [SerializeField]private Texture _checkmarkImage;
     private VisualElement _rootElement;
     private VisualElement _sortingButtons;
     private VisualElement _bulkCommandButtons;
@@ -105,7 +109,7 @@ public class HeroList_UI : UI
 
 
     private List<VisualElement> _heroListVisual = new List<VisualElement>();
-    private List<HeroInList> _heroInListVisual = new List<HeroInList>();
+    public List<HeroInList> _heroInListVisual = new List<HeroInList>();
     public bool isUiOpen = false;
 
     /* header a kazdy heroInList - spawnut StatField na kazdy stat aky existuje a asi spravit list - 
@@ -187,7 +191,11 @@ public class HeroList_UI : UI
         _heroBarToolBar.Add(heroNameField);
 
         //may add pictograms here
-        VisualElement checkmark = ReturnPictogram("Checkmark");
+        VisualElement checkmark = ReturnPictogram("Checkmark",_checkmarkImage);
+        Image checkmarkImg = (Image)checkmark.Q(name: "Checkmark");
+
+        checkmarkImg.AddToClassList(IMAGE_COLOR_GREEN);
+        
         _heroBarToolBar.Add(checkmark);
         
         VisualElement heroFace = ReturnPictogram("HeroFace");
@@ -217,8 +225,11 @@ public class HeroList_UI : UI
         InitiateElement(heroNameField,UIManager.instance.OpenHeroUI,hero);
 
         //may add pictograms here
-        VisualElement checkmark = ReturnPictogram("Checkmark");
+        VisualElement checkmark = ReturnPictogram("Checkmark",_checkmarkImage);
+        Image checkmarkImg = (Image)checkmark.Q(name: "Checkmark");
+        checkmarkImg.AddToClassList(IMAGE_COLOR_GREEN);
         InitiateElement(checkmark, heroInList.Select);
+        checkmarkImg.style.display = DisplayStyle.None;
         heroInListVisual.Add(checkmark);
         
         VisualElement heroFace = ReturnPictogram("Heroface");
@@ -261,18 +272,24 @@ public class HeroList_UI : UI
             case "Damage": return hero.ReturnDamageCurrent().ToString();
             case "Defense": return hero.ReturnDefenseCurrent().ToString();
             case "Energy": return hero.ReturnEnergyCurrent().ToString();
-            case "Group": return hero.heroGroupImInName;
+            case "Group": return hero.ReturnGroupImInName();
             case "ProfessionSkill": return "Prof. Skill";
             case "Status": return "Status";
         }
         return "UNKNOWN";        
     }
-    private void HideShowColumns()
+    private void MoveHeroToGroupBulk()
     {
-        
-    }
+        //if opened close
+        foreach(HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
+        {
+            //spawn somewhere buttons thatsubscribe move all selected heroes to particularGroup
 
+
+        }
+    }
 }
+
     /*public void DisplayHeroListHeader()
     {
 
