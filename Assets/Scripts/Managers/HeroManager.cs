@@ -57,6 +57,7 @@ public class HeroManager : Singleton<HeroManager>
 
         _heroGroup.AddUnitToDesignatedList(hero);
         hero.heroGroupImInName = _heroGroup.heroGroupName;
+        hero.heroGroupImIn = _heroGroup;
         hero.idGroupHeroIsIn = _heroGroup.uniqueID;
         hero.transform.parent=_heroGroup.transform;
     }

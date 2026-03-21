@@ -1,91 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class HeroList_UI : UI
 {
-    /*[System.Serializable]
-    public class StatField
-    {
-        //nejak vopchat do constructora metodu z hera
-        public bool isDisplayed;
-        public string name;
-        public string containerClass;
-        public string defaultText;
-        public string value;
-        //public Hero heroIRepresent;
-
-        public void SetStatFieldValueText(Func<Hero,string> displayValue,Hero hero)
-        {
-            
-        }
-        public StatField(string inputDefaultText, string inputName,string inputContainerClass)
-        {
-            isDisplayed = true;
-            name = inputName;
-            containerClass = inputContainerClass;
-            defaultText = inputDefaultText;
-        }
-        public StatField(string inputDefaultText, string inputName,string inputContainerClass, Func<Hero,string> displayValue,Hero hero)
-        {
-            //for header
-            isDisplayed = true;
-            name = inputName;
-            containerClass = inputContainerClass;
-            defaultText = inputDefaultText;
-            //value = displayValue(heroIRepresent);
-        }
-
-        public StatField(HeroList_UI heroList, string inputDefaultText, string inputName,string inputContainerClass, string inputDisplayValue)
-        {
-            //for header
-            isDisplayed = true;
-            name = inputName;
-            containerClass = inputContainerClass;
-            defaultText = inputDefaultText;
-            value = inputDisplayValue;
-            
-            void DisplayStatField()
-            {
-                heroList.ReturnTextWindow(containerClass,defaultText);
-            }
-        }
-    }*/
-    [System.Serializable]
-    public class HeroInList
-    {
-        public Hero heroIRepresent;
-        public bool isSelected = false;
-        public VisualElement heroInListVisual;
-
-        public void Select()
-        {
-            Image image = (Image)heroInListVisual.Q(name: "Checkmark");
-            if(isSelected) 
-            {
-                isSelected=false;
-                //enable disable
-                Debug.Log("CheckmarkOff");
-                Debug.Log(image.name);
-                image.style.display = DisplayStyle.None;
-            }
-            else 
-            {
-                isSelected = true;
-                Debug.Log("CheckmarkOn");
-                image.style.display = DisplayStyle.Flex;
-            }
-            Debug.Log("some hero checkmark: "+isSelected);
-        }
-        public HeroInList(Hero hero, VisualElement visualElement)
-        {
-            heroIRepresent = hero;
-            heroInListVisual = visualElement;
-        }
-    }
+    [SerializeField]private DisplayedHero_Actions_MiniHeroGroups_UI _bulkMoveHeroesToGroup;
 
     [SerializeField]private UIDocument _uiDocument;
     [SerializeField]private Texture _checkmarkImage;
@@ -96,17 +18,27 @@ public class HeroList_UI : UI
     private VisualElement _displayedHeroes;
     
     private List<StatField> _statFieldList = new List<StatField>();
-    private StatField _heroNameField = new StatField("HeroName","HeroName",BASIC_TEXT_CONTAINER_LARGE);
-    private StatField _heroLevelField = new StatField("LVL","Level",BASIC_TEXT_CONTAINER_SMALL);
-    private StatField _heroActivityField = new StatField("Activity","Activity",BASIC_TEXT_CONTAINER_MEDIUM);
-    private StatField _heroHealthField = new StatField("HP","Health",BASIC_TEXT_CONTAINER_SMALL);
-    private StatField _heroDamageField = new StatField("DMG","Damage",BASIC_TEXT_CONTAINER_SMALL);
-    private StatField _heroDefenseField = new StatField("DEF","Defense",BASIC_TEXT_CONTAINER_SMALL);
-    private StatField _heroEnergyField = new StatField("EN","Energy",BASIC_TEXT_CONTAINER_SMALL);
-    private StatField _heroGroupField = new StatField("Group","Droup",BASIC_TEXT_CONTAINER_MEDIUM);
-    private StatField _heroProfSkillField = new StatField("Prof. Skill","ProfessionSkill",BASIC_TEXT_CONTAINER_MEDIUM);
-    private StatField _heroStatusField = new StatField("Status","Status",BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroNameField = new StatField("HeroName",HERO_NAME,BASIC_TEXT_CONTAINER_LARGE);
+    private StatField _heroLevelField = new StatField("LVL",LEVEL,BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroActivityField = new StatField("Activity",ACTIVITY,BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroHealthField = new StatField("HP",HEALTH,BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroDamageField = new StatField("DMG",DAMAGE,BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroDefenseField = new StatField("DEF",DEFENSE,BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroEnergyField = new StatField("EN",ENERGY,BASIC_TEXT_CONTAINER_SMALL);
+    private StatField _heroGroupField = new StatField("Group",GROUP,BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroProfSkillField = new StatField("Prof. Skill",PROFESSION_SKILL,BASIC_TEXT_CONTAINER_MEDIUM);
+    private StatField _heroStatusField = new StatField("Status",STATUS,BASIC_TEXT_CONTAINER_MEDIUM);
 
+    private const string HERO_NAME = "HeroName";
+    private const string LEVEL = "Level";
+    private const string ACTIVITY = "Activity";
+    private const string HEALTH = "Health";
+    private const string DAMAGE = "Damage";
+    private const string DEFENSE = "Defense";
+    private const string ENERGY = "Energy";
+    private const string GROUP = "Group";
+    private const string PROFESSION_SKILL = "ProfessionSkill";
+    private const string STATUS = "Status";
 
     private List<VisualElement> _heroListVisual = new List<VisualElement>();
     public List<HeroInList> _heroInListVisual = new List<HeroInList>();
@@ -180,6 +112,7 @@ public class HeroList_UI : UI
         
         Button moveToGroupButton = ReturnButton(/*MY_BUTTON+" "+*/BASIC_TEXT_CONTAINER_LARGE,"MoveToGroup");
         this._bulkCommandButtons.Add(moveToGroupButton);
+        InitiateButton(moveToGroupButton,DisplayHeroGroups);
 
         Button dummyButton = ReturnButton(BASIC_TEXT_CONTAINER_120px,"DummyBTN");
         this._bulkCommandButtons.Add(dummyButton);
@@ -187,7 +120,7 @@ public class HeroList_UI : UI
     }
     public void DisplayHeroListHeader()
     {
-        VisualElement heroNameField = ReturnTextWindow(BASIC_TEXT_CONTAINER_LARGE,"HeroName");
+        VisualElement heroNameField = ReturnTextWindow(BASIC_TEXT_CONTAINER_LARGE,HERO_NAME);
         _heroBarToolBar.Add(heroNameField);
 
         //may add pictograms here
@@ -198,12 +131,12 @@ public class HeroList_UI : UI
         
         _heroBarToolBar.Add(checkmark);
         
-        VisualElement heroFace = ReturnPictogram("HeroFace");
+        VisualElement heroFace = ReturnPictogram(HERO_NAME);
         _heroBarToolBar.Add(heroFace);
 
         foreach(StatField statfield in _statFieldList)
         {//add names
-            if(statfield.isDisplayed == false || statfield.name =="HeroName") {continue;}
+            if(statfield.isDisplayed == false || statfield.name == HERO_NAME) {continue;}
             VisualElement element = ReturnTextWindow(statfield.containerClass,statfield.defaultText);
             element.name = statfield.name;
             _heroBarToolBar.Add(element); 
@@ -238,7 +171,7 @@ public class HeroList_UI : UI
 
         foreach(StatField statfield in _statFieldList)
         {//add names
-            if(statfield.isDisplayed == false|| statfield.name == "HeroName") {continue;}
+            if(statfield.isDisplayed == false|| statfield.name == HERO_NAME) {continue;}
             VisualElement element = ReturnTextWindow(statfield.containerClass,ReturnCorrectStatValue(hero,statfield.name));
             element.name = statfield.name;
             heroInListVisual.Add(element);
@@ -259,8 +192,27 @@ public class HeroList_UI : UI
         _statFieldList.Add(_heroProfSkillField);
         _statFieldList.Add(_heroStatusField);
     }
+        private string ReturnCorrectStatValue(Hero hero, string statName)
+    {
+        
+        switch(statName)
+        {
+            case HERO_NAME: return hero.ReturnName();
+            case LEVEL: return "LVL";
+            case ACTIVITY: return "Activity";
+            case HEALTH: return hero.ReturnHealthCurrent().ToString();
+            case DAMAGE: return hero.ReturnDamageCurrent().ToString();
+            case DEFENSE: return hero.ReturnDefenseCurrent().ToString();
+            case ENERGY: return hero.ReturnEnergyCurrent().ToString();
+            case GROUP: return hero.ReturnGroupImInName();
+            case PROFESSION_SKILL: return "Prof. Skill";
+            case STATUS: return "Status";
+        }
+        return "UNKNOWN";  
+    }
 
-    private string ReturnCorrectStatValue(Hero hero, string statName)
+
+        /*private string ReturnCorrectStatValue2(Hero hero, string statName)
     {
         
         switch(statName)
@@ -276,7 +228,20 @@ public class HeroList_UI : UI
             case "ProfessionSkill": return "Prof. Skill";
             case "Status": return "Status";
         }
-        return "UNKNOWN";        
+        return "UNKNOWN";  
+    }
+       */
+
+        private void DisplayHeroGroups()
+    {
+        if (_bulkMoveHeroesToGroup.gameObject.active)
+        { 
+            _bulkMoveHeroesToGroup.gameObject.SetActive(false);
+        }
+        else
+        {
+            _bulkMoveHeroesToGroup.gameObject.SetActive(true);
+        }
     }
     private void MoveHeroToGroupBulk()
     {
