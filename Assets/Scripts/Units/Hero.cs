@@ -1,4 +1,5 @@
-
+using System.Reflection;
+using UnityEngine;
 public class Hero : Unit
 {
     public HeroGroup heroGroupImIn;// must finish when hero is assigned
@@ -27,10 +28,30 @@ public class Hero : Unit
     public void DoBasicSetup()
     {
         stats.AddStatsToList();
+        //HeroManager.instance.MoveHeroToGroup(this,);
     }
     public void SetHeroGroupManagerReference(HeroGroupManager heroGroupManager)
     { 
         _heroGroupManager = heroGroupManager;
+    }
+    public string ReturnGroupImInName()
+    {
+        if(heroGroupImIn.heroGroupName == null)
+        {
+        Debug.Log("dont see hero group name for some reason");
+        return "null";
+        }
+        else if(heroGroupImIn == null)
+        {
+            Debug.Log("dont see herogroup at all ");
+            return "null";
+        }
+        else
+        {
+            //return heroGroupImInName;
+            return heroGroupImIn.heroGroupName;
+        }
+        //return heroGroupImInName;
     }
     public int ReturnHealthBase()
     {
