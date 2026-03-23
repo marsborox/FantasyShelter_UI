@@ -27206,6 +27206,7 @@ GameObject:
   - component: {fileID: 1961277695}
   - component: {fileID: 1961277696}
   - component: {fileID: 1961277697}
+  - component: {fileID: 1961277698}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -27264,10 +27265,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeroList_UI
   heroManager: {fileID: 0}
   _bulkMoveHeroesToGroup: {fileID: 751869146}
-  _uiDocument: {fileID: 1502287079}
+  _heroListDocument: {fileID: 1502287079}
   _checkmarkImage: {fileID: 2800000, guid: a6bb3dec5fcfa914b9740434a19afaad, type: 3}
   _heroInListVisual: []
   isUiOpen: 0
+--- !u!114 &1961277698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961277694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f116fb804a3e14892f4da15b801dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MiniPopUpSpawner
+  tempSpawnPosition: {x: 0, y: 0}
+  _miniPopUpsDocument: {fileID: 217889976}
 --- !u!1001 &1962246563
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 {
     /*height: 30px;
     background-color: rgb(234,236,208);*/
+    
 }
 
 .top-panel
@@ -31,6 +32,13 @@
     position: relative;
     max-width: 1200px;
     margin-left: 10px;
+}
+.mini-pop-up
+{
+    height: 120px;
+    width: 120px;
+    background-color: green;
+    position: absolute;
 }
 .test-text
 {

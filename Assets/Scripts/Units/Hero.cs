@@ -36,7 +36,7 @@ public class Hero : Unit
     }
     public string ReturnGroupImInName()
     {
-        if(heroGroupImIn.heroGroupName == null)
+        /*if(heroGroupImIn.heroGroupName == null)
         {
         Debug.Log("dont see hero group name for some reason");
         return "null";
@@ -50,8 +50,9 @@ public class Hero : Unit
         {
             //return heroGroupImInName;
             return heroGroupImIn.heroGroupName;
-        }
-        //return heroGroupImInName;
+        }*/
+        // need fixing //********************************************************************************
+        return heroGroupImInName;
     }
     public int ReturnHealthBase()
     {

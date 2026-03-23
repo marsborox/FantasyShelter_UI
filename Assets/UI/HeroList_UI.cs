@@ -8,8 +8,10 @@ using UnityEngine.UIElements;
 public class HeroList_UI : UI
 {
     [SerializeField]private DisplayedHero_Actions_MiniHeroGroups_UI _bulkMoveHeroesToGroup;
+    // minipopupspawner here
 
-    [SerializeField]private UIDocument _uiDocument;
+
+    [SerializeField]private UIDocument _heroListDocument;
     [SerializeField]private Texture _checkmarkImage;
     private VisualElement _rootElement;
     private VisualElement _sortingButtons;
@@ -48,7 +50,7 @@ public class HeroList_UI : UI
     na kazdeho heroInList a header a eoInList vsetky + header do listu*/
     void Awake()
     {
-        _rootElement = _uiDocument.rootVisualElement;
+        _rootElement = _heroListDocument.rootVisualElement;
         _sortingButtons = _rootElement.Q(name: "SortingButtons");
         _bulkCommandButtons = _rootElement.Q(name: "BulkComandButtons");
         _heroBarToolBar = _rootElement.Q(name: "HeroBarToolBar"); 
