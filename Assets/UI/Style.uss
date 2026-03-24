@@ -4,7 +4,12 @@
     background-color: rgb(234,236,208);*/
     
 }
-
+.top-central-name-field
+{
+    position:relative;
+    flex-direction: row;
+    height: 30px;
+}
 .top-panel
 {
     position: relative;
@@ -15,6 +20,14 @@
     margin-left: 10px;
     justify-content: flex-start;
     flex-direction: row;
+}
+.top-panel-popup
+{
+    position:relative;
+    height: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
+    
 }
 .horisontal-button-list
 {
@@ -27,11 +40,22 @@
     flex-direction: row;
     margin-bottom: 10px;
 }
+
 .main-window
 {
     position: relative;
     max-width: 1200px;
     margin-left: 10px;
+}
+.hero-list
+{
+    position:absolute;
+    top: 100px;
+    left:20px;
+    background-color: rgba(0,0,0,0.3);
+    
+    height: 900px;
+    width: 1700px;
 }
 .mini-pop-up
 {
@@ -96,8 +120,7 @@
     justify-content: center;
 
     margin-right: 5px;
-    margin-top:5px;
-}
+    margin-top:5px;}
 .basic-text-container-small
 {
     width: 50px;

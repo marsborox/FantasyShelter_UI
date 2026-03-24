@@ -7748,6 +7748,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1907555313712603834, guid: c52adaf850f25a14880b2ef31c50c8d3, type: 3}
   m_PrefabInstance: {fileID: 559082908}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &563157554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563157556}
+  - component: {fileID: 563157555}
+  m_Layer: 5
+  m_Name: HeroList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &563157555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563157554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 2aeec062f39cfca479452ec465f857d6, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 68d1ef65c33ac1c44814056b6b329e74, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &563157556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563157554}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1961277695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563771268
 GameObject:
   m_ObjectHideFlags: 0
@@ -27228,6 +27283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1502287078}
+  - {fileID: 563157556}
   - {fileID: 217889975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27243,6 +27299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da899fd4e5b6ab4c9d77c4bde539215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopBar
+  uiPanelName: 
   heroManager: {fileID: 0}
   _uiDoc: {fileID: 1502287079}
   _heroListUI: {fileID: 1961277697}
@@ -27263,9 +27320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f1b9e8b1c372140a426181922be951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroList_UI
+  uiPanelName: Hero List
   heroManager: {fileID: 0}
   _bulkMoveHeroesToGroup: {fileID: 751869146}
-  _heroListDocument: {fileID: 1502287079}
+  _rootUIDocument: {fileID: 563157555}
   _checkmarkImage: {fileID: 2800000, guid: a6bb3dec5fcfa914b9740434a19afaad, type: 3}
   _heroInListVisual: []
   isUiOpen: 0
@@ -27281,6 +27339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f116fb804a3e14892f4da15b801dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPopUpSpawner
+  uiPanelName: Move Heroes to Group
+  heroManager: {fileID: 0}
   tempSpawnPosition: {x: 0, y: 0}
   _miniPopUpsDocument: {fileID: 217889976}
 --- !u!1001 &1962246563

@@ -1,5 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=9060dfa9ddbe79348be2e44955f3ff86&amp;type=3#Style"/>
+    
     <ui:VisualElement class="top-panel">
         <ui:Button name="HeroesButton" text="Heroes" class="my-button basic-text-container-120px"/>
         <ui:Button name="GroupsButton" text="Groups" class="my-button basic-text-container-120px"/>
@@ -7,6 +8,7 @@
         <ui:Button name="StashButton" text="Stash" class="my-button basic-text-container-120px"/>
         <ui:Button name="MapButton" text="Map" class="my-button basic-text-container-120px"/>
     </ui:VisualElement>
+
     <ui:VisualElement name="MainWindow" class="main-window">
 
         <ui:VisualElement name="HeroesListHeader">
@@ -14,73 +16,77 @@
         </ui:VisualElement>
 
 
-            <ui:VisualElement name="SortingButtons" class="hero-list-sorting-buttons">
-                <!-- <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-120px"/>
-                <ui:Button name="LevelButton" text="Level" class="my-button basic-text-container-120px"/>
-                <ui:Button name="HealthButton" text="Health" class="my-button basic-text-container-120px"/>
-                <ui:Button name="AttackButton" text="Attack" class="my-button basic-text-container-120px"/>
-                <ui:Button name="DefenseButton" text="Defense" class="my-button basic-text-container-120px"/>
-                <ui:Button name="RoleButton" text="Role" class="my-button basic-text-container-120px"/>
-                <ui:Button name="ProfessionButton" text="Profession" class="my-button basic-text-container-120px"/>
-                <ui:Button name="ProfSkillButton" text="Prof. Skill" class="my-button basic-text-container-120px"/>
-                <ui:Button name="GroupButton" text="Group" class="my-button basic-text-container-120px"/>
-                <ui:Button name="ActivityButton" text="Activity" class="my-button basic-text-container-120px"/>
-                <ui:Button name="StatusButton" text="Status" class="my-button basic-text-container-120px"/> -->
-            </ui:VisualElement>
+        <ui:VisualElement name="SortingButtons" class="hero-list-sorting-buttons">
+            <!-- <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-120px"/>
+            <ui:Button name="LevelButton" text="Level" class="my-button basic-text-container-120px"/>
+            <ui:Button name="HealthButton" text="Health" class="my-button basic-text-container-120px"/>
+            <ui:Button name="AttackButton" text="Attack" class="my-button basic-text-container-120px"/>
+            <ui:Button name="DefenseButton" text="Defense" class="my-button basic-text-container-120px"/>
+            <ui:Button name="RoleButton" text="Role" class="my-button basic-text-container-120px"/>
+            <ui:Button name="ProfessionButton" text="Profession" class="my-button basic-text-container-120px"/>
+            <ui:Button name="ProfSkillButton" text="Prof. Skill" class="my-button basic-text-container-120px"/>
+            <ui:Button name="GroupButton" text="Group" class="my-button basic-text-container-120px"/>
+            <ui:Button name="ActivityButton" text="Activity" class="my-button basic-text-container-120px"/>
+            <ui:Button name="StatusButton" text="Status" class="my-button basic-text-container-120px"/> -->
+        </ui:VisualElement>
 
             
-            <ui:VisualElement name="BulkComandButtons" class="basic-bar">
-    <!--            <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button basic-text-container-large"/>
-                <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button basic-text-container-large"/> -->
+        <ui:VisualElement name="BulkComandButtons" class="basic-bar">
+<!--            <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button basic-text-container-large"/>
+            <ui:Button name="MoveToGroupButton" text="MoveToGroup" class="my-button basic-text-container-large"/> -->
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Heroes">
+            <ui:VisualElement name="HeroBarToolBar" class="heroes-bar">
+
+
+            
+<!--                 <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-large"/> -->
+<!--                <ui:VisualElement name="HeroNameText" class="basic-text-container-large">
+                    <ui:Label text="HeroName" class="basic-text-text" />  
+                </ui:VisualElement> -->
+    <!-- Pictorams            <ui:VisualElement name="LevelText" class="basic-text-container-pictogram">
+                    <ui:Image name="DummyImage" class="pictogram"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="LevelText" class="basic-text-container-pictogram">
+                    <ui:Image name="DummyImage" class="pictogram"/>    
+                </ui:VisualElement> -->
+    <!--            <ui:VisualElement name="LevelText" class="basic-text-container-small">
+                    <ui:Label text="LVL" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="LevelActivity" class="basic-text-container-medium">
+                    <ui:Label text="Activity" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="HealthText" class="basic-text-container-small">
+                    <ui:Label text="HP" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="DamageText" class="basic-text-container-small">
+                    <ui:Label text="DMG" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="DefenseText" class="basic-text-container-small">
+                    <ui:Label text="DEF" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="EnduranceText" class="basic-text-container-small">
+                    <ui:Label text="EN" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="GroupText" class="basic-text-container-medium">
+                    <ui:Label text="Group" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="ProfskillText" class="basic-text-container-medium">
+                    <ui:Label text="Prof. Skill" class="basic-text-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="StatusText" class="basic-text-container-medium">
+                    <ui:Label text="Status" class="basic-text-text"/>
+                </ui:VisualElement> -->
             </ui:VisualElement>
 
-            <ui:VisualElement name="Heroes">
-                <ui:VisualElement name="HeroBarToolBar" class="heroes-bar">
-                
-    <!--                 <ui:Button name="NameButton" text="Name" class="my-button basic-text-container-large"/> -->
-    <!--                <ui:VisualElement name="HeroNameText" class="basic-text-container-large">
-                        <ui:Label text="HeroName" class="basic-text-text" />  
-                    </ui:VisualElement> -->
-        <!-- Pictorams            <ui:VisualElement name="LevelText" class="basic-text-container-pictogram">
-                        <ui:Image name="DummyImage" class="pictogram"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="LevelText" class="basic-text-container-pictogram">
-                        <ui:Image name="DummyImage" class="pictogram"/>    
-                    </ui:VisualElement> -->
-        <!--            <ui:VisualElement name="LevelText" class="basic-text-container-small">
-                        <ui:Label text="LVL" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="LevelActivity" class="basic-text-container-medium">
-                        <ui:Label text="Activity" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="HealthText" class="basic-text-container-small">
-                        <ui:Label text="HP" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="DamageText" class="basic-text-container-small">
-                        <ui:Label text="DMG" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="DefenseText" class="basic-text-container-small">
-                        <ui:Label text="DEF" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="EnduranceText" class="basic-text-container-small">
-                        <ui:Label text="EN" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="GroupText" class="basic-text-container-medium">
-                        <ui:Label text="Group" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="ProfskillText" class="basic-text-container-medium">
-                        <ui:Label text="Prof. Skill" class="basic-text-text"/>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="StatusText" class="basic-text-container-medium">
-                        <ui:Label text="Status" class="basic-text-text"/>
-                    </ui:VisualElement> -->
-                </ui:VisualElement>
-
-                <ui:VisualElement name="DisplayedHeroes">
-                
-                </ui:VisualElement>
-
+            <ui:VisualElement name="DisplayedHeroes">
+            
             </ui:VisualElement>
+
+        </ui:VisualElement>
+
     </ui:VisualElement>
+    
     <ui:VisualElement name="HeroBarToolBar2" class="heroes-bar"/>
 </ui:UXML>
