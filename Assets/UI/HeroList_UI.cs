@@ -1,21 +1,23 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class HeroList_UI : UI
 {
+    public HeroGroup_MiniPopUpSpawner heroGroup_MiniPopUpSpawner;
     [SerializeField]private DisplayedHero_Actions_MiniHeroGroups_UI _bulkMoveHeroesToGroup;
+    // minipopupspawner here
 
-    [SerializeField]private UIDocument _uiDocument;
+
+    [SerializeField]private UIDocument _rootUIDocument;
     [SerializeField]private Texture _checkmarkImage;
     private VisualElement _rootElement;
+    private VisualElement _heroList;
     private VisualElement _sortingButtons;
     private VisualElement _bulkCommandButtons;
     private VisualElement _heroBarToolBar;
     private VisualElement _displayedHeroes;
+
     
     private List<StatField> _statFieldList = new List<StatField>();
     private StatField _heroNameField = new StatField("HeroName",HERO_NAME,BASIC_TEXT_CONTAINER_LARGE);
@@ -44,11 +46,13 @@ public class HeroList_UI : UI
     public List<HeroInList> _heroInListVisual = new List<HeroInList>();
     public bool isUiOpen = false;
 
+    private string _heroListClass = "hero-list";
     /* header a kazdy heroInList - spawnut StatField na kazdy stat aky existuje a asi spravit list - 
     na kazdeho heroInList a header a eoInList vsetky + header do listu*/
     void Awake()
     {
-        _rootElement = _uiDocument.rootVisualElement;
+        _rootElement = _rootUIDocument.rootVisualElement;
+        _heroList = _rootElement.Q(name: "Hero-list");
         _sortingButtons = _rootElement.Q(name: "SortingButtons");
         _bulkCommandButtons = _rootElement.Q(name: "BulkComandButtons");
         _heroBarToolBar = _rootElement.Q(name: "HeroBarToolBar"); 
@@ -60,8 +64,16 @@ public class HeroList_UI : UI
     {
 
     }
+    void Start()
+    {
+        
+        base.Start();
+        CloseUI();
+
+    }
     public void DisplayUI()
     {
+        //Debug.Log("heroListBtn");
         if(!isUiOpen)
         {
             isUiOpen = true;
@@ -77,6 +89,8 @@ public class HeroList_UI : UI
     public void OpenUI()
     {
         //Debug.Log("opening UI");
+        _heroList.AddToClassList(_heroListClass);
+        
         DisplayBulkCommandButtons();
         DisplaySortingButtons();
         DisplayHeroListHeader();
@@ -84,17 +98,21 @@ public class HeroList_UI : UI
         {
             DisplayOneHeroInList(hero);
         }
+        
+        ShowElement(_heroList);
     }
 
 
     public void CloseUI()
     {
-
+        _heroList.RemoveFromClassList(_heroListClass);
         _heroListVisual.Clear();
         _sortingButtons.Clear();//need to spawn sorting buttons too
         _bulkCommandButtons.Clear();
         _heroBarToolBar.Clear();
         _displayedHeroes.Clear();
+        HideElement(_heroList);
+        
     }
     private void DisplaySortingButtons()
     {
@@ -110,9 +128,9 @@ public class HeroList_UI : UI
     {        //************************************************************ WORK HERE
         //BulkCommandButtons
         
-        Button moveToGroupButton = ReturnButton(/*MY_BUTTON+" "+*/BASIC_TEXT_CONTAINER_LARGE,"MoveToGroup");
+        Button moveToGroupButton = ReturnButton(BASIC_TEXT_CONTAINER_LARGE,"MoveToGroup");
         this._bulkCommandButtons.Add(moveToGroupButton);
-        InitiateButton(moveToGroupButton,DisplayHeroGroups);
+        InitiateButton(moveToGroupButton,heroGroup_MiniPopUpSpawner.DisplayUI);
 
         Button dummyButton = ReturnButton(BASIC_TEXT_CONTAINER_120px,"DummyBTN");
         this._bulkCommandButtons.Add(dummyButton);
@@ -245,13 +263,28 @@ public class HeroList_UI : UI
     }
     private void MoveHeroToGroupBulk()
     {
+        List<Hero> selectedHeroes = new List<Hero>();
         //if opened close
-        foreach(HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
+        foreach(HeroInList heroVisual in _heroInListVisual)
         {
-            //spawn somewhere buttons thatsubscribe move all selected heroes to particularGroup
-
-
+            if (heroVisual.isSelected)
+            {
+                selectedHeroes.Add(heroVisual.heroIRepresent);
+            }
         }
+    }
+    public List<Hero> ReturnSelectedHeroes()
+    {
+        List<Hero> selectedHeroes = new List<Hero>();
+        //if opened close
+        foreach(HeroInList heroVisual in _heroInListVisual)
+        {
+            if (heroVisual.isSelected)
+            {
+                selectedHeroes.Add(heroVisual.heroIRepresent);
+            }
+        }
+        return selectedHeroes;
     }
 }
 
