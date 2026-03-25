@@ -6,12 +6,14 @@ using System.Collections.Generic;
 public class HeroGroup_MiniPopUpSpawner : UI
 {
     public Vector2 tempSpawnPosition =  new Vector2(400,400);
+    public bool isUiOpen = false;
     [SerializeField] private UIDocument _miniPopUpsDocument;
 
     private VisualElement _rootElement;
     private VisualElement _miniHeroGroups;
     public HeroList_UI heroList_UI;
     private int _verticalSize = 1080;
+
 
     private Vector2 _clickRelativeToAnchor;
     void OnEnable()
@@ -28,18 +30,40 @@ public class HeroGroup_MiniPopUpSpawner : UI
     {
         //MouseClickMove();
     }
+    public void DisplayUI()
+    {
+                //Debug.Log("heroListBtn");
+        if(!isUiOpen)
+        {
+            isUiOpen = true;
+            OpenUI();
+        }
+        else
+        {
+            isUiOpen = false;
+            CloseUI();
+        }
+    }
+    
     public void OpenUI()
     {
         Debug.Log("opening miniPopUps HerroGroup");
-        VisualElement topUI_BAR = ReturnTopUI_Bar(uiPanelName);
+        VisualElement topUI_BAR = ReturnTopUI_Bar(uiPanelName,CloseUI);
+
         _miniHeroGroups.Add(topUI_BAR);
         DisplayHeroGroups();
         MoveMiniHeroGroupsAt(Mouse.current.position.ReadValue());
+        Button exitButton = (Button)topUI_BAR.Q(name = EXIT_BUTTON);
+        //InitiateButton(exitButton,CloseUI);
+
+        ShowElement(_miniHeroGroups);
     }
 
     public void CloseUI()
     {
         _miniHeroGroups.Clear();
+        HideElement(_miniHeroGroups);
+
     }
     void MoveMiniHeroGroupsAt(Vector2 position)
     {
@@ -74,11 +98,7 @@ public class HeroGroup_MiniPopUpSpawner : UI
         if(Input.GetMouseButtonDown(0))
         {
             DisplayMiniHeroGroupsAtMouse();
-            /*
-            Debug.Log("testClick");
-            Vector2 mouseClickPosition = Mouse.current.position.ReadValue();
-            Debug.Log(mouseClickPosition);
-            DisplayMiniHeroGroupsAt(mouseClickPosition);*/
+
         }
     }
     void DisplayHeroGroups()
@@ -87,6 +107,7 @@ public class HeroGroup_MiniPopUpSpawner : UI
         {
             Button heroGroupBTN = ReturnButton(BASIC_TEXT_CONTAINER_120px,heroGroup.heroGroupName);
             _miniHeroGroups.Add(heroGroupBTN);
+            
             //InitiateButton(heroGroupBTN,PrintSomething);
             InitiateButton(heroGroupBTN,MoveBulkHeroesToGroup,heroGroup);
         }

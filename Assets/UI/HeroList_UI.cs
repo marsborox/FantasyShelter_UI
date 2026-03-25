@@ -98,7 +98,8 @@ public class HeroList_UI : UI
         {
             DisplayOneHeroInList(hero);
         }
-        _heroList.style.display=DisplayStyle.Flex;
+        
+        ShowElement(_heroList);
     }
 
 
@@ -110,7 +111,8 @@ public class HeroList_UI : UI
         _bulkCommandButtons.Clear();
         _heroBarToolBar.Clear();
         _displayedHeroes.Clear();
-        _heroList.style.display=DisplayStyle.None;
+        HideElement(_heroList);
+        
     }
     private void DisplaySortingButtons()
     {
@@ -128,7 +130,7 @@ public class HeroList_UI : UI
         
         Button moveToGroupButton = ReturnButton(BASIC_TEXT_CONTAINER_LARGE,"MoveToGroup");
         this._bulkCommandButtons.Add(moveToGroupButton);
-        InitiateButton(moveToGroupButton,heroGroup_MiniPopUpSpawner.OpenUI);
+        InitiateButton(moveToGroupButton,heroGroup_MiniPopUpSpawner.DisplayUI);
 
         Button dummyButton = ReturnButton(BASIC_TEXT_CONTAINER_120px,"DummyBTN");
         this._bulkCommandButtons.Add(dummyButton);

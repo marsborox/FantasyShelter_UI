@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
     private Color32 _pressedColor = new Color32(200, 200, 200, 255);
     private Color32 _unpressedColor = new Color32(245, 245, 216, 255);
     private Color32 _backGroundColor = new Color32(0, 0, 0, 122);
-    
+    #region containerClasses
     public const string TOP_PAMEL_POPUP = "top-panel-popup";
     public const string TOP_CENTRAL_NAME_FIELD = "top-central-name-field";
     public const string BASIC_TEXT_CONTAINER_SMALL = "basic-text-container-small";
@@ -25,11 +25,18 @@ public class UI : MonoBehaviour
     public const string BASIC_TEXT_CONTAINER_120px = "basic-text-container-120px";
     public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
     public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
+    #endregion
+
+   
     public const string BASIC_PICTOGRAM = "pictogram";
     public const string IMAGE_COLOR_GREEN = "image-color-green";
     public const string HEORES_BAR = "heroes-bar";
     public const string BASIC_TEXT_TEXT = "basic-text-text";
     public const string MY_BUTTON = "my-button";
+
+    #region names
+    public const string EXIT_BUTTON = "ExitButton";
+    #endregion
 
     //this is to track callback methods subscibed to buttons for cmpllete removals later
     private Dictionary<Button, List<EventCallback<ClickEvent>>> _buttonCallbacks = new Dictionary<Button, List<EventCallback<ClickEvent>>>();
@@ -462,13 +469,28 @@ public class UI : MonoBehaviour
         image.AddToClassList(colorClass);
         return element;
     }
-    public VisualElement ReturnTopUI_Bar(string displayedValue/*, Action closeUI*/)
+    public VisualElement ReturnTopUI_Bar(string displayedValue)
     {
         VisualElement topUI_Bar = new VisualElement();
         topUI_Bar.AddToClassList(TOP_PAMEL_POPUP);
 
-        Button exitButton = ReturnButton(MY_BUTTON,"X");
+        Button exitButton = ReturnButton(EXIT_BUTTON,MY_BUTTON,"X");
+        
         InitiateButton(exitButton,PrintStrinng,"X");
+        topUI_Bar.Add(exitButton);
+
+        VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
+        topUI_Bar.Add(centralNameField);
+        return topUI_Bar;
+    }
+        public VisualElement ReturnTopUI_Bar(string displayedValue, Action closeUI)
+    {
+        VisualElement topUI_Bar = new VisualElement();
+        topUI_Bar.AddToClassList(TOP_PAMEL_POPUP);
+
+        Button exitButton = ReturnButton(EXIT_BUTTON,MY_BUTTON,"X");
+        InitiateButton(exitButton,closeUI/*,"X"*/);
+        //InitiateButton(exitButton,PrintStrinng,"X");
         topUI_Bar.Add(exitButton);
 
         VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
@@ -477,6 +499,14 @@ public class UI : MonoBehaviour
     }
 
     #endregion
+    public void ShowElement(VisualElement element)
+    {
+        element.style.display = DisplayStyle.Flex;
+    }
+    public void HideElement(VisualElement element)
+    {
+        element.style.display=DisplayStyle.None;
+    }
     void PrintStrinng(string printString)
     {
         Debug.Log(printString);   
