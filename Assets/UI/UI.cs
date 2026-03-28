@@ -14,10 +14,17 @@ public class UI : MonoBehaviour
     public Color32 unpressedColor = new Color32(200,200,200,200);
     */
 
+    public string isTest
+    {
+        get {return TOP_CENTRAL_NAME_FIELD;}
+    }
+
     private Color32 _pressedColor = new Color32(200, 200, 200, 255);
     private Color32 _unpressedColor = new Color32(245, 245, 216, 255);
     private Color32 _backGroundColor = new Color32(0, 0, 0, 122);
     #region containerClasses
+    //public const string TOP_PAMEL_POPUP = "top-panel-popup";
+    string topPanelPopUp = "ds";
     public const string TOP_PAMEL_POPUP = "top-panel-popup";
     public const string TOP_CENTRAL_NAME_FIELD = "top-central-name-field";
     public const string BASIC_TEXT_CONTAINER_SMALL = "basic-text-container-small";
@@ -171,7 +178,7 @@ public class UI : MonoBehaviour
     }
     #endregion
 
-    #region VisualElement initiation
+    #region SubscribeMethodToVisualElement
     
     public void InitiateElementUIPanel(VisualElement element, GameObject gUIPanel)
     {
@@ -297,47 +304,6 @@ public class UI : MonoBehaviour
             _elementCallbacks[element].Clear();
         }
     }
-    #endregion
-
-    #region OldMethods
-    public void CloseThisTab(Button button)
-    {
-        ResetButtonColor(button);
-        gameObject.SetActive(false);
-    }
-    public void CloseTab(Button button, UI_Old ui)
-    {
-        ResetButtonColor(button);
-        ui.gameObject.SetActive(false);
-    }
-    public void CloseTab(UI_Old ui)
-    {
-        ui.gameObject.SetActive(false);
-    }
-
-    public void ResetButtonColor(Button button)
-    {
-        // set color
-        //button.GetComponent<Image>().color = _unpressedColor;
-    }
-    public void SetButtonPressedColor(Button button)
-    {
-        // set color
-        //button.GetComponent<Image>().color = _pressedColor;
-    }
-    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, string text)
-    {
-        fieldToFill.text = text;
-    }
-    public void SetButtonTextValue(TextMeshProUGUI fieldToFill, int text)
-    {
-        fieldToFill.text = text.ToString();
-    }
-    /*public void SetBackGroundImageColor(Image image)
-    { 
-    seems unused for now
-        image.color= _backGroundColor;
-    }*/
     #endregion
 
     #region Field Creation

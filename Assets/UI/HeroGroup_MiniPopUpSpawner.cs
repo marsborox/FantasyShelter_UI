@@ -19,7 +19,7 @@ public class HeroGroup_MiniPopUpSpawner : UI
     void OnEnable()
     {
         _rootElement = _miniPopUpsDocument.rootVisualElement;
-        _miniHeroGroups = _rootElement.Q(name: "HeroGroups");
+        _miniHeroGroups = _rootElement.Q(name: "HeroGroups");//magic number
     }
 
     void Start()
