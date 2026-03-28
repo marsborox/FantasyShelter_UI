@@ -31,7 +31,6 @@ public class SaveLoadSystem : Singleton<SaveLoadSystem>
             data.heroGroupSaveList.Add(heroGroupData);
         }
 
-
         //save heroes with items they wear//might add backpack later here
         foreach (Hero hero in HeroManager.instance.heroList)
         {

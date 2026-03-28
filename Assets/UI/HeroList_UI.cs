@@ -69,7 +69,6 @@ public class HeroList_UI : UI
         
         base.Start();
         CloseUI();
-
     }
     public void DisplayUI()
     {
@@ -102,7 +101,6 @@ public class HeroList_UI : UI
         ShowElement(_heroList);
     }
 
-
     public void CloseUI()
     {
         _heroList.RemoveFromClassList(_heroListClass);
@@ -125,7 +123,7 @@ public class HeroList_UI : UI
         }
     }
     private void DisplayBulkCommandButtons()
-    {        //************************************************************ WORK HERE
+    {   //************************************************************ WORK HERE
         //BulkCommandButtons
         
         Button moveToGroupButton = ReturnButton(BASIC_TEXT_CONTAINER_LARGE,"MoveToGroup");
