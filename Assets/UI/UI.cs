@@ -5,7 +5,7 @@ using TMPro;
 using System.Collections.Generic;
 using MessagePack.Resolvers;
 
-public class UI : MonoBehaviour
+public abstract class UI : MonoBehaviour
 {
     public string uiPanelName;
     /*[SerializeField] public HeroManager heroManager;*/
@@ -24,6 +24,7 @@ public class UI : MonoBehaviour
     private Color32 _backGroundColor = new Color32(0, 0, 0, 122);
     #region containerClasses
     //public const string TOP_PAMEL_POPUP = "top-panel-popup";
+    
     string topPanelPopUp = "ds";
     public const string TOP_PAMEL_POPUP = "top-panel-popup";
     public const string TOP_CENTRAL_NAME_FIELD = "top-central-name-field";
@@ -31,6 +32,7 @@ public class UI : MonoBehaviour
     public const string BASIC_TEXT_CONTAINER_MEDIUM = "basic-text-container-medium";
     public const string BASIC_TEXT_CONTAINER_120px = "basic-text-container-120px";
     public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
+    public const string BASIC_TEXT_CONTAINER_STRETCH = "basic-text-container-stretch";
     public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
     #endregion
 
@@ -454,13 +456,17 @@ public class UI : MonoBehaviour
         VisualElement topUI_Bar = new VisualElement();
         topUI_Bar.AddToClassList(TOP_PAMEL_POPUP);
 
+        VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
+        centralNameField.AddToClassList(BASIC_TEXT_CONTAINER_STRETCH);
+        
+        topUI_Bar.Add(centralNameField);
+
         Button exitButton = ReturnButton(EXIT_BUTTON,MY_BUTTON,"X");
         InitiateButton(exitButton,closeUI/*,"X"*/);
         //InitiateButton(exitButton,PrintStrinng,"X");
         topUI_Bar.Add(exitButton);
 
-        VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
-        topUI_Bar.Add(centralNameField);
+
         return topUI_Bar;
     }
 
@@ -484,4 +490,10 @@ public class UI : MonoBehaviour
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
+    public abstract void SetHeader();
+    public abstract void DisplayUI();
+    public abstract void OpenUI();
+    public abstract void CloseUI();
+    
+    
 }

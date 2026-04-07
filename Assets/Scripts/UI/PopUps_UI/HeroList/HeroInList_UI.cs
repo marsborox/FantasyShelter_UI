@@ -35,7 +35,7 @@ public class HeroInList_UI : UI_Old
         SetValuesFromStatsDirectly();
 
         //InitiateButton(_nameButton, OpenHeroUI,hero);//remove
-        InitiateButton(_nameButton, UIManager.instance.OpenHeroUI,hero);
+        InitiateButton(_nameButton, UIManager.instance.DisplayHeroUI,hero);
         InitiateButton(_checkMarkButton,CheckMarkButton);
     }
 

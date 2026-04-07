@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class HeroList_UI : UI
 {
-    public HeroGroup_MiniPopUpSpawner heroGroup_MiniPopUpSpawner;
+    public HeroGroup_MiniPopUps heroGroup_MiniPopUpSpawner;
     [SerializeField]private DisplayedHero_Actions_MiniHeroGroups_UI _bulkMoveHeroesToGroup;
     // minipopupspawner here
 
@@ -12,11 +12,22 @@ public class HeroList_UI : UI
     [SerializeField]private UIDocument _rootUIDocument;
     [SerializeField]private Texture _checkmarkImage;
     private VisualElement _rootElement;
-    private VisualElement _heroList;
+    private VisualElement _header;
     private VisualElement _sortingButtons;
     private VisualElement _bulkCommandButtons;
+    private VisualElement _heroList;
     private VisualElement _heroBarToolBar;
     private VisualElement _displayedHeroes;
+    private const string HERO_NAME = "HeroName";
+    private const string LEVEL = "Level";
+    private const string ACTIVITY = "Activity";
+    private const string HEALTH = "Health";
+    private const string DAMAGE = "Damage";
+    private const string DEFENSE = "Defense";
+    private const string ENERGY = "Energy";
+    private const string GROUP = "Group";
+    private const string PROFESSION_SKILL = "ProfessionSkill";
+    private const string STATUS = "Status";
 
     
     private List<StatField> _statFieldList = new List<StatField>();
@@ -31,16 +42,6 @@ public class HeroList_UI : UI
     private StatField _heroProfSkillField = new StatField("Prof. Skill",PROFESSION_SKILL,BASIC_TEXT_CONTAINER_MEDIUM);
     private StatField _heroStatusField = new StatField("Status",STATUS,BASIC_TEXT_CONTAINER_MEDIUM);
 
-    private const string HERO_NAME = "HeroName";
-    private const string LEVEL = "Level";
-    private const string ACTIVITY = "Activity";
-    private const string HEALTH = "Health";
-    private const string DAMAGE = "Damage";
-    private const string DEFENSE = "Defense";
-    private const string ENERGY = "Energy";
-    private const string GROUP = "Group";
-    private const string PROFESSION_SKILL = "ProfessionSkill";
-    private const string STATUS = "Status";
 
     private List<VisualElement> _heroListVisual = new List<VisualElement>();
     public List<HeroInList> _heroInListVisual = new List<HeroInList>();
@@ -52,40 +53,44 @@ public class HeroList_UI : UI
     void Awake()
     {
         _rootElement = _rootUIDocument.rootVisualElement;
-        _heroList = _rootElement.Q(name: "Hero-list");
+
+        _header = _rootElement.Q(name: "Header");
         _sortingButtons = _rootElement.Q(name: "SortingButtons");
         _bulkCommandButtons = _rootElement.Q(name: "BulkComandButtons");
+        _heroList = _rootElement.Q(name: "Hero-List");
         _heroBarToolBar = _rootElement.Q(name: "HeroBarToolBar"); 
         _displayedHeroes = _rootElement.Q(name: "DisplayedHeroes");
 
         AddStatFieldsToList();
+
     }
     void OnEnable()
     {
 
     }
+
     void Start()
     {
         
         base.Start();
+        SetHeader();
         CloseUI();
+
     }
-    public void DisplayUI()
+    public override void DisplayUI()
     {
         //Debug.Log("heroListBtn");
         if(!isUiOpen)
         {
-            isUiOpen = true;
             OpenUI();
         }
         else
         {
-            isUiOpen = false;
             CloseUI();
         }
     }
 
-    public void OpenUI()
+    public override void OpenUI()
     {
         //Debug.Log("opening UI");
         _heroList.AddToClassList(_heroListClass);
@@ -99,10 +104,12 @@ public class HeroList_UI : UI
         }
         
         ShowElement(_heroList);
+        isUiOpen = true;
     }
 
-    public void CloseUI()
+    public override void CloseUI()
     {
+        Debug.Log("Closing heroList UI");
         _heroList.RemoveFromClassList(_heroListClass);
         _heroListVisual.Clear();
         _sortingButtons.Clear();//need to spawn sorting buttons too
@@ -110,7 +117,12 @@ public class HeroList_UI : UI
         _heroBarToolBar.Clear();
         _displayedHeroes.Clear();
         HideElement(_heroList);
-        
+        isUiOpen = false;
+    }
+    public override void SetHeader()
+    {
+        VisualElement topUI_BAR = ReturnTopUI_Bar(uiPanelName,CloseUI);
+        _header.Add(topUI_BAR);
     }
     private void DisplaySortingButtons()
     {
@@ -171,7 +183,7 @@ public class HeroList_UI : UI
         
         VisualElement heroNameField = ReturnTextWindow(BASIC_TEXT_CONTAINER_LARGE,hero.ReturnName());
         heroInListVisual.Add(heroNameField);
-        InitiateElement(heroNameField,UIManager.instance.OpenHeroUI,hero);
+        InitiateElement(heroNameField,UIManager.instance.DisplayHeroUI,hero);
 
         //may add pictograms here
         VisualElement checkmark = ReturnPictogram("Checkmark",_checkmarkImage);
@@ -182,6 +194,7 @@ public class HeroList_UI : UI
         heroInListVisual.Add(checkmark);
         
         VisualElement heroFace = ReturnPictogram("Heroface");
+
         heroInListVisual.Add(heroFace);
 
 
@@ -223,8 +236,9 @@ public class HeroList_UI : UI
             case GROUP: return hero.ReturnGroupImInName();
             case PROFESSION_SKILL: return "Prof. Skill";
             case STATUS: return "Status";
+            default: return "UNKNOWN";  
         }
-        return "UNKNOWN";  
+        
     }
 
 
@@ -248,29 +262,7 @@ public class HeroList_UI : UI
     }
        */
 
-        private void DisplayHeroGroups()
-    {
-        if (_bulkMoveHeroesToGroup.gameObject.active)
-        { 
-            _bulkMoveHeroesToGroup.gameObject.SetActive(false);
-        }
-        else
-        {
-            _bulkMoveHeroesToGroup.gameObject.SetActive(true);
-        }
-    }
-    private void MoveHeroToGroupBulk()
-    {
-        List<Hero> selectedHeroes = new List<Hero>();
-        //if opened close
-        foreach(HeroInList heroVisual in _heroInListVisual)
-        {
-            if (heroVisual.isSelected)
-            {
-                selectedHeroes.Add(heroVisual.heroIRepresent);
-            }
-        }
-    }
+
     public List<Hero> ReturnSelectedHeroes()
     {
         List<Hero> selectedHeroes = new List<Hero>();

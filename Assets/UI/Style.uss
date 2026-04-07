@@ -1,17 +1,16 @@
-*
-{
+* {
     /*height: 30px;
     background-color: rgb(234,236,208);*/
-    
+
 }
-.top-central-name-field
-{
-    position:relative;
+
+.top-central-name-field {
+    position: relative;
     flex-direction: row;
     height: 30px;
 }
-.top-panel
-{
+
+.top-panel {
     position: relative;
     /*top: 20px;*/
     height: 30px;
@@ -21,150 +20,156 @@
     justify-content: flex-start;
     flex-direction: row;
 }
-.top-panel-popup
-{
-    position:relative;
+
+.top-panel-popup {
+    position: relative;
     height: 30px;
     flex-direction: row;
-    justify-content: flex-end;
     
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
-.horisontal-button-list
-{
+
+.horisontal-button-list {
     position: relative;
     /*top: 20px;*/
     /*bottom: 30px;*/
     /*left: 10px;*/
     height: 30px;
     justify-content: flex-start;
+
     flex-direction: row;
     margin-bottom: 10px;
 }
 
-.main-window
-{
+.main-window {
     position: relative;
     max-width: 1200px;
     margin-left: 10px;
 }
-.hero-list
-{
-    position:absolute;
+
+.hero-list,
+.hero-group {
+    position: absolute;
     top: 100px;
-    left:20px;
-    background-color: rgba(0,0,0,0.3);
-    
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+
     height: 900px;
     width: 1700px;
 }
-.mini-pop-up
-{
-    height: 120px;
-    width: 120px;
-    background-color: rgba(0,0,0,0.3);
+
+.mini-pop-up {
+    height: 300px;
+    width: 300px;
+    /* was 120*/
+    background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
 }
-.test-text
-{
+
+.test-text {
     width: 600px;
 }
-.hero-list-sorting-buttons
-{
+
+.hero-list-sorting-buttons {
     height: 80px;
     display: block;
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.text-window #unity-text-input
-{
+
+.text-window #unity-text-input {
     height: 35px;
     width: 100px;
-    background-color: rgb(234,236,208);
-    
+    background-color: rgb(234, 236, 208);
 }
-.heroes-bar
-{
+
+.heroes-bar {
+    flex-direction: row;
+
+}
+
+.basic-bar {
     flex-direction: row;
 }
-.basic-bar
-{
-    flex-direction: row;
-}
-.my-button
-{
+
+.my-button {
     /*width: 120px;
     height: 30px;
     background-color: rgb(234,236,208);*/
     font-size: 20px;
 }
-.my-button-hover
-{
-    background-color: rgb(224,226,199);
+
+.my-button-hover {
+    background-color: rgb(224, 226, 199);
 }
-.my-button-pressed
-{
-    background-color: rgb(183,184,162);
+
+.my-button-pressed {
+    background-color: rgb(183, 184, 162);
 }
+
 .basic-text-container,
 .basic-text-container-small,
 .basic-text-container-medium,
 .basic-text-container-120px,
 .basic-text-container-large,
-.basic-text-container-pictogram
-{
+.basic-text-container-stretch,
+.basic-text-container-pictogram,
+.my-button {
     height: 30px;
     /* -unity-background-image-tint-color: rgb(150, 150, 224); */
-	
-    background-color: rgb(234,236,208);
+
+    background-color: rgb(234, 236, 208);
     justify-content: center;
 
     margin-right: 5px;
-    margin-top:5px;}
-.basic-text-container-small
-{
+    margin-top: 5px;
+}
+
+.basic-text-container-small {
     width: 50px;
 }
-.basic-text-container-medium
-{
+
+.basic-text-container-medium {
     width: 100px;
 }
-.basic-text-container-120px
-{
-    width:120px;
+
+.basic-text-container-120px {
+    width: 120px;
 }
-.basic-text-container-large
-{
+
+.basic-text-container-large {
     width: 200px;
 }
-.basic-text-image
+.basic-text-container-stretch
 {
+    width: 100%;
+}
+
+.basic-text-image {
     width: 100px;
     height: 30px;
-    /* background-image: project://database/Assets/Sprites/Generic/Square.png;*/ 
+    /* background-image: project://database/Assets/Sprites/Generic/Square.png;*/
 }
-.basic-text-container-pictogram
-{
+
+.basic-text-container-pictogram {
     width: 30px;
 }
-.image-color-green
-{
+
+.image-color-green {
     --unity-image-tint-color: darkgreen;
 }
-.pictogram
-{
 
-}
-.basic-text-text
-{
+.pictogram {}
+
+.basic-text-text {
     /* width: 120px; */
     height: 30px;
     /*text-align: center;*/
     -unity-text-align: middle-left;
     font-size: 20px;
-    position: relative; 
+    position: relative;
     align-self: center;
-
 }
-
-
