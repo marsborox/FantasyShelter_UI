@@ -69,11 +69,11 @@ public class HeroGroups_UI : UI
     {
         _heroGroupList.AddToClassList(_heroGroupListClass);
 
-        DisplayGroupListHeader();
+        DisplayHeroGroupListHeader();
 
         foreach (HeroGroup heroGroup in HeroGroupManager.instance.heroGroupList)
         {
-            DisplayOneGroupInList(heroGroup);
+            DisplayOneHeroGroupInList(heroGroup);
         }
         ShowElement(_heroGroupList);
         isUiOpen = true;
@@ -97,7 +97,7 @@ public class HeroGroups_UI : UI
         VisualElement topUI_BAR = ReturnTopUI_Bar(uiPanelName,CloseUI);
         _header.Add(topUI_BAR);
     }
-    public void DisplayGroupListHeader()
+    public void DisplayHeroGroupListHeader()
     {
         VisualElement groupNameField = ReturnTextWindow(BASIC_TEXT_CONTAINER_LARGE,GROUP_NAME);
         _heroGroupBarToolBar.Add(groupNameField);
@@ -113,7 +113,7 @@ public class HeroGroups_UI : UI
             _heroGroupBarToolBar.Add(element);
         }
     }
-    public void DisplayOneGroupInList(HeroGroup heroGroup)
+    public void DisplayOneHeroGroupInList(HeroGroup heroGroup)
     {
         VisualElement heroGroupInListVisual = new VisualElement();
         _heroGroupListVisual.Add(heroGroupInListVisual);

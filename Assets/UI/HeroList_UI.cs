@@ -7,7 +7,7 @@ public class HeroList_UI : UI
     public HeroGroup_MiniPopUps heroGroup_MiniPopUpSpawner;
     [SerializeField]private DisplayedHero_Actions_MiniHeroGroups_UI _bulkMoveHeroesToGroup;
     // minipopupspawner here
-
+    [SerializeField]private StatField_List _statFieldList_CONST;
 
     [SerializeField]private UIDocument _rootUIDocument;
     [SerializeField]private Texture _checkmarkImage;
@@ -18,18 +18,18 @@ public class HeroList_UI : UI
     private VisualElement _heroList;
     private VisualElement _heroBarToolBar;
     private VisualElement _displayedHeroes;
-    private const string HERO_NAME = "HeroName";
-    private const string LEVEL = "Level";
-    private const string ACTIVITY = "Activity";
-    private const string HEALTH = "Health";
-    private const string DAMAGE = "Damage";
-    private const string DEFENSE = "Defense";
-    private const string ENERGY = "Energy";
-    private const string GROUP = "Group";
-    private const string PROFESSION_SKILL = "ProfessionSkill";
-    private const string STATUS = "Status";
 
-    
+    public const string HERO_NAME = "HeroName";
+    public const string LEVEL = "Level";
+    public const string ACTIVITY = "Activity";
+    public const string HEALTH = "Health";
+    public const string DAMAGE = "Damage";
+    public const string DEFENSE = "Defense";
+    public const string ENERGY = "Energy";
+    public const string GROUP = "Group";
+    public const string PROFESSION_SKILL = "ProfessionSkill";
+    public const string STATUS = "Status";
+
     private List<StatField> _statFieldList = new List<StatField>();
     private StatField _heroNameField = new StatField("HeroName",HERO_NAME,BASIC_TEXT_CONTAINER_LARGE);
     private StatField _heroLevelField = new StatField("LVL",LEVEL,BASIC_TEXT_CONTAINER_SMALL);
@@ -41,6 +41,8 @@ public class HeroList_UI : UI
     private StatField _heroGroupField = new StatField("Group",GROUP,BASIC_TEXT_CONTAINER_MEDIUM);
     private StatField _heroProfSkillField = new StatField("Prof. Skill",PROFESSION_SKILL,BASIC_TEXT_CONTAINER_MEDIUM);
     private StatField _heroStatusField = new StatField("Status",STATUS,BASIC_TEXT_CONTAINER_MEDIUM);
+    
+
 
 
     private List<VisualElement> _heroListVisual = new List<VisualElement>();
@@ -109,10 +111,10 @@ public class HeroList_UI : UI
 
     public override void CloseUI()
     {
-        Debug.Log("Closing heroList UI");
+        //Debug.Log("Closing heroList UI");
         _heroList.RemoveFromClassList(_heroListClass);
         _heroListVisual.Clear();
-        _sortingButtons.Clear();//need to spawn sorting buttons too
+        _sortingButtons.Clear();
         _bulkCommandButtons.Clear();
         _heroBarToolBar.Clear();
         _displayedHeroes.Clear();
@@ -197,7 +199,6 @@ public class HeroList_UI : UI
 
         heroInListVisual.Add(heroFace);
 
-
         foreach(StatField statfield in _statFieldList)
         {//add names
             if(statfield.isDisplayed == false|| statfield.name == HERO_NAME) {continue;}
@@ -206,7 +207,6 @@ public class HeroList_UI : UI
             heroInListVisual.Add(element);
             //InitiateElement(element,UIManager.instance.OpenHeroUI,hero);//tho whole bar will open hero
         }
-        
     } 
     private void AddStatFieldsToList()
     {

@@ -3,10 +3,11 @@
     
     <ui:VisualElement name="Hero-Groups" class="mini-pop-up" style="top: 114px; left: 117px;">
         <ui:VisualElement name="Header">
-        <!-- mabye wont use this -->
+        
         </ui:VisualElement>
+        
         <ui:VisualElement name="HeroGroupsList">
-        <!-- mabye wont use this -->
+        
         </ui:VisualElement>
         <!--
         <ui:VisualElement name="DummyText" class="basic-text-container-120px"/> 
