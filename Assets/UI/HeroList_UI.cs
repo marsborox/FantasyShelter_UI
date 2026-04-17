@@ -207,7 +207,7 @@ public class HeroList_UI : UI
             heroInListVisual.Add(element);
             //InitiateElement(element,UIManager.instance.OpenHeroUI,hero);//tho whole bar will open hero
         }
-    } 
+    }
     private void AddStatFieldsToList()
     {
         _statFieldList.Add(_heroNameField);
