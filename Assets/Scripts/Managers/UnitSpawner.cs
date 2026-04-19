@@ -41,6 +41,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         //add to baseGroup
 
         _heroManager.MoveHeroToBaseGroup(hero);
+        GlobalEventHandler.instance.HeroListChanged();
     }
     public Hero ReturnHeroForLoad()
     {

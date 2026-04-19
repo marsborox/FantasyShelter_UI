@@ -4,8 +4,9 @@ using System;
 using TMPro;
 using System.Collections.Generic;
 using MessagePack.Resolvers;
+using System.Runtime.InteropServices.WindowsRuntime;
 
-public class UI : MonoBehaviour
+public abstract class UI : MonoBehaviour
 {
     public string uiPanelName;
     /*[SerializeField] public HeroManager heroManager;*/
@@ -24,30 +25,55 @@ public class UI : MonoBehaviour
     private Color32 _backGroundColor = new Color32(0, 0, 0, 122);
     #region containerClasses
     //public const string TOP_PAMEL_POPUP = "top-panel-popup";
+    
     string topPanelPopUp = "ds";
-    public const string TOP_PAMEL_POPUP = "top-panel-popup";
-    public const string TOP_CENTRAL_NAME_FIELD = "top-central-name-field";
-    public const string BASIC_TEXT_CONTAINER_SMALL = "basic-text-container-small";
-    public const string BASIC_TEXT_CONTAINER_MEDIUM = "basic-text-container-medium";
-    public const string BASIC_TEXT_CONTAINER_120px = "basic-text-container-120px";
-    public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
-    public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
+    //public const string TOP_PAMEL_POPUP = "top-panel-popup";
+    public static string TOP_PAMEL_POPUP {get {return UI_Constants.TOP_PAMEL_POPUP;}private set{}}
+    //public const string TOP_CENTRAL_NAME_FIELD = "top-central-name-field";
+    public static string TOP_CENTRAL_NAME_FIELD {get {return UI_Constants.TOP_CENTRAL_NAME_FIELD;}private set{}}
+    //public const string BASIC_TEXT_CONTAINER_SMALL = "basic-text-container-small";
+    public static string BASIC_TEXT_CONTAINER_SMALL {get {return UI_Constants.BASIC_TEXT_CONTAINER_SMALL;}private set{}}
+    //public const string BASIC_TEXT_CONTAINER_MEDIUM = "basic-text-container-medium";
+    public static string BASIC_TEXT_CONTAINER_MEDIUM {get {return UI_Constants.BASIC_TEXT_CONTAINER_MEDIUM;}private set{}}
+    //public const string BASIC_TEXT_CONTAINER_120px = "basic-text-container-120px";
+    public static string BASIC_TEXT_CONTAINER_120px {get {return UI_Constants.BASIC_TEXT_CONTAINER_120px;}private set{}}
+
+    //public const string BASIC_TEXT_CONTAINER_LARGE = "basic-text-container-large";
+    public static string BASIC_TEXT_CONTAINER_LARGE {get {return UI_Constants.BASIC_TEXT_CONTAINER_LARGE;} private set{}}
+    
+    //public const string BASIC_TEXT_CONTAINER_STRETCH = "basic-text-container-stretch";
+    public static string BASIC_TEXT_CONTAINER_STRETCH {get {return UI_Constants.BASIC_TEXT_CONTAINER_STRETCH;} private set{}}
+    
+    //public const string BASIC_CONTAINER_PICTOGRAM = "basic-text-container-pictogram";
+    public string BASIC_CONTAINER_PICTOGRAM {get {return UI_Constants.BASIC_CONTAINER_PICTOGRAM;} private set{}}
     #endregion
 
    
-    public const string BASIC_PICTOGRAM = "pictogram";
-    public const string IMAGE_COLOR_GREEN = "image-color-green";
-    public const string HEORES_BAR = "heroes-bar";
-    public const string BASIC_TEXT_TEXT = "basic-text-text";
-    public const string MY_BUTTON = "my-button";
+    //public const string BASIC_PICTOGRAM = "pictogram";
+    public static string BASIC_PICTOGRAM {get {return UI_Constants.BASIC_PICTOGRAM;} private set{}}
+    //public const string IMAGE_COLOR_GREEN = "image-color-green";
+    public static string IMAGE_COLOR_GREEN {get {return UI_Constants.IMAGE_COLOR_GREEN;} private set{}}
+    //public const string HEORES_BAR = "heroes-bar";
+    public static string HEORES_BAR {get {return UI_Constants.HEORES_BAR;} private set{}}
+    //public const string BASIC_TEXT_TEXT = "basic-text-text";
+    public static string BASIC_TEXT_TEXT {get {return UI_Constants.BASIC_TEXT_TEXT;} private set{}}
+
+    //public const string MY_BUTTON = "my-button";
+    public static string MY_BUTTON {get {return UI_Constants.MY_BUTTON;} private set{}}
 
     #region names
-    public const string EXIT_BUTTON = "ExitButton";
+    //public const string EXIT_BUTTON = "ExitButton";
+    public static string EXIT_BUTTON {get {return UI_Constants.EXIT_BUTTON;} private set{}}
     #endregion
 
+    public StatField_List statFieldList;
     //this is to track callback methods subscibed to buttons for cmpllete removals later
     private Dictionary<Button, List<EventCallback<ClickEvent>>> _buttonCallbacks = new Dictionary<Button, List<EventCallback<ClickEvent>>>();
     private Dictionary<VisualElement, List<EventCallback<ClickEvent>>> _elementCallbacks = new Dictionary<VisualElement, List<EventCallback<ClickEvent>>>();
+    void Awake()
+    {
+        statFieldList = GetComponent<StatField_List>();   
+    }
     public void Start()
     {
         
@@ -454,13 +480,17 @@ public class UI : MonoBehaviour
         VisualElement topUI_Bar = new VisualElement();
         topUI_Bar.AddToClassList(TOP_PAMEL_POPUP);
 
+        VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
+        centralNameField.AddToClassList(BASIC_TEXT_CONTAINER_STRETCH);
+        
+        topUI_Bar.Add(centralNameField);
+
         Button exitButton = ReturnButton(EXIT_BUTTON,MY_BUTTON,"X");
         InitiateButton(exitButton,closeUI/*,"X"*/);
         //InitiateButton(exitButton,PrintStrinng,"X");
         topUI_Bar.Add(exitButton);
 
-        VisualElement centralNameField = ReturnTextWindow("top-central-name-field",displayedValue);
-        topUI_Bar.Add(centralNameField);
+
         return topUI_Bar;
     }
 
@@ -484,4 +514,10 @@ public class UI : MonoBehaviour
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
+    public abstract void SetHeader();
+    public abstract void DisplayUI();
+    public abstract void OpenUI();
+    public abstract void CloseUI();
+    
+    
 }

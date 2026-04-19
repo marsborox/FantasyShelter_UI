@@ -8,7 +8,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject heroGroupsUI;
     public TopPanel_UI_Old topPanel_UI_Old;
     public DisplayedHero_UI displayedHero_UI;
+    
     [SerializeField] private HeroList_UI _herolist_UI;
+    [SerializeField] private HeroGroups_UI _heroGroupList_UI;
     public Stash_UI stash_UI;
     //set color of button
     protected override void Awake()
@@ -18,10 +20,12 @@ public class UIManager : Singleton<UIManager>
     private void OnEnable()
     {
         GlobalEventHandler.instance.OnStashChanged += RefreshStashUI;
+        GlobalEventHandler.instance.OnHeroListChanged += RefreshHeroList;
     }
     private void OnDisable()
     {
         GlobalEventHandler.instance.OnStashChanged -= RefreshStashUI;
+        GlobalEventHandler.instance.OnHeroListChanged -= RefreshHeroList;
     }
     public void RefreshGroupsUI()
     {
@@ -35,7 +39,7 @@ public class UIManager : Singleton<UIManager>
             topPanel_UI_Old.RefershStashUI();
         }
     }
-    public void OpenHeroList()
+    public void DisplayHeroList()
     {
         _herolist_UI.DisplayUI();
     }
@@ -47,13 +51,18 @@ public class UIManager : Singleton<UIManager>
             _herolist_UI.OpenUI();
         }
     }
-    public void OpenHeroUI()
-    {
-        
-    }
-    public void OpenHeroUI(Unit hero)
+
+    public void DisplayHeroUI(Unit hero)
     {
         displayedHero_UI.displayedHero = (Hero)hero;
         displayedHero_UI.gameObject.SetActive(true);
-    }        
+    }
+    public void DisplayHeroGroupUI(HeroGroup heroGroup)
+    {
+        Debug.Log(heroGroup.ReturnHeroGroupName());
+    }   
+    public void DisplayGroupsList()
+    {
+        _heroGroupList_UI.DisplayUI();
+    }     
 }

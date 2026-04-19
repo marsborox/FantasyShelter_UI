@@ -115,6 +115,40 @@ public class HeroGroup : MonoBehaviour, ICalcStat
         }
         return returnStat;
     }
+
+        /*public string heroGroupName;
+    public int uniqueID;
+    //public int id = 0;//remove and scrape
+    
+    public int heroGroupHealth;
+    public int heroGroupDamage;
+    public int heroGroupDefense;
+    public int heroGroupEnergy;*/
+
+    public string ReturnHeroGroupName()
+    {
+        return heroGroupName;
+    }
+    public int ReturnHeroGroupPartySize()
+    {
+        return heroList.Count;
+    }
+    public int ReturnHeroGroupHealth()
+    {
+        return heroGroupHealth;
+    }
+    public int ReturnHeroGroupDamage()
+    {
+        return heroGroupDamage;
+    }
+    public int ReturnHeroGroupDefense()
+    {
+        return heroGroupDefense;
+    }
+    public int ReturnHeroGroupEnergy()
+    {
+        return heroGroupEnergy;
+    }
     public HeroGroup_SaveData SaveHeroGroup()
     {
         HeroGroup_SaveData data = new HeroGroup_SaveData();

@@ -43,8 +43,10 @@ public class TopPanel_UI : UI
         //OldUI
         
         //InitiateButtonUIPanel(_heroesButton, _heroesUI);//remove
-        InitiateButton(_heroesButton,UIManager.instance.OpenHeroList);
-        InitiateButtonUIPanel(_groupsButton, _groupsUI);
+        InitiateButton(_heroesButton,UIManager.instance.DisplayHeroList);
+        //InitiateButtonUIPanel(_groupsButton, _groupsUI);//remove
+        InitiateButton(_groupsButton,UIManager.instance.DisplayGroupsList);
+
         InitiateButtonUIPanel(_baseButton, _baseUI);
         InitiateButtonUIPanel(_stashButton, _stashUI);
         //InitiateButtonUIPanel(_mapButton, _mapUI);
@@ -61,4 +63,24 @@ public class TopPanel_UI : UI
     {
         Debug.Log("test print");
     }
+
+    public override void SetHeader()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DisplayUI()
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void OpenUI()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void CloseUI()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
